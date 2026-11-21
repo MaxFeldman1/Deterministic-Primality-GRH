@@ -1,2 +1,9 @@
 import DetPrimality.GRHStatements
 import DetPrimality.Interfaces
+import DetPrimality.Characters.Bridge
+import DetPrimality.Bach.Blueprint
+import DetPrimality.Miller.Basic
+import DetPrimality.Miller.Examples
+import DetPrimality.TonelliShanks.Basic
+import DetPrimality.TonelliShanks.Examples
+import DetPrimality.EndToEnd

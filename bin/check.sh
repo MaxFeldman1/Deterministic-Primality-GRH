@@ -8,6 +8,7 @@ rsync -az --exclude .lake --exclude '*.olean' "$ROOT/lean/" chub-build:maths/det
 if [ "${1:-}" = "--build" ]; then
   CMD="lake build"
 else
-  CMD="lake env lean $1"
+  MOD="${1%.lean}"; MOD="${MOD//\//.}"
+  CMD="lake build $MOD"   # builds the module and its imports (Mathlib from cache)
 fi
 ssh chub-build "cd ~/maths/detprimality && export PATH=\$HOME/.elan/bin:\$PATH && nice -n 19 taskset -c 184-191 $CMD"
