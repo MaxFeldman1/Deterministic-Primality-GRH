@@ -1,1 +1,2 @@
 import DetPrimality.GRHStatements
+import DetPrimality.Interfaces
