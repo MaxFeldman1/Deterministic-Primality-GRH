@@ -7,6 +7,7 @@ import DetPrimality.Bach.ConstantTwo
 import DetPrimality.Miller.Basic
 import DetPrimality.Miller.Composite
 import DetPrimality.Miller.LLSMiller
+import DetPrimality.TonelliShanks.LLSSqrt
 import DetPrimality.Bach.LLSZetaLower
 import DetPrimality.Bach.LLSGain
 import DetPrimality.TonelliShanks.Basic
@@ -20,8 +21,8 @@ uses constant `c = 1` (Lamzouri–Li–Soundararajan 2015, Thm 1.1(2); `Bach/LLS
 statement used Bach's Theorem 2 form for composite moduli (`CompositeInterface.lean`), proved with
 `c = 73/50 = 1.46` in `Bach/ConstantTwo.lean` (`Bach.grh_implies_bach_composite_c146`); versions
 with `c = 2` (Bach's constant) and the previous `c = 8` are kept with `_2` / `_8` suffixes.  The
-Tonelli–Shanks statements need the unit form at prime moduli and still use the sorry-free chain `Bach.grh_implies_bach_c8 : GRHImpliesBach 8`
-(`Bach/ConstantLow.lean`).  The round-5 versions with constant `22` (`Bach/Constant22.lean`) are
+Tonelli–Shanks statements also use `c = 1` since round 8 (`TonelliShanks/LLSSqrt.lean`); the
+`c = 8` versions (`Bach.grh_implies_bach_c8`, `Bach/ConstantLow.lean`) are kept with suffix `_8`.  The round-5 versions with constant `22` (`Bach/Constant22.lean`) are
 kept with a `_22` suffix.  The round-4 versions with constant `46` (`Bach/Constant46.lean`) are
 kept with a `_46` suffix.  The round-3 versions with constant `64` (`Bach.grh_implies_bach_c`,
 `Bach/Constant.lean`) are kept with a `_64` suffix, and the round-2 versions with constant `1024`
@@ -107,14 +108,27 @@ theorem millerDet_correct_of_GRH_8 (hGRH : DirichletLZerosOnLine) (n : ℕ) :
   Miller.millerDet_correct 8 (by norm_num) (bachBound_8_of_GRH hGRH) n
 
 /-- **End-to-end (square roots).** Under GRH, for an odd prime `p` and a square `n` mod `p`,
-the deterministic Tonelli–Shanks procedure with constant `8` returns a square root. -/
+the deterministic Tonelli–Shanks procedure with constant `1` (non-residue search below about
+`(ln p)²`; Lamzouri–Li–Soundararajan Cor. 1.1) returns a square root. -/
 theorem sqrtModDet_correct_of_GRH (hGRH : DirichletLZerosOnLine) (p : ℕ) [Fact p.Prime]
+    (hp : p ≠ 2) (n : ℕ) :
+    IsSquare (n : ZMod p) → ∃ r, TonelliShanks.sqrtModDet 1 p n = some r ∧ (r : ZMod p) ^ 2 = n :=
+  TonelliShanks.llsPrime_sqrtModDet_correct hGRH p hp n
+
+/-- Under GRH, `sqrtModDet 1 p n` returns something iff `n` is a square mod the odd prime `p`. -/
+theorem sqrtModDet_isSome_iff_of_GRH (hGRH : DirichletLZerosOnLine) (p : ℕ) [Fact p.Prime]
+    (hp : p ≠ 2) (n : ℕ) :
+    (TonelliShanks.sqrtModDet 1 p n).isSome ↔ IsSquare (n : ZMod p) :=
+  TonelliShanks.llsPrime_sqrtModDet_isSome_iff hGRH p hp n
+
+/-- Round-6 version (constant `8`). -/
+theorem sqrtModDet_correct_of_GRH_8 (hGRH : DirichletLZerosOnLine) (p : ℕ) [Fact p.Prime]
     (hp : p ≠ 2) (n : ℕ) :
     IsSquare (n : ZMod p) → ∃ r, TonelliShanks.sqrtModDet 8 p n = some r ∧ (r : ZMod p) ^ 2 = n :=
   TonelliShanks.sqrtModDet_correct (bachBound_8_of_GRH hGRH) (by norm_num) p hp n
 
-/-- Under GRH, `sqrtModDet 8 p n` returns something iff `n` is a square mod the odd prime `p`. -/
-theorem sqrtModDet_isSome_iff_of_GRH (hGRH : DirichletLZerosOnLine) (p : ℕ) [Fact p.Prime]
+/-- Round-6 version (constant `8`). -/
+theorem sqrtModDet_isSome_iff_of_GRH_8 (hGRH : DirichletLZerosOnLine) (p : ℕ) [Fact p.Prime]
     (hp : p ≠ 2) (n : ℕ) :
     (TonelliShanks.sqrtModDet 8 p n).isSome ↔ IsSquare (n : ZMod p) :=
   TonelliShanks.sqrtModDet_isSome_iff (bachBound_8_of_GRH hGRH) (by norm_num) p hp n

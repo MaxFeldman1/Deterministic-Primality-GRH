@@ -120,3 +120,8 @@ open DetPrimality
 #print axioms DetPrimality.bachBoundComposite_one_ge_3000_of_GRH
 #print axioms DetPrimality.millerDet_correct_of_GRH
 #print axioms DetPrimality.millerDet_correct_of_GRH_146
+#print axioms DetPrimality.Bach.llsPrime_bachBound_one_all_of_GRH
+#print axioms DetPrimality.TonelliShanks.llsPrime_sqrtModDet_correct
+#print axioms DetPrimality.sqrtModDet_correct_of_GRH
+#print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH
+#print axioms DetPrimality.sqrtModDet_correct_of_GRH_8

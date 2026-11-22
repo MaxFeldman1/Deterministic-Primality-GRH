@@ -12,7 +12,7 @@ namespace DetPrimality.TonelliShanks.Examples
 open DetPrimality.TonelliShanks
 
 def check (p n : ℕ) : Option (ℕ × Bool) :=
-  (sqrtModDet 8 p n).map fun r => (r, r * r % p == n % p)
+  (sqrtModDet 1 p n).map fun r => (r, r * r % p == n % p)
 
 -- search bound and least non-residues
 #eval nonResidueBound 8 1000000007          -- ⌈8 · 0.480454 · 30²⌉ = 3460

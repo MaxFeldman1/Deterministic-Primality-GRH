@@ -53,11 +53,13 @@ import DetPrimality.Bach.LLSPerronZeros
 import DetPrimality.Bach.LLSPerronMain
 import DetPrimality.Bach.LLSZetaLower
 import DetPrimality.Bach.LLSAssembly
+import DetPrimality.Bach.LLSPrime
 import DetPrimality.Miller.LLSSmall
 import DetPrimality.Miller.LLSMiller
 import DetPrimality.Miller.Basic
 import DetPrimality.Miller.Composite
 import DetPrimality.Miller.Examples
 import DetPrimality.TonelliShanks.Basic
+import DetPrimality.TonelliShanks.LLSSqrt
 import DetPrimality.TonelliShanks.Examples
 import DetPrimality.EndToEnd

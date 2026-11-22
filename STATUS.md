@@ -450,3 +450,10 @@ Thm 1.1(2); below 1 is known only asymptotically). The Round-7 `c = 73/50` versi
 Verification: full build 8770 jobs OK; every Round-8 theorem depends only on
 `[propext, Classical.choice, Quot.sound]`; `leanchecker` rc=0 on all 14 new modules and `EndToEnd`;
 protected files unchanged. Tonelli–Shanks still uses `c = 8` (unit form at prime moduli).
+
+### Round 8b: Tonelli–Shanks at c = 1
+`sqrtModDet_correct_of_GRH` / `sqrtModDet_isSome_iff_of_GRH` now use `sqrtModDet 1` (non-residue search
+below about `(ln p)²`, LLS Cor 1.1), via `TonelliShanks/LLSSqrt.lean` and `Bach/LLSPrime.lean`
+(`llsPrime_bachBound_one_all_of_GRH`: the c = 1 bound for *all* n ≥ 3000, non-units counting; odd primes
+< 3000 by a `decide +kernel` table). The c = 8 versions are kept with suffix `_8`. Build 8772 jobs OK;
+axioms standard; leanchecker rc=0 on LLSPrime, LLSSqrt, EndToEnd.
