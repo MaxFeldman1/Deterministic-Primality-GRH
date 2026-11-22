@@ -44,3 +44,12 @@ open DetPrimality
 #print axioms DetPrimality.TonelliShanks.sqrtModDet_sound
 #print axioms DetPrimality.TonelliShanks.sqrtModDet_isSome_iff
 #print axioms DetPrimality.TonelliShanks.tonelliShanks_correct
+-- Round 3: c = 64 (Bach/Constant.lean, ConstPsiOne.lean, ConstNoncoprime.lean)
+#print axioms DetPrimality.Bach.grh_implies_bach_c
+#print axioms DetPrimality.Bach.bachBoundChar_of_GRH_c
+#print axioms DetPrimality.Bach.psiOne_lower_integral
+#print axioms DetPrimality.Bach.noncoprimeSum_le_of_ge_4096
+#print axioms DetPrimality.bachBound_64_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH_1024
+#print axioms DetPrimality.sqrtModDet_correct_of_GRH_1024
+#print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH_1024

@@ -306,3 +306,27 @@ Steps:
    - τ = 2/3 via Bach's evaluation point.
    - RH for ζ in the main term (α = 1/2).
    - These are needed for c ≈ 4–10.
+
+## Round 3: lowering c
+
+**Result: c = 64 (was 1024), sorry-free.** The analytic part (`BachInputs` / `bachInputs`) is unchanged. Only the elementary §6–§7 inputs were sharpened, in three new files:
+
+- `Bach/ConstPsiOne.lean`: `psiOne_lower_integral : 1 ≤ x → (x - 3) * log 2 / 2 - log x ≤ psiOne x`. The slope is log 2 / 2; the old bound had log 2 / 4.
+- `Bach/ConstNoncoprime.lean`: `noncoprimeSum_le_of_ge_4096 : 4096 ≤ x → noncoprimeSum n x ≤ log n + 3.36 * √x`. The old constant was 16.16. The file also gives 2.6 for x ≥ 2^16 and 2 for x ≥ 2^22.
+- `Bach/Constant.lean`:
+  - `eight_le_log_of_no_small_witness`: the bootstrap n > 64 (log n)² ⟹ log n ≥ 8.
+  - `final_numeric_64`: with L ≥ 8 and √x = 8L, the inequality reduces to 14.18 L² − 108.76 L − 12.04 > 0. Its value at L = 8 is about 25.
+  - `bachBoundChar_of_GRH_c : DirichletLZerosOnLine → BachBoundChar 64`.
+  - `grh_implies_bach_c : GRHImpliesBach 64`.
+- `EndToEnd.lean`: `millerDet_correct_of_GRH`, `sqrtModDet_correct_of_GRH` and `sqrtModDet_isSome_iff_of_GRH` now use constant 64. The 1024 versions are kept with a `_1024` suffix. The `Examples.lean` `#eval`s use 64.
+- Axioms: every end-to-end theorem depends only on `[propext, Classical.choice, Quot.sound]`. See `Audit.lean`.
+
+**Remaining slack.** These lemmas leave numerical room for c ≈ 46. Python check, with a = sharpE(x₀)/√x₀ at the bootstrap point x₀ = c·L₀², where e^{L₀} = c L₀²: c = 48 passes with margin of about 44, and c = 44 fails. Getting c = 48 would need:
+- a `sharpE` point bound at x₀ ≈ 3100, below 4096;
+- a bootstrap to log n ≥ 8.04;
+- handling of √48·L.
+
+The routes below c ≈ 40 are listed in the ConstNoncoprime report:
+- a Stirling-type log N! bound in `sum_psi_ge`;
+- bounding ψ − θ exactly as Σ θ(x^{1/k});
+- the 3/4 bound on Σ Λ(n)/n² in `zeroSum_le`.

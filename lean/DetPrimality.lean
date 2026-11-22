@@ -18,6 +18,9 @@ import DetPrimality.Bach.ExplicitZeros
 import DetPrimality.Bach.ExplicitMain
 import DetPrimality.Bach.Numerics
 import DetPrimality.Bach.Assembly
+import DetPrimality.Bach.ConstPsiOne
+import DetPrimality.Bach.ConstNoncoprime
+import DetPrimality.Bach.Constant
 import DetPrimality.Miller.Basic
 import DetPrimality.Miller.Examples
 import DetPrimality.TonelliShanks.Basic
