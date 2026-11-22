@@ -330,3 +330,26 @@ The routes below c ≈ 40 are listed in the ConstNoncoprime report:
 - a Stirling-type log N! bound in `sum_psi_ge`;
 - bounding ψ − θ exactly as Σ θ(x^{1/k});
 - the 3/4 bound on Σ Λ(n)/n² in `zeroSum_le`.
+
+## Round 4: c = 46
+
+**Result: c = 46 (was 64), sorry-free.** The analytic part (`BachInputs` / `bachInputs`) is unchanged, and no existing Bach file was modified.
+
+- `Bach/ConstPsiTheta.lean` (new, generated tables): `psi_sub_theta_le_small : ψ x − θ x ≤ 1.84 √x` for all real x, and `noncoprimeSum_le_small : noncoprimeSum n x ≤ log n + 1.84 √x`. It also has sharper range bounds (1.43 on [0, 2^16), 1.35 on [420, 2^16), 1.34 on [2000, 2^16), 1.30 on [2500, 2^16)). One binder-type fix was needed on the first compile (`∀ k : ℕ, k ∈ Finset.Icc 2 15 → …`).
+- `Bach/ConstPsiOneSharp.lean` (new): `psiOne_lower_2048` / `psiOne_lower_1024`, which add 946453·log 2/x and 239571·log 2/x to the §6.1 bound. These are proved by kernel-checked lcm-product certificates. The c = 46 proof does not need them.
+- `Bach/Constant46.lean` (new):
+  - `log_ge_of_no_small_witness_46`: the bootstrap n > 46 (log n)² ⟹ log n ≥ 11 log 2 > 7.62. It goes through 2^5, 2^9, 2^10 and 2^11, so no exp bound is needed.
+  - `final_numeric_46`: in s = √x with s² = 46 L², using s ≤ 6.7824 L and log x ≤ 12 log 2 + x/4096 − 1.
+  - `bachBoundChar_of_GRH_c46 : DirichletLZerosOnLine → BachBoundChar 46`.
+  - `grh_implies_bach_c46 : GRHImpliesBach 46`.
+- `EndToEnd.lean`: `millerDet_correct_of_GRH`, `sqrtModDet_correct_of_GRH` and `sqrtModDet_isSome_iff_of_GRH` now use 46, through `bachBound_46_of_GRH`. The c = 64 versions are kept with a `_64` suffix, and the `_1024` versions are kept. The `Examples.lean` `#eval`s use 46.
+- Build: `bin/check.sh --build` succeeds (8738 jobs). Axioms: every end-to-end theorem depends only on `[propext, Classical.choice, Quot.sound]` (see `Audit.lean`).
+
+**Slack.** The Lean-form inequality is 9.14 L² − 45.5 L − 30.7 > 0 for L ≥ 7.62. It has margin of about 153 at L = 7.62 and grows like L². In the exact model (true bootstrap L₀ = 7.983, uniform 1.84, no ψ₁ gain), the margin at c = 46 is about 188.
+
+**Going lower** (Python model, exact bootstrap e^{L₀} = c L₀²):
+- Uniform 1.84 with the round-3 ψ₁ bound reaches c ≈ 34 (margin +6.5).
+- Adding the piecewise ψ − θ constants (1.35, 1.34, 1.30 below 2^16) reaches c ≈ 32.
+- Adding the ψ₁ gains as well (K = 1024 on (1024, 2048], K = 2048 above) reaches **c ≈ 22**. The margin is +38 at c = 22, +56 at c = 24 and +83 at c = 28; c = 20 fails, because there x₀ = 936 < 1024.
+
+All of these lemmas are already proved. What remains is assembly work: case splits of the final inequality on the x-ranges, and a tighter bootstrap (to L₀ ≈ 7.0 for c = 22, which needs an exp bound or finer powers of 2).

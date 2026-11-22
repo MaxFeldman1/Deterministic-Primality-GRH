@@ -53,3 +53,16 @@ open DetPrimality
 #print axioms DetPrimality.millerDet_correct_of_GRH_1024
 #print axioms DetPrimality.sqrtModDet_correct_of_GRH_1024
 #print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH_1024
+-- Round 4: c = 46 (Bach/Constant46.lean, ConstPsiTheta.lean; ConstPsiOneSharp.lean is proved but not needed)
+#print axioms DetPrimality.Bach.grh_implies_bach_c46
+#print axioms DetPrimality.Bach.bachBoundChar_of_GRH_c46
+#print axioms DetPrimality.Bach.final_numeric_46
+#print axioms DetPrimality.Bach.log_ge_of_no_small_witness_46
+#print axioms DetPrimality.Bach.noncoprimeSum_le_small
+#print axioms DetPrimality.Bach.psi_sub_theta_le_small
+#print axioms DetPrimality.Bach.noncoprimeSum_le_of_ge_2500_of_lt_65536
+#print axioms DetPrimality.Bach.psiOne_lower_2048
+#print axioms DetPrimality.bachBound_46_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH_64
+#print axioms DetPrimality.sqrtModDet_correct_of_GRH_64
+#print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH_64

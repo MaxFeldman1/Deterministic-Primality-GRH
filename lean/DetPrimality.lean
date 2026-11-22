@@ -21,6 +21,9 @@ import DetPrimality.Bach.Assembly
 import DetPrimality.Bach.ConstPsiOne
 import DetPrimality.Bach.ConstNoncoprime
 import DetPrimality.Bach.Constant
+import DetPrimality.Bach.ConstPsiTheta
+import DetPrimality.Bach.ConstPsiOneSharp
+import DetPrimality.Bach.Constant46
 import DetPrimality.Miller.Basic
 import DetPrimality.Miller.Examples
 import DetPrimality.TonelliShanks.Basic
