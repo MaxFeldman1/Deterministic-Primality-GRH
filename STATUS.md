@@ -457,3 +457,14 @@ below about `(ln p)²`, LLS Cor 1.1), via `TonelliShanks/LLSSqrt.lean` and `Bach
 (`llsPrime_bachBound_one_all_of_GRH`: the c = 1 bound for *all* n ≥ 3000, non-units counting; odd primes
 < 3000 by a `decide +kernel` table). The c = 8 versions are kept with suffix `_8`. Build 8772 jobs OK;
 axioms standard; leanchecker rc=0 on LLSPrime, LLSSqrt, EndToEnd.
+
+## Round 9: running time of the deterministic Miller test (`Complexity/cx_*.lean`), unconditional
+* `cx_millerDetFast_eq : cx_millerDetFast n = millerDet 1 n` (textbook sprp: one powMod, then squarings).
+* `cx_millerDet_modmul_count`: at most `(log₂ n + 1)³` modular multiplications.
+* Bit level (little-endian `List Bool`, schoolbook shift-add multiply + shift-subtract remainder, every
+  constant-size bit step charged 1): `cx_millerDet_bit_cost : (cx_millerDetBits n).1 = millerDet 1 n ∧
+  (cx_millerDetBits n).2 ≤ 31 (log₂ n + 1)⁵`; generic in any modmul cost `M`:
+  `≤ (log₂ n + 1)³ M(log₂ n + 1) + 4 (log₂ n + 1)⁴` (`cx_millerDet_bit_cost_generic`).
+* `cx_millerDetBits_correct_of_GRH`: correct under GRH and within that bit budget.
+* Not charged: computing the base budget `millerBound 1 n − 2` (depends only on the bit length) and the
+  ℕ → bits input conversion; loop counters are unary. Õ(log⁴) needs a fast multiplier plugged into `M`.

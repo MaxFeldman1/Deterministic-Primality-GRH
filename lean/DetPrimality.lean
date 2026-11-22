@@ -63,3 +63,7 @@ import DetPrimality.TonelliShanks.Basic
 import DetPrimality.TonelliShanks.LLSSqrt
 import DetPrimality.TonelliShanks.Examples
 import DetPrimality.EndToEnd
+import DetPrimality.Complexity.cx_Fast
+import DetPrimality.Complexity.cx_Bits
+import DetPrimality.Complexity.cx_MillerBits
+import DetPrimality.Complexity.cx_Main
