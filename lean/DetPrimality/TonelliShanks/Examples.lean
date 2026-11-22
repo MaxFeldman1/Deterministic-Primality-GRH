@@ -3,7 +3,7 @@ import DetPrimality.TonelliShanks.Basic
 /-!
 # Examples for deterministic square roots mod `p`
 
-All computations use `c = 46` (the constant proved in `Bach/Constant46.lean`). `check p n` returns the root found together
+All computations use `c = 22` (the constant proved in `Bach/Constant22.lean`). `check p n` returns the root found together
 with `r * r % p == n % p`.
 -/
 
@@ -12,14 +12,14 @@ namespace DetPrimality.TonelliShanks.Examples
 open DetPrimality.TonelliShanks
 
 def check (p n : ℕ) : Option (ℕ × Bool) :=
-  (sqrtModDet 46 p n).map fun r => (r, r * r % p == n % p)
+  (sqrtModDet 22 p n).map fun r => (r, r * r % p == n % p)
 
 -- search bound and least non-residues
-#eval nonResidueBound 46 1000000007         -- 46 * 30^2 = 41400
-#eval findNonResidue 46 41                   -- 3
-#eval findNonResidue 46 1000000007           -- 5
-#eval findNonResidue 46 998244353            -- 3
-#eval findNonResidue 46 (2 ^ 61 - 1)        -- 3
+#eval nonResidueBound 22 1000000007         -- 22 * 30^2 = 19800
+#eval findNonResidue 22 41                   -- 3
+#eval findNonResidue 22 1000000007           -- 5
+#eval findNonResidue 22 998244353            -- 3
+#eval findNonResidue 22 (2 ^ 61 - 1)        -- 3
 
 -- small primes
 #eval check 41 2                            -- some (17, true); 41 ≡ 1 mod 8

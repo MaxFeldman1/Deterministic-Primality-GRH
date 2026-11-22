@@ -66,3 +66,14 @@ open DetPrimality
 #print axioms DetPrimality.millerDet_correct_of_GRH_64
 #print axioms DetPrimality.sqrtModDet_correct_of_GRH_64
 #print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH_64
+-- Round 5: c = 22 (Bach/Constant22.lean; Constant28.lean is an independent c = 28 proof)
+#print axioms DetPrimality.Bach.grh_implies_bach_c22
+#print axioms DetPrimality.Bach.bachBoundChar_of_GRH_c22
+#print axioms DetPrimality.Bach.grh_implies_bach_c28
+#print axioms DetPrimality.bachBound_22_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH
+#print axioms DetPrimality.sqrtModDet_correct_of_GRH
+#print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH_46
+#print axioms DetPrimality.sqrtModDet_correct_of_GRH_46
+#print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH_46

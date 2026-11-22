@@ -353,3 +353,25 @@ The routes below c ≈ 40 are listed in the ConstNoncoprime report:
 - Adding the ψ₁ gains as well (K = 1024 on (1024, 2048], K = 2048 above) reaches **c ≈ 22**. The margin is +38 at c = 22, +56 at c = 24 and +83 at c = 28; c = 20 fails, because there x₀ = 936 < 1024.
 
 All of these lemmas are already proved. What remains is assembly work: case splits of the final inequality on the x-ranges, and a tighter bootstrap (to L₀ ≈ 7.0 for c = 22, which needs an exp bound or finer powers of 2).
+
+## Round 5: c = 22
+
+**Result: c = 22 (was 46), sorry-free.** No existing Bach file was modified. There are two new files from independent attempts.
+
+- `Bach/Constant22.lean`:
+  - **Bootstrap.** `log_ge_of_no_small_witness_22`: n > 22 L² ⟹ n ≥ 2^10, so L ≥ 6.9314 and x = 22L² > 1024. The steps are 2^4, 2^7, 2^9, then fractional powers via n² ≥ 2^19, n⁴ ≥ 2^39, n⁸ ≥ 2^79. No exp bound is needed.
+  - **Final inequality,** split into four x-ranges. Each range reduces through `final_of_quad` to a quadratic in L. The ψ₁ gain stays linear because of the tangent line of 1/x (`gain_tangent`). Minimum Lean-form margins:
+
+    | x range | ψ−θ constant | ψ₁ bound | margin |
+    |---|---|---|---|
+    | (1024, 1450] | 1.35 | `psiOne_lower_1024` | 37.7 |
+    | (1450, 2048] | 1.35 | `psiOne_lower_1024` | 38.1 |
+    | (2048, 4096] | 1.34 | `psiOne_lower_2048_of_le` | 122 |
+    | > 4096 | 1.84 | `psiOne_lower_integral` | 54, growing like L² |
+
+  - `bachBoundChar_of_GRH_c22`, `grh_implies_bach_c22 : GRHImpliesBach 22`.
+- `Bach/Constant28.lean`: an independent and simpler proof of c = 28. It uses the uniform 1.84 constant and the 1024 gain, with a two-way split at L = 10. It is kept as a cross-check and is not on the main path.
+- `EndToEnd.lean`: `millerDet_correct_of_GRH`, `sqrtModDet_correct_of_GRH` and `sqrtModDet_isSome_iff_of_GRH` now use 22, through `bachBound_22_of_GRH`. The c = 46 versions are kept with a `_46` suffix, alongside the `_64` and `_1024` ones. The `Examples.lean` `#eval`s now use 22.
+- **Verification:** the full build succeeds (8740 jobs). Every end-to-end theorem in `Audit.lean` depends only on `[propext, Classical.choice, Quot.sound]`. `leanchecker` returns rc=0 on Constant22, Constant28 and EndToEnd.
+
+**Below 22.** c = 21 fails with the current lemmas. Its true bootstrap gives x₀ ≈ 1003 < 1024, and on [1003, 1024] there is no ψ₁ gain (model margin ≈ −98). The route down is new `lcmProd` certificates through `psiOne_lower_of_cert` with K ≈ 900, plus a finer bootstrap. The model margin is then about +64 for c = 21 and +58 for c = 20. Bach's own constant is 2, and reaching it needs his sharper analytic inputs (a different explicit formula), not just tighter numerics.

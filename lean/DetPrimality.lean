@@ -24,6 +24,8 @@ import DetPrimality.Bach.Constant
 import DetPrimality.Bach.ConstPsiTheta
 import DetPrimality.Bach.ConstPsiOneSharp
 import DetPrimality.Bach.Constant46
+import DetPrimality.Bach.Constant28
+import DetPrimality.Bach.Constant22
 import DetPrimality.Miller.Basic
 import DetPrimality.Miller.Examples
 import DetPrimality.TonelliShanks.Basic
