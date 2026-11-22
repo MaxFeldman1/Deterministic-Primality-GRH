@@ -27,6 +27,12 @@ import DetPrimality.Bach.ConstPsiOneSharp
 import DetPrimality.Bach.Constant46
 import DetPrimality.Bach.Constant28
 import DetPrimality.Bach.Constant22
+import DetPrimality.Bach.SharpZeroSum
+import DetPrimality.Bach.SharpExplicit
+import DetPrimality.Bach.ConstNoncoprimeOmega
+import DetPrimality.Bach.ConstPsiOneGrid
+import DetPrimality.Bach.ConstantMid
+import DetPrimality.Bach.ConstantLow
 import DetPrimality.Miller.Basic
 import DetPrimality.Miller.Examples
 import DetPrimality.TonelliShanks.Basic

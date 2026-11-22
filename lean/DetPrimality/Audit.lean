@@ -77,3 +77,16 @@ open DetPrimality
 #print axioms DetPrimality.millerDet_correct_of_GRH_46
 #print axioms DetPrimality.sqrtModDet_correct_of_GRH_46
 #print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH_46
+-- Round 6: c = 8 (Bach/ConstantLow.lean; also c = 9 there and c = 13 in ConstantMid.lean)
+#print axioms DetPrimality.Bach.grh_implies_bach_c8
+#print axioms DetPrimality.Bach.bachBoundChar_of_GRH_c8
+#print axioms DetPrimality.Bach.grh_implies_bach_c9
+#print axioms DetPrimality.Bach.grh_implies_bach_c13
+#print axioms DetPrimality.Bach.zeroSum_le_sharp32
+#print axioms DetPrimality.Bach.zeroSum_le_sharp2
+#print axioms DetPrimality.Bach.psiOne_lower_grid
+#print axioms DetPrimality.bachBound_8_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH
+#print axioms DetPrimality.sqrtModDet_correct_of_GRH
+#print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH_22

@@ -375,3 +375,37 @@ All of these lemmas are already proved. What remains is assembly work: case spli
 - **Verification:** the full build succeeds (8740 jobs). Every end-to-end theorem in `Audit.lean` depends only on `[propext, Classical.choice, Quot.sound]`. `leanchecker` returns rc=0 on Constant22, Constant28 and EndToEnd.
 
 **Below 22.** c = 21 fails with the current lemmas. Its true bootstrap gives x₀ ≈ 1003 < 1024, and on [1003, 1024] there is no ψ₁ gain (model margin ≈ −98). The route down is new `lcmProd` certificates through `psiOne_lower_of_cert` with K ≈ 900, plus a finer bootstrap. The model margin is then about +64 for c = 21 and +58 for c = 20. Bach's own constant is 2, and reaching it needs his sharper analytic inputs (a different explicit formula), not just tighter numerics.
+
+## Round 6: c = 8
+
+**Result: c = 8 (was 22), sorry-free.** It was produced by a Fable workflow: four lemma files written in parallel, then two assembly attempts. No existing Bach file was modified.
+
+Changes to the analytic side (all under GRH and sorry-free):
+- `Bach/SharpZeroSum.lean`:
+  - `zeroSum_le_sharp32 : zeroSum χ ≤ 2/3·log q + 1.097`, using reLogDeriv at s = 3/2. On the critical line, 1/(|ρ||ρ+1|) ≤ (4/3)·Re 1/(3/2−ρ).
+  - `zeroSum_le_sharp2 : ≤ log q + 0.036`, at s = 2 with sharp digamma bounds.
+  - Supporting bounds: ∑Λ(n)/n² ≤ 0.5708 and ∑Λ(n)n^{-3/2} ≤ 1.5075, both through Λ∗1 = log and rational certificates, plus digamma and gammaFactor bounds.
+- `Bach/SharpExplicit.lean`:
+  - The prefactor becomes (√x + 2 + 3/x), down from (√x + 5), using |2−ρ| = |ρ+1| under GRH.
+  - A one-sided version `re_smoothPsi_le_of_zeroSum_le_of_logDeriv`: the explicit-formula residual is essentially negative, so in the upper bound for Re smoothPsi the term log x + 4 becomes −1 + (log x + 13/6)/x.
+
+Changes to the elementary side:
+- `Bach/ConstNoncoprimeOmega.lean`: noncoprimeSum n x ≤ log n + ∑_{p | n, p ≤ x} (log x − log p), with corollaries for n below the primorials 6, 30, 210, 2310 and 30030.
+- `Bach/ConstPsiOneGrid.lean` (generated): near-exact ψ₁ lower bounds on (256, 1536], from lcm-product certificates on a grid.
+
+Assembly:
+- `Bach/ConstantLow.lean`: `grh_implies_bach_c8` and `grh_implies_bach_c9`.
+  - Exact bootstraps: n ≥ 241 (c = 8) and n ≥ 289 (c = 9).
+  - For c = 8, additional cases on ω(n). `clow8_omega4`: if n ≥ 241 has 4 prime factors, then n ≥ 420, or n ≡ 2 (mod 4) and n ≥ 330.
+  - Also for c = 8: when n ≡ 2 (mod 4), the conductor is ≤ n/2 (`clow8_conductor_le`).
+  - The smallest Lean-form margin is about 1.26, against margins of roughly 4–100 for c ≥ 9.
+- `Bach/ConstantMid.lean`: an independent and simpler proof of c = 13.
+
+`EndToEnd.lean`: the main theorems use c = 8, through `bachBound_8_of_GRH`. The `_22`, `_46`, `_64` and `_1024` versions are kept.
+
+Verification:
+- `bin/check.sh --build` succeeds (8747 jobs).
+- `Audit.lean`: every end-to-end theorem and every round-6 theorem depends only on `[propext, Classical.choice, Quot.sound]`.
+- `leanchecker` returns rc=0 on all six new modules and on EndToEnd.
+
+**Below 8.** c = 7 fails with these inputs. At n = 210 (x ≈ 200), even the exact noncoprime sum leaves the model at −5. Further progress would need sharper analytic inputs (σ ≈ 1.37 in the zero sum, or a better explicit-formula residual), or a different lower bound that sums over m coprime to q.
