@@ -1,5 +1,6 @@
 import DetPrimality.GRHStatements
 import DetPrimality.Interfaces
+import DetPrimality.CompositeInterface
 import DetPrimality.LogTwo
 import DetPrimality.Characters.Bridge
 import DetPrimality.Bach.Blueprint
@@ -33,7 +34,15 @@ import DetPrimality.Bach.ConstNoncoprimeOmega
 import DetPrimality.Bach.ConstPsiOneGrid
 import DetPrimality.Bach.ConstantMid
 import DetPrimality.Bach.ConstantLow
+import DetPrimality.Bach.CompositeReduction
+import DetPrimality.Bach.ConstantComposite
+import DetPrimality.Bach.ZeroSumGain
+import DetPrimality.Bach.ChebyshevThirty
+import DetPrimality.Bach.ConstPsiOneGrid2
+import DetPrimality.Bach.ConstantThree
+import DetPrimality.Bach.ConstantTwo
 import DetPrimality.Miller.Basic
+import DetPrimality.Miller.Composite
 import DetPrimality.Miller.Examples
 import DetPrimality.TonelliShanks.Basic
 import DetPrimality.TonelliShanks.Examples
