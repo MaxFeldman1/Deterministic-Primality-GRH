@@ -161,3 +161,148 @@ theorem DetPrimality.sqrtModDet_isSome_iff_of_GRH (hGRH : DirichletLZerosOnLine)
 5. **Sharpen c from 1024 toward about 70 (or Bach's 2).** Only the elementary §6–§7 lemmas change (blueprint §8); this improves runtime, not correctness.
 6. **Complexity:** prove polynomial running-time bounds for `millerDet`/`sqrtModDet`, which are not started. Optionally switch the examples to c = 1024, or add a `c = 2` corollary once Bach's constant is formalised.
 7. **Housekeeping:** remove the duplicate `Bach.bachBound_of_bachBoundChar` in favour of Bridge's, and clean the stale box files.
+
+---
+
+# Round 2 (2026-11-21): Layer 2 closed. The end-to-end chain is sorry-free.
+
+## Headline
+
+`DetPrimality.millerDet_correct_of_GRH`, `sqrtModDet_correct_of_GRH` and `sqrtModDet_isSome_iff_of_GRH` now depend only on `[propext, Classical.choice, Quot.sound]`. There is **no `sorryAx`**. GRH for Dirichlet L-functions (`DirichletLZerosOnLine`) implies, in Lean, that `millerDet 1024` decides primality.
+
+```lean
+theorem DetPrimality.Bach.grh_implies_bach_v2 : GRHImpliesBach 1024              -- Bach/Assembly.lean
+theorem DetPrimality.Bach.bachBoundChar_of_GRH_v2 (hGRH : DirichletLZerosOnLine) : BachBoundChar 1024
+theorem DetPrimality.millerDet_correct_of_GRH (hGRH : DirichletLZerosOnLine) (n : ℕ) :
+    Miller.millerDet 1024 n = true ↔ n.Prime                                       -- EndToEnd.lean, via _v2
+```
+
+## Build and audit
+
+- **Full build:** `bin/check.sh --build` gives `Build completed successfully (8732 jobs)`.
+  - Warnings: the 4 `declaration uses 'sorry'` in `Bach/Blueprint.lean` (the round-1 chain, now outside the end-to-end cone), plus 2 unused-variable `hχ` lints (`ZeroCount.lean:252`, `ExplicitMain.lean:18`).
+- **Axiom audit:** `bin/check.sh DetPrimality/Audit.lean` (excerpt, verbatim):
+  ```
+  'DetPrimality.millerDet_correct_of_GRH' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.sqrtModDet_correct_of_GRH' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.sqrtModDet_isSome_iff_of_GRH' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.grh_implies_bach_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.bachBoundChar_of_GRH_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.bachInputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.grh_implies_bach_of_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.growth_completedLFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.hadamardLogDeriv_of_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.summable_zeroOrd_div_normSq_proof' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.summable_zeroOrd_div_normSq_of_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.re_logDeriv_eq_tsum_of_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.explicit_formula_bound_of_hadamard' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.Numerics.tsum_vonMangoldt_term_two_le_proof' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.Numerics.tsum_vonMangoldt_term_two_le_three_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.bachBound_1024_of_GRH' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.blueprintInputs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  'DetPrimality.Bach.grh_implies_bach' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]   -- round-1 chain, kept
+  ```
+  The Layers 1, 3 and 4 lines are unchanged from round 1; all use only the standard three axioms.
+- **Text grep:** there is no `sorry`, `axiom`, `native_decide` or `admit` anywhere under `lean/DetPrimality/` except the 4 sorries in `Bach/Blueprint.lean`.
+
+## Remaining sorries in the dependency cone of `millerDet_correct_of_GRH`
+
+**None.** The `#print axioms` output above confirms it.
+
+The library still contains the 4 round-1 sorries in `Bach/Blueprint.lean` (l.48, 58, 70, 83: `summable_zeroOrd_div_normSq`, `re_logDeriv_eq_tsum`, `explicit_formula_bound`, `tsum_vonMangoldt_term_two_le`).
+- They are now **outside** the end-to-end cone. Only the round-1 theorems `grh_implies_bach`, `bachBoundChar_of_GRH`, `zeroSum_le`, `norm_smoothPsi_le` and `blueprintInputs` use them.
+- **They cannot be filled in place**, because `Handoffs.lean`, and with it every round-2 file, imports `Blueprint.lean`, which would create an import cycle.
+- **All four have now been proved** elsewhere, with the identical statement (or, for §3, from extra hypotheses that are themselves discharged), so they are known to be true.
+- **Optional cleanup:** move the §1 definitions of Blueprint into a `Bach/Defs.lean` that Handoffs imports. Then Blueprint can import the round-2 files and its sorries can be replaced by the proofs. This needs an edit to `Handoffs.lean`, which only the lead may make.
+
+## What was integrated (round-2 files, all in `lean/DetPrimality/Bach/`, all sorry-free)
+
+| Input (Blueprint §) | Round-2 theorem | File(s) | Hypotheses needed beyond `χ ≠ 1` |
+|---|---|---|---|
+| Growth hand-off | `growth_completedLFunction : GrowthLtTwo (completedLFunction χ)` | `Growth.lean` | none (primitivity not needed) |
+| §2.1 `∑ m_ρ/|ρ|² < ∞` | `summable_zeroOrd_div_normSq_proof` (Hadamard agent); also `summable_zeroOrd_div_normSq_of_growth` (zerocount agent, independent proof) | `HadamardGeneral.lean`, `HadamardL.lean`; `ZeroCount.lean` | primitive (in the `HadamardL` version), `GrowthLtTwo` |
+| Hadamard hand-off | `hadamardLogDeriv_of_growth : HadamardLogDeriv χ` | `HadamardGeneral.lean`, `HadamardL.lean` | primitive, `GrowthLtTwo` |
+| §2.2 `Re Λ'/Λ` formula | `re_logDeriv_eq_tsum_of_growth` | `HadamardL.lean` | primitive, `GrowthLtTwo` |
+| §3 explicit formula | `explicit_formula_bound_of_hadamard` | `ExplicitDigamma`, `ExplicitPerron`, `ExplicitPerronLog`, `ExplicitFormula`, `ExplicitGamma`, `ExplicitKernel`, `ExplicitWeight`, `ExplicitZeros`, `ExplicitMain` | `HadamardLogDeriv χ`, `hS` (primitivity unused) |
+| §4.1a `∑ Λ(n)/n² ≤ 1` | `Numerics.tsum_vonMangoldt_term_two_le_proof` (also `≤ 3/4`) | `Numerics.lean` | none |
+
+**New integration file: `Bach/Assembly.lean`.**
+- **`structure BachInputs : Prop`** has four fields, `summable`, `reLogDeriv`, `explicit` and `vonMangoldt`. They are the four Blueprint sorry statements verbatim, quantified over `q`, `χ` and the primitive, nonprincipal hypotheses.
+- **`blueprintInputs : BachInputs`** is built from the round-1 sorries. It shows that the old chain fits the same interface.
+- **`bachInputs : BachInputs`** is built from the round-2 proofs and is sorry-free.
+- **The downstream assembly (§4.1, §5.1, §5.2, §7.3) is restated with `(hI : BachInputs)`**: `norm_logDeriv_LFunction_two_le_of_inputs`, `summable_zeroSum_of_inputs`, `zeroSum_le_of_inputs`, `norm_smoothPsi_le_of_inputs`, `bachBoundChar_of_GRH_of_inputs` and `grh_implies_bach_of_inputs`.
+  - The proofs are copied verbatim from Blueprint, with each sorried lemma replaced by an `hI` field.
+  - All the sorry-free Blueprint lemmas are reused as they are: `zero_facts`, `re_logDeriv_gammaFactor_two_nonpos`, `psiOne_lower`, `noncoprimeSum_le`, `re_smoothPsi_primitive_lower`, `nine_le_log_of_no_small_witness`, `final_numeric` and `bachBound_of_bachBoundChar`.
+- **`grh_implies_bach_v2 := grh_implies_bach_of_inputs bachInputs`.**
+
+**Other integration edits:**
+- **`EndToEnd.lean`** now imports `Bach.Assembly`, and `bachBound_1024_of_GRH` uses `grh_implies_bach_v2`. The theorem statements are unchanged.
+- **`DetPrimality.lean`** imports all 16 new `Bach/*` library modules. The `*Audit.lean` files are not imported.
+- **`Audit.lean`** has new `#print axioms` lines for the round-2 theorems.
+- **One name clash was fixed.** `ExplicitFormula.lean`'s `completed_eq_mul` (`Λ = L·γ`) collided with `HadamardL.lean`'s `completed_eq_mul` (`Λ = γ·L`, with `χ ≠ 1`). The ExplicitFormula one was renamed `completed_eq_L_mul_gammaFactor`; there are 3 uses, all in that file.
+- **Protected files were not touched:** `GRHStatements.lean`, `Interfaces.lean`, `Bach/Handoffs.lean`, and `Bach/Blueprint.lean` are unchanged.
+
+## Statement findings from round 2
+
+All findings are benign, and no statement turned out to be false.
+1. **Primitivity is not needed** for growth, zero counting (the ZeroCount version) or the explicit formula given `HadamardLogDeriv`. It is used for Hadamard and §2.2, through `completedLFunction χ 0 ≠ 0` and the functional equation.
+2. **`HadamardLogDeriv` alone does not give convergence**, so §2.2 also needs `hS`. `re_logDeriv_eq_tsum_of_growth` packages both.
+3. **The explicit-formula swap of ∑_ρ and ∫** needs `∑ m_ρ (1+|γ|)^{-7/4} < ∞`, which is stronger than `hS`. It was derived from `HadamardLogDeriv` + `hS`, so no extra hypothesis is required.
+4. **The Hadamard constant is identified** as `B = Λ'(0)/Λ(0)`.
+5. **The explicit-formula Γ-term constant 4 is correct and generous.** Exact Γ-term values: `|I_Γ| ≤ log x + 1` (even) and `≤ ~1.31` (odd). The Lean proof gets `log x + 3`.
+6. **`∑ Λ(n)/n² ≤ 3/4` is also proved**, against a true value of 0.5699.
+
+## Honesty review, round 2
+
+- **The end-to-end hypotheses are unchanged.** The only hypothesis is `DirichletLZerosOnLine` (Layer 0, unchanged). The round-1 discussion of why it is not trivially false still applies.
+- **`GrowthLtTwo` and `HadamardLogDeriv` are not hypotheses of any end-to-end theorem.** Both are proved, for every primitive `χ ≠ 1`, inside `bachInputs`.
+- **`BachInputs` is only an internal packaging device.** It holds the exact Blueprint statements, and `bachInputs` proves it outright.
+- **Duplicate work:** §2.1 has two independent proofs (`HadamardL` via `HadamardGeneral`, and `ZeroCount`). The chain uses the Hadamard one; `ZeroCount.lean` is redundant but harmless. It could be dropped from `DetPrimality.lean` to save build time.
+
+## Still missing
+
+- **Running-time / polynomial-time proofs** for `millerDet` and `sqrtModDet` have not been started.
+- **The constant is still c = 1024.** That is 512× Bach's c = 2 in loop length. See the plan below.
+- **Optional cleanup:** retire the round-1 sorries via the `Bach/Defs.lean` split described above, and delete the agents' `*Audit.lean` scratch files (`ExplicitAudit`, `GrowthAudit`, `HadamardAudit`) or merge them into `Audit.lean`.
+
+## Plan for lowering c = 1024 (from the numerics agent; elementary, §6 / §7 of the assembly only)
+
+**Numerical model.** The final inequality is `(√c·L + 5)(L + 2) + log x + 5 < main(x) − 2·(L + E(x))`. Here `x = cL²`, and `E` bounds `ψ − θ`. It is checked for all `L ≥ L₀(c)`, where `e^{L₀} = c·L₀²` is the exact form of the §7.1 bootstrap.
+
+Smallest workable c:
+
+| Main term (§6.1) | `E(x)` (§6.2) | zero-sum +2 (current) | zero-sum +0.04 |
+|---|---|---|---|
+| `ψ(x/2)/2` (current) | `16.16√x` (current) | 564 | 522 |
+| `ψ(x/2)/2` | Mathlib `Chebyshev.psi_le` at √x, x^{1/3}, x^{1/5} | 129 | 107 |
+| `ψ(x/2)/2` | `1.43√x` (not in Mathlib) | 93 | 72 |
+| integral form `(x−3)·log 2/2 − log(x+2)` | `16.16√x` | 177 | 165 |
+| **integral form** | **Mathlib `psi_le`** | **46** | 38 |
+| integral form | `1.43√x` | 31 | 24 |
+
+`L₀` is about 7.99 for c = 46, 8.54 for c = 70, and 11.16 for c = 564.
+
+Steps:
+0. **Free win (about c = 600).** Retune only `final_numeric` and `nine_le_log_of_no_small_witness` (L ≥ 11), using the exact bootstrap.
+1. **§6.2 `noncoprimeSum_le`** (easy, about 30 lines).
+   - Keep `Chebyshev.psi_sub_theta_le_psi_add_psi_add_psi`.
+   - Replace `psi_le_const_mul_self` with `Chebyshev.psi_le` (ψ(y) ≤ log 4·y + 2√y·log y, for y ≥ 1), and use `psi_eq_zero_of_lt_two` below 2.
+   - This gives about 1.39√x + O(x^{1/4}log x + x^{1/3}). The bound is no longer linear in √x, so `final_numeric` needs extra rpow/log handling.
+2. **§6.1 `psiOne_lower`** (moderate, about 80–120 lines).
+   - x·ψ₁(x) ≥ Σ_{k<N} ψ(k), with N = ⌊x⌋, by swapping a double Finset sum.
+   - Apply `Chebyshev.psi_ge` (n·log 2 − log(n+1) ≤ ψ n), then `log N! ≤ N log N`.
+   - Result: ψ₁(x) ≥ (x−3)·log 2/2 − log x. This doubles α from log 2/4 to log 2/2.
+   - Intermediate option: ψ₁ ≥ (1/J)Σ_{j<J} ψ(jx/J), which gives α = 3·log 2/8 at J = 4.
+3. **§7.1–7.2** (easy).
+   - Redo `final_numeric` for c = 64 or 70, valid for L ≥ 8.5.
+   - Bootstrap: n > 70·64 ⟹ L > 8.4 ⟹ … .
+   - With steps 1 + 2 + 3 the model gives c ≈ 46, so c = 64 leaves room.
+   - In `Assembly.lean` this is a new `bachBoundChar_of_GRH_of_inputs` at the new c. The `BachInputs` and analytic files are unchanged. `EndToEnd` then takes c = 64.
+4. **Optional, small:**
+   - Use `tsum_vonMangoldt_term_two_le_three_quarters` (already proved) to get T ≤ log q + 1.5. That saves about 2–4 in c.
+   - +0.04 in the zero sum would need more digits of −ζ'/ζ(2) and a sharper Γ-term.
+5. **Below about 40, the routes are not elementary:**
+   - ψ − θ ≤ 1.43√x (Rosser–Schoenfeld, a computation).
+   - τ = 2/3 via Bach's evaluation point.
+   - RH for ζ in the main term (α = 1/2).
+   - These are needed for c ≈ 4–10.

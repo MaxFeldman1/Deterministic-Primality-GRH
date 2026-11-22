@@ -8,7 +8,22 @@ open DetPrimality
 #print axioms DetPrimality.millerDet_correct_of_GRH
 #print axioms DetPrimality.sqrtModDet_correct_of_GRH
 #print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH
--- Layer 2 (GRH ⟹ Bach)
+-- Layer 2, round 2 (sorry-free chain, Bach/Assembly.lean)
+#print axioms DetPrimality.Bach.grh_implies_bach_v2
+#print axioms DetPrimality.Bach.bachBoundChar_of_GRH_v2
+#print axioms DetPrimality.Bach.bachInputs
+#print axioms DetPrimality.Bach.grh_implies_bach_of_inputs
+#print axioms DetPrimality.Bach.growth_completedLFunction
+#print axioms DetPrimality.Bach.hadamardLogDeriv_of_growth
+#print axioms DetPrimality.Bach.summable_zeroOrd_div_normSq_proof
+#print axioms DetPrimality.Bach.summable_zeroOrd_div_normSq_of_growth
+#print axioms DetPrimality.Bach.re_logDeriv_eq_tsum_of_growth
+#print axioms DetPrimality.Bach.explicit_formula_bound_of_hadamard
+#print axioms DetPrimality.Bach.Numerics.tsum_vonMangoldt_term_two_le_proof
+#print axioms DetPrimality.Bach.Numerics.tsum_vonMangoldt_term_two_le_three_quarters
+-- Layer 2, round 1 (Blueprint chain, kept for reference; uses the 4 Blueprint sorries)
+#print axioms DetPrimality.Bach.blueprintInputs
+#print axioms DetPrimality.bachBound_1024_of_GRH
 #print axioms DetPrimality.Bach.grh_implies_bach
 #print axioms DetPrimality.Bach.bachBoundChar_of_GRH
 #print axioms DetPrimality.Bach.bachBound_of_bachBoundChar
