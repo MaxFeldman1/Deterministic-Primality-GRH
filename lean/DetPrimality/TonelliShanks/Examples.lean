@@ -15,7 +15,7 @@ def check (p n : ℕ) : Option (ℕ × Bool) :=
   (sqrtModDet 22 p n).map fun r => (r, r * r % p == n % p)
 
 -- search bound and least non-residues
-#eval nonResidueBound 22 1000000007         -- 22 * 30^2 = 19800
+#eval nonResidueBound 22 1000000007         -- ⌈22 · 0.480454 · 30²⌉ = 9513 (was 22 · 30² = 19800)
 #eval findNonResidue 22 41                   -- 3
 #eval findNonResidue 22 1000000007           -- 5
 #eval findNonResidue 22 998244353            -- 3

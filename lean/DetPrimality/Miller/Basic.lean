@@ -1,5 +1,6 @@
 import Mathlib
 import DetPrimality.Interfaces
+import DetPrimality.LogTwo
 
 /-!
 # Deterministic Miller test, correct under `BachBound c` (Layers 3 + 4)
@@ -315,8 +316,10 @@ theorem sprp_of_prime {p : ℕ} (hp : p.Prime) (a : ℕ) (ha : 0 < a) (hap : a <
 
 /-! ## Layer 4: the deterministic test -/
 
-/-- Computable loop bound: `millerBound c n ≥ c (log n)^2` (see `millerBound_ge`). -/
-def millerBound (c : ℚ) (n : ℕ) : ℕ := ⌈c⌉₊ * (Nat.log2 n + 1) ^ 2
+/-- Computable loop bound: `millerBound c n ≥ c (log n)^2` (see `millerBound_ge`).
+With `L = log₂ n + 1` the bit length of `n`, `ln n < L · ln 2`, so `⌈c · 0.480454 · L²⌉`
+suffices (`0.480454 ≥ (ln 2)²`, `DetPrimality.log2SqUpper`). -/
+def millerBound (c : ℚ) (n : ℕ) : ℕ := ⌈c * log2SqUpper * ((Nat.log2 n + 1 : ℕ) : ℚ) ^ 2⌉₊
 
 /-- Deterministic Miller test: `n` prime iff `sprp n a` for all `2 ≤ a < min (millerBound c n) n`
 (for odd `n > 2`). -/
@@ -327,27 +330,8 @@ def millerDet (c : ℚ) (n : ℕ) : Bool :=
   else (List.range' 2 (min (millerBound c n) n - 2)).all (fun a => sprp n a)
 
 theorem millerBound_ge {c : ℚ} (hc : 0 ≤ c) (n : ℕ) :
-    (c : ℝ) * Real.log n ^ 2 ≤ (millerBound c n : ℝ) := by
-  have hL : Real.log n ≤ ((Nat.log2 n + 1 : ℕ) : ℝ) := by
-    rcases Nat.eq_zero_or_pos n with rfl | hn
-    · simp only [Nat.cast_zero, Real.log_zero]; positivity
-    have h1 : (n : ℝ) < 2 ^ (Nat.log2 n + 1) := by exact_mod_cast Nat.lt_log2_self (n := n)
-    have h2 : Real.log n < ((Nat.log2 n + 1 : ℕ) : ℝ) * Real.log 2 := by
-      rw [← Real.log_pow]
-      exact Real.log_lt_log (by exact_mod_cast hn) (by exact_mod_cast h1)
-    have h3 : Real.log 2 < 1 := by have := Real.log_two_lt_d9; norm_num at this; linarith
-    have h4 : (0 : ℝ) ≤ ((Nat.log2 n + 1 : ℕ) : ℝ) := Nat.cast_nonneg _
-    nlinarith
-  have h0 : 0 ≤ Real.log n := Real.log_natCast_nonneg n
-  have hsq : Real.log n ^ 2 ≤ ((Nat.log2 n + 1 : ℕ) : ℝ) ^ 2 := pow_le_pow_left₀ h0 hL 2
-  have hceil : (c : ℝ) ≤ ((⌈c⌉₊ : ℕ) : ℝ) := by exact_mod_cast Nat.le_ceil c
-  have hc' : (0 : ℝ) ≤ c := by exact_mod_cast hc
-  unfold millerBound
-  rw [Nat.cast_mul, Nat.cast_pow]
-  calc (c : ℝ) * Real.log n ^ 2 ≤ c * ((Nat.log2 n + 1 : ℕ) : ℝ) ^ 2 :=
-        mul_le_mul_of_nonneg_left hsq hc'
-    _ ≤ ((⌈c⌉₊ : ℕ) : ℝ) * ((Nat.log2 n + 1 : ℕ) : ℝ) ^ 2 :=
-        mul_le_mul_of_nonneg_right hceil (sq_nonneg _)
+    (c : ℝ) * Real.log n ^ 2 ≤ (millerBound c n : ℝ) :=
+  mul_log_sq_le_ceil hc (Nat.lt_log2_self (n := n))
 
 theorem millerDet_iff_all (c : ℚ) {n : ℕ} (h2 : 2 < n) (hodd : n % 2 = 1) :
     millerDet c n = true ↔ ∀ a, 2 ≤ a → a < millerBound c n → a < n → sprp n a = true := by

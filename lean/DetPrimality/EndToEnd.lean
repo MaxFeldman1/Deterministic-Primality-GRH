@@ -43,7 +43,7 @@ theorem bachBound_1024_of_GRH (hGRH : DirichletLZerosOnLine) : BachBound ((1024 
   exact h
 
 /-- **End-to-end (primality).** Under GRH for Dirichlet L-functions, the deterministic Miller
-test with constant `22` (bases `2 ≤ a < min(22·(log₂ n + 1)², n)`) decides primality. -/
+test with constant `22` (bases `2 ≤ a < min(⌈22 · 0.480454 · (log₂ n + 1)²⌉, n)`, i.e. about `22 (ln n)²`) decides primality. -/
 theorem millerDet_correct_of_GRH (hGRH : DirichletLZerosOnLine) (n : ℕ) :
     Miller.millerDet 22 n = true ↔ n.Prime :=
   Miller.millerDet_correct 22 (by norm_num) (bachBound_22_of_GRH hGRH) n

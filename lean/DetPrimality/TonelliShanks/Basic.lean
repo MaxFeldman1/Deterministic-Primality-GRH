@@ -1,5 +1,6 @@
 import Mathlib
 import DetPrimality.Interfaces
+import DetPrimality.LogTwo
 
 /-!
 # Deterministic square roots modulo a prime, assuming Bach's bound
@@ -139,20 +140,13 @@ theorem log_lt_size {p : ℕ} (hp : 0 < p) : Real.log p < Nat.size p := by
     mul_le_of_le_one_right (Nat.cast_nonneg _) hl2.le
   linarith
 
-/-- The computable search bound `B(p) = ⌈c⌉₊ * (Nat.size p)^2 ≥ c (log p)^2`. -/
-def nonResidueBound (c : ℚ) (p : ℕ) : ℕ := ⌈c⌉₊ * Nat.size p ^ 2
+/-- Computable search bound `≥ c (log p)^2`: with `Nat.size p` the bit length of `p`,
+`ln p < size p · ln 2`, so `⌈c · 0.480454 · (size p)²⌉` suffices (`DetPrimality.log2SqUpper`). -/
+def nonResidueBound (c : ℚ) (p : ℕ) : ℕ := ⌈c * log2SqUpper * ((Nat.size p : ℕ) : ℚ) ^ 2⌉₊
 
-theorem le_nonResidueBound {c : ℚ} (hc : 0 < c) {p : ℕ} (hp : 0 < p) :
-    (c : ℝ) * Real.log p ^ 2 ≤ nonResidueBound c p := by
-  unfold nonResidueBound
-  push_cast
-  have h0 : 0 ≤ Real.log p := Real.log_nonneg (by exact_mod_cast hp)
-  have h1 := log_lt_size hp
-  have hcc : (c : ℝ) ≤ (⌈c⌉₊ : ℝ) := by exact_mod_cast Nat.le_ceil c
-  have hc' : (0 : ℝ) < c := by exact_mod_cast hc
-  have hsq : Real.log p ^ 2 ≤ (Nat.size p : ℝ) ^ 2 := pow_le_pow_left₀ h0 h1.le 2
-  calc (c : ℝ) * Real.log p ^ 2 ≤ c * (Nat.size p : ℝ) ^ 2 := by gcongr
-    _ ≤ ⌈c⌉₊ * (Nat.size p : ℝ) ^ 2 := by gcongr
+theorem le_nonResidueBound {c : ℚ} (hc : 0 < c) {p : ℕ} (_hp : 0 < p) :
+    (c : ℝ) * Real.log p ^ 2 ≤ nonResidueBound c p :=
+  mul_log_sq_le_ceil hc.le (Nat.lt_size_self p)
 
 /-- Euler test: `a` is a non-residue mod the odd prime `p` iff `a^(p/2) ≡ -1`. -/
 def isNonResidueB (p a : ℕ) : Bool := powMod a (p / 2) p == p - 1

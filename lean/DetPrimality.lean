@@ -1,5 +1,6 @@
 import DetPrimality.GRHStatements
 import DetPrimality.Interfaces
+import DetPrimality.LogTwo
 import DetPrimality.Characters.Bridge
 import DetPrimality.Bach.Blueprint
 import DetPrimality.Bach.Handoffs
