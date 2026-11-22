@@ -107,3 +107,16 @@ open DetPrimality
 #print axioms DetPrimality.millerDet_correct_of_GRH_2
 #print axioms DetPrimality.millerDet_correct_of_GRH_8
 #print axioms DetPrimality.sqrtModDet_correct_of_GRH
+
+-- Round 8: Lamzouri–Li–Soundararajan Theorem 1.1(2), c = 1 (Bach/LLS*.lean, Miller/LLS*.lean)
+#print axioms DetPrimality.Bach.llsZL_main
+#print axioms DetPrimality.Bach.llsPer_chiUpper
+#print axioms DetPrimality.Bach.llsGain_main
+#print axioms DetPrimality.Bach.llsElem_weightedLower
+#print axioms DetPrimality.Bach.llsZeta_zeroSumSq_le
+#print axioms DetPrimality.Bach.llsAsm_bachBound_one
+#print axioms DetPrimality.Miller.llsElem_millerDet_one_small
+#print axioms DetPrimality.Miller.llsAsm_millerDet_one_correct'
+#print axioms DetPrimality.bachBoundComposite_one_ge_3000_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH_146

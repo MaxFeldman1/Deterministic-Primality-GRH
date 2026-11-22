@@ -6,13 +6,18 @@ import DetPrimality.Bach.ConstantLow
 import DetPrimality.Bach.ConstantTwo
 import DetPrimality.Miller.Basic
 import DetPrimality.Miller.Composite
+import DetPrimality.Miller.LLSMiller
+import DetPrimality.Bach.LLSZetaLower
+import DetPrimality.Bach.LLSGain
 import DetPrimality.TonelliShanks.Basic
 
 /-!
 # End-to-end corollaries: GRH ⟹ correctness of the deterministic algorithms
 
-Composes Layer 2 with Layers 3–4 (`Miller`, `TonelliShanks`).  Since round 7 the Miller
-statement uses Bach's Theorem 2 form for composite moduli (`CompositeInterface.lean`), proved with
+Composes Layer 2 with Layers 3–4 (`Miller`, `TonelliShanks`).  Since round 8 the Miller statement
+uses constant `c = 1` (Lamzouri–Li–Soundararajan 2015, Thm 1.1(2); `Bach/LLS*.lean`,
+`Miller/LLSMiller.lean`, `Miller/LLSSmall.lean`).  Round 7's
+statement used Bach's Theorem 2 form for composite moduli (`CompositeInterface.lean`), proved with
 `c = 73/50 = 1.46` in `Bach/ConstantTwo.lean` (`Bach.grh_implies_bach_composite_c146`); versions
 with `c = 2` (Bach's constant) and the previous `c = 8` are kept with `_2` / `_8` suffixes.  The
 Tonelli–Shanks statements need the unit form at prime moduli and still use the sorry-free chain `Bach.grh_implies_bach_c8 : GRHImpliesBach 8`
@@ -70,10 +75,24 @@ theorem bachBoundComposite_2_of_GRH (hGRH : DirichletLZerosOnLine) :
   norm_num
   exact h
 
+/-- Lamzouri–Li–Soundararajan (2015), Theorem 1.1(2), Miller form: under GRH every composite
+`n ≥ 3000` and every `χ ≠ 1` mod `n` have some `1 ≤ a < (log n)²` with `χ a ≠ 1` (round 8). -/
+theorem bachBoundComposite_one_ge_3000_of_GRH (hGRH : DirichletLZerosOnLine) :
+    ∀ n : ℕ, 3000 ≤ n → ¬ n.Prime → ∀ χ : DirichletCharacter ℂ n, χ ≠ 1 →
+      ∃ a : ℕ, 1 ≤ a ∧ (a : ℝ) < Real.log n ^ 2 ∧ χ (a : ZMod n) ≠ 1 :=
+  Bach.llsAsm_bachBound_one hGRH Bach.llsZL_main Bach.llsPer_chiUpper Bach.llsGain_main
+    Bach.llsElem_weightedLower
+
 /-- **End-to-end (primality).** Under GRH for Dirichlet L-functions, the deterministic Miller
-test with constant `73/50 = 1.46` (bases `2 ≤ a < min(⌈1.46 · 0.480454 · (log₂ n + 1)²⌉, n)`,
-i.e. about `1.46 (ln n)²`) decides primality. -/
+test with constant `1` (bases `2 ≤ a < min(⌈0.480454 · (log₂ n + 1)²⌉, n)`, i.e. about `(ln n)²`)
+decides primality.  Lamzouri–Li–Soundararajan's constant; `n < 3000` by a kernel-checked table. -/
 theorem millerDet_correct_of_GRH (hGRH : DirichletLZerosOnLine) (n : ℕ) :
+    Miller.millerDet 1 n = true ↔ n.Prime :=
+  Miller.llsAsm_millerDet_one_correct' hGRH Bach.llsZL_main Bach.llsPer_chiUpper
+    Bach.llsGain_main n
+
+/-- Round-7 version: constant `73/50 = 1.46` (Bach's method, composite form). -/
+theorem millerDet_correct_of_GRH_146 (hGRH : DirichletLZerosOnLine) (n : ℕ) :
     Miller.millerDet (73 / 50) n = true ↔ n.Prime :=
   Miller.millerDet_correct_of_composite (73 / 50) (by norm_num) (bachBoundComposite_146_of_GRH hGRH) n
 

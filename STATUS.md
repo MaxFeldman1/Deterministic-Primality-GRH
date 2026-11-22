@@ -428,3 +428,25 @@ Verification:
   Tonelli–Shanks still uses the unit form at c = 8 (prime moduli are excluded from the composite form).
 - Verified: full build (8756 jobs), axioms only [propext, Classical.choice, Quot.sound],
   leanchecker rc=0 on all new modules + EndToEnd, no odd composite ≤ 3·10⁵ passes `millerDet (73/50)`.
+
+## Round 8 (2026-11-22): c = 1 — Lamzouri–Li–Soundararajan Theorem 1.1(2)
+
+`DetPrimality.millerDet_correct_of_GRH : DirichletLZerosOnLine → (Miller.millerDet 1 n = true ↔ n.Prime)`,
+i.e. bases below about `(ln n)²`. This is the best published explicit constant (LLS, Math. Comp. 84 (2015),
+Thm 1.1(2); below 1 is known only asymptotically). The Round-7 `c = 73/50` version is kept as `_146`.
+
+| Input | Statement | File |
+|---|---|---|
+| Hand-off | `LLSZetaLower κ`, `LLSChiUpper`, `LLSZeroSumGain`, `LLSWeightedLower` | `Bach/LLSDefs.lean` |
+| LLS Lemma 1 (RH, ζ) | `llsZL_main : LLSZetaLower (1/20)` | `Bach/LLSZetaLower.lean` |
+| ζ Hadamard, `2|B| ≤ 0.0475` | `llsZeta_hadamard`, `llsZeta_zeroSumSq_le` | `Bach/LLSZeta.lean`, `LLSZetaConst.lean` |
+| LLS Lemma 2 (x^s/s² Perron) | `llsPer_chiUpper : LLSChiUpper` | `Bach/LLSPerron*.lean` |
+| LLS Lemma 3 (zero sum, hypothesis gain) | `llsGain_main : LLSZeroSumGain` | `Bach/LLSGain*.lean` |
+| Lemma 4 (unconditional) | `llsElem_weightedLower` | `Bach/LLSElem.lean` |
+| Assembly (n ≥ 3000) | `llsAsm_bachBound_one` | `Bach/LLSAssembly.lean` |
+| n < 3000 | `llsElem_millerDet_one_small` (`decide +kernel`) | `Miller/LLSSmall.lean` |
+| Miller | `llsAsm_millerDet_one_correct'` | `Miller/LLSMiller.lean` |
+
+Verification: full build 8770 jobs OK; every Round-8 theorem depends only on
+`[propext, Classical.choice, Quot.sound]`; `leanchecker` rc=0 on all 14 new modules and `EndToEnd`;
+protected files unchanged. Tonelli–Shanks still uses `c = 8` (unit form at prime moduli).
