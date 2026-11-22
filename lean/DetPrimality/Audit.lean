@@ -90,3 +90,20 @@ open DetPrimality
 #print axioms DetPrimality.sqrtModDet_correct_of_GRH
 #print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH
 #print axioms DetPrimality.millerDet_correct_of_GRH_22
+
+-- Round 7: Bach's Theorem 2 form for composite moduli, c = 73/50 (ConstantTwo), c = 3, c = 4
+#print axioms DetPrimality.Bach.grh_implies_bach_composite_c146
+#print axioms DetPrimality.Bach.grh_implies_bach_composite_c2
+#print axioms DetPrimality.Bach.grh_implies_bach_composite_c3
+#print axioms DetPrimality.Bach.grh_implies_bach_composite_c4
+#print axioms DetPrimality.Bach.zeroSum_le_twoPoint
+#print axioms DetPrimality.Bach.zeroSum_le_gain_240
+#print axioms DetPrimality.Bach.psiOne_lower_cheb30_sharp
+#print axioms DetPrimality.Bach.psiOne_lower_grid2
+#print axioms DetPrimality.Bach.composite_no_witness_facts
+#print axioms DetPrimality.Miller.millerDet_correct_of_composite
+#print axioms DetPrimality.bachBoundComposite_146_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH_2
+#print axioms DetPrimality.millerDet_correct_of_GRH_8
+#print axioms DetPrimality.sqrtModDet_correct_of_GRH

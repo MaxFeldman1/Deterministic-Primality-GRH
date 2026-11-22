@@ -409,3 +409,22 @@ Verification:
 - `leanchecker` returns rc=0 on all six new modules and on EndToEnd.
 
 **Below 8.** c = 7 fails with these inputs. At n = 210 (x ≈ 200), even the exact noncoprime sum leaves the model at −5. Further progress would need sharper analytic inputs (σ ≈ 1.37 in the zero sum, or a better explicit-formula residual), or a different lower bound that sums over m coprime to q.
+
+## Round 7 (2026-11-22): Bach's Theorem 2 form, c = 1.46 for Miller
+
+- New interface `CompositeInterface.lean`: `BachBoundCharComposite c` (Bach 1990 Theorem 2 form,
+  composite moduli; a base sharing a factor with `n` counts as a witness). Miller only needs this.
+- `Miller/Composite.lean`: `millerDet_correct_of_composite` (non-unit bases fail `sprp`).
+- `Bach/CompositeReduction.lean`: no witness below `x` ⟹ noncoprime sum = 0, `χ* = 1` below `x`,
+  and `n ≥ x²` (least prime factor ≥ x), bootstrapping `log n ≥ 9.94` at `c = 1.46`.
+- `Bach/ZeroSumGain.lean`: two-point majorant at `s = 5/4, 2` (weights 8/9, 2/9, exact polynomial
+  certificate) ⟹ `zeroSum ≤ (5/9) log q + …`, plus Bach's hypothesis gain
+  `Re L'/L(σ) ≤ Z(σ) − 2 Σ_{m<K} Λ(m) m^{−σ}` ⟹ `zeroSum ≤ (5/9) log q − 2.20` for `x ≥ 240`.
+- `Bach/ChebyshevThirty.lean`: Chebyshev's 30-identity, `ψ₁(x) ≥ 0.460645 x − 1.5 log x + …`.
+- `Bach/ConstPsiOneGrid2.lean`: `ψ₁(x) ≥ x/2 − 2.9` on (1536, 6000] (not needed by the final proof).
+- `Bach/ConstantComposite.lean` (c = 4, old ingredients), `ConstantThree.lean` (c = 3),
+  `ConstantTwo.lean` (c = 73/50, hence 3/2 and 2). Limit of these inputs: c > (5/9 / 0.460645)² ≈ 1.4546.
+- `EndToEnd.millerDet_correct_of_GRH : millerDet (73/50) n = true ↔ n.Prime` (`_2`, `_8` kept).
+  Tonelli–Shanks still uses the unit form at c = 8 (prime moduli are excluded from the composite form).
+- Verified: full build (8756 jobs), axioms only [propext, Classical.choice, Quot.sound],
+  leanchecker rc=0 on all new modules + EndToEnd, no odd composite ≤ 3·10⁵ passes `millerDet (73/50)`.
