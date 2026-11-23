@@ -468,3 +468,16 @@ axioms standard; leanchecker rc=0 on LLSPrime, LLSSqrt, EndToEnd.
 * `cx_millerDetBits_correct_of_GRH`: correct under GRH and within that bit budget.
 * Not charged: computing the base budget `millerBound 1 n − 2` (depends only on the bit length) and the
   ℕ → bits input conversion; loop counters are unary. Õ(log⁴) needs a fast multiplier plugged into `M`.
+
+## Round 10 (2026-11-23): GRH discharged — unconditional theorems
+* GRH archive (Alpöge, mirror CocoSgt/riemann-hypothesis-lean, same Lean v4.33.1 and Mathlib 0df444a3) built
+  on the box: 175,187 modules, `lake build Main` rc=0, 0 errors (resumed after a disk-full stop; the 1 TB of
+  `.setup.json` scratch files were deleted — lake rewrites them before each compile).
+* Archive main theorems (`riemannHypothesis`, `LFunction_eq_zero_re : DirichletLZerosOnLine`, …) depend only on
+  `[propext, Classical.choice, Quot.sound]`. Source scan: no `axiom`, `sorry`, `native_decide`, `unsafe`,
+  `implemented_by`, `extern`, kernel options; `run_cmd` only in `BuildAid/*` (library-suggestion deny list).
+* `lean/Statements.lean` is a byte-identical copy of the archive's `src/Statements.lean`
+  (sha256 79ef7ca776e42abe1f46caee13ea09bd19f1e2d0b1620d8d5d200258f33b47bf); `GRHStatements.lean` now just
+  imports it (same four definitions, same text), so both projects load into one environment.
+* `grh-bridge/GRHBridge.lean` (build: `bin/check_bridge.sh`): `millerDet_correct`, `millerDetBits_correct`,
+  `sqrtModDet_correct`, `sqrtModDet_isSome_iff` with no hypotheses; axioms `[propext, Classical.choice, Quot.sound]`.

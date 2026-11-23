@@ -1,16 +1,11 @@
-import Mathlib
+import Statements
 
-def RiemannZetaZerosOnLine : Prop :=
-  ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2
+/-!
+# GRH statements
 
-def DirichletLNonvanishingRightOfHalf : Prop :=
-  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
-    1 / 2 < s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0
-
-def DirichletLZerosOnLine : Prop :=
-  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
-    0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
-
-def PrimitiveDirichletLZerosOnLine : Prop :=
-  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →
-    ∀ s : ℂ, 0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+The four statements (`RiemannZetaZerosOnLine`, `DirichletLNonvanishingRightOfHalf`,
+`DirichletLZerosOnLine`, `PrimitiveDirichletLZerosOnLine`) live in the root module `Statements`
+(`lean/Statements.lean`), which is a byte-identical copy of `src/Statements.lean` from the
+Alpöge GRH archive (sha256 recorded in `STATUS.md`).  Their text is unchanged from this file's
+previous contents; sharing the module lets this project and the archive be imported together.
+-/
