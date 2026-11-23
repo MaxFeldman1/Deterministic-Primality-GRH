@@ -145,3 +145,8 @@ open DetPrimality
 #print axioms DetPrimality.charBound_record076_of_GRH
 #print axioms DetPrimality.Bach.r14A_record_b1
 #print axioms DetPrimality.Barrier.cmqr_barrier
+
+-- Tightened record and barrier
+#print axioms DetPrimality.charBound_record_tight_of_GRH
+#print axioms DetPrimality.Barrier.dual2_barrier
+#print axioms DetPrimality.Barrier.dual2_EP1_le

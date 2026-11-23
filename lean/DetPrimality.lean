@@ -113,6 +113,9 @@ import DetPrimality.Bach.R14CertGen
 import DetPrimality.Bach.R14CertB1
 import DetPrimality.Bach.R14CertB3m19
 import DetPrimality.Bach.R14CertB3m24
+import DetPrimality.Bach.R14CertB3Num
+import DetPrimality.Bach.R14CertB3p3m33
+import DetPrimality.Bach.R14CertB3p3m39
 import DetPrimality.EndToEnd
 import DetPrimality.Barrier.Nehari
 import DetPrimality.Barrier.dual_Main

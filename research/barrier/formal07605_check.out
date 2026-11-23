@@ -1,0 +1,2 @@
+b3p3m39: sign changes of W observed near L = ['0.2667', '0.61', '1.04'] (certified zeros ['4/15', '91/150', '311/300']);  Nhat = 1.9436656989e+15  Ihat = 4.60826876956e+15 (certificate e_1/2 = 4.60826876956e+15)
+   c* = 0.7607526898   (certificate: 0.760752690);   max rel |G - |K|| at 7 sample points: 7.66e-236

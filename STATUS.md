@@ -517,3 +517,12 @@ formalized: c∞ < 0.76077 (research/barrier/inside.md; needs a second pole posi
   cannot prove any constant below 0.76071 (weak duality + kernel-checked dual certificate).
 * Hence, formally: 0.76071 ≤ (framework limit) and the record c > 0.76076 — the method is pinned to 5·10⁻⁵.
 Verification: build 8846 jobs; standard axioms; leanchecker rc=0 on all Round-14 modules and EndToEnd.
+
+## Tightening (2026-11-23)
+* Record `charBound_record_tight_of_GRH` (bridge `charBound_record_tight`): every c > 0.760753 eventually
+  (β = 3, three exact sign changes, m = 39; certified c* = 0.7607526898; `R14CertB3p3m39.lean`).
+* Barrier `Barrier.dual2_barrier` / `dual2_EP1_le`: C(1) ≤ 1.146514, so the CMQR framework cannot prove below 0.760748
+  (34-step dual, 22381 kernel-checked cells).
+* Hence, in Lean: 0.760748 ≤ framework limit < 0.760753 (numerical optimum ≈ 0.760750).
+Build 8882 jobs; standard axioms; leanchecker rc=0 on the new modules and EndToEnd. The recheck of the GRH archive
+(leanchecker --fresh) was stopped by decision: compile + axioms + source scan are the trust basis.

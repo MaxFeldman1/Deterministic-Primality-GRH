@@ -20,6 +20,7 @@ import DetPrimality.Bach.R13Zeta
 import DetPrimality.Bach.R13Chi
 import DetPrimality.Bach.R13ZeroPow
 import DetPrimality.Bach.R14CertB3m24
+import DetPrimality.Bach.R14CertB3p3m39
 import DetPrimality.Bach.R14Zeta
 import DetPrimality.Bach.R14Chi
 import DetPrimality.Bach.R14ZeroPow
@@ -309,5 +310,12 @@ theorem charBound_record_of_GRH (hGRH : DirichletLZerosOnLine) :
 theorem charBound_record076_of_GRH (hGRH : DirichletLZerosOnLine) :
     ∀ c : ℝ, 0.76076 < c → ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Bach.R11Bound c n :=
   Bach.r14A_record_b3m24 hGRH (Bach.r14Z_main 2) (Bach.r14C_main 2) (Bach.r14P_main 2)
+
+
+/-- **Tightened asymptotic record** (three exact sign changes, certified `c* ≤ 0.7607527`; the
+framework cannot go below `0.760748`, `Barrier.dual2_barrier`). -/
+theorem charBound_record_tight_of_GRH (hGRH : DirichletLZerosOnLine) :
+    ∀ c : ℝ, 0.760753 < c → ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Bach.R11Bound c n :=
+  Bach.r14A_record_tight hGRH
 
 end DetPrimality
