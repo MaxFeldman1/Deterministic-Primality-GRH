@@ -1,5 +1,5 @@
 import DetPrimality.Barrier.dual_Coeff
-import DetPrimality.Barrier.dual_Data
+import DetPrimality.Barrier.dual_RunAll
 
 /-!
 # The limit of the CMQR framework: `C(1) ≤ 1.14654`
@@ -17,7 +17,7 @@ is CMQR's).  Their Theorem 3 gives `limsup n_χ / log² q ≤ C(1)⁻²` under G
 
 The proof is weak duality (`dual_weak_duality`, CMQR Prop. 6) with the explicit dual function
 `ψ(t) = s(2πt) e^{πt}`, `s` the step function with 26 steps encoded by `dualVD`, and the bound
-`2π ‖𝓕 g‖_∞ ≤ 1.14654` checked in the kernel (`dual_cert`, 5476 cells).
+`2π ‖𝓕 g‖_∞ ≤ 1.14654` checked in the kernel (`dual_cert`, `dual_cert_chain`; 5476 cells).
 -/
 
 open MeasureTheory Set
@@ -47,8 +47,13 @@ theorem dualFn_pos (t : ℝ) : |dualFn t| ≤ Real.exp (π * t) := by
 theorem dualN_bound (y : ℝ) :
     ‖dualN (dualL dualVD) y‖ ≤ 1.14654 * Real.sqrt (1 / 4 + y ^ 2) := by
   have h1 := (dualCoeffOK_sound dualData_coeff).2.2 y
-  have h2 := dual_cert dualData_par dualData_rots dualData_run y
-  have hcp : ((dualPar.cp : ℚ) : ℝ) = 1.1465399 := by simp [dualPar]; norm_num
+  have hrun : ∀ t : ℝ, 0 ≤ t → t < (dualYf : ℝ) / dQ → DualBd dualPar dualVA t := by
+    intro t h0 ht
+    refine dual_cert_chain dualData_par dualData_rots dualChain (dualInit dualVA)
+      (dualInit_inv _) dualData_chain t (by simpa [dualInit] using h0) ?_
+    rw [dualData_end]; exact ht
+  have h2 := dual_cert dualData_par hrun dualData_tail y
+  have hcp : (dualPar.Cn : ℝ) / dCd = 1.1465399 := by simp [dualPar, dCd]; norm_num
   rw [hcp] at h2
   have hs : (1 / 2 : ℝ) ≤ Real.sqrt (1 / 4 + y ^ 2) := by
     have := Real.abs_le_sqrt (x := 1 / 2) (y := 1 / 4 + y ^ 2) (by nlinarith [sq_nonneg y])
@@ -84,6 +89,44 @@ theorem cmqr_EP1_le {F : ℝ → ℂ} (hF : Integrable F) (hreal : ∀ t, (𝓕 
   have h2 := mul_le_mul_of_nonneg_left h (by positivity : (0 : ℝ) ≤ 2 * π)
   refine h2.trans (le_of_eq ?_)
   field_simp
+
+/-- `cmqr_EP1_le` written literally as in CMQR (EP1) with `A = 1`:
+`F̂₋ = max(-F̂, 0)`, `F̂₊ = max(F̂, 0)`. -/
+theorem cmqr_EP1_le' {F : ℝ → ℂ} (hF : Integrable F) (hreal : ∀ t, (𝓕 F t).im = 0)
+    (hint : IntegrableOn (fun t => (𝓕 F t).re * Real.exp (π * t)) (Ioi 0)) :
+    2 * π * ((∫ t in Iic 0, (𝓕 F t).re * Real.exp (π * t))
+        - (∫ t in Ioi 0, max (-(𝓕 F t).re) 0 * Real.exp (π * t))
+        - 1 * ∫ t in Ioi 0, max ((𝓕 F t).re) 0 * Real.exp (π * t))
+      ≤ 1.14654 * ∫ x, ‖F x‖ := by
+  have h := cmqr_EP1_le hF hreal hint
+  have hm : IntegrableOn (fun t => max (-(𝓕 F t).re) 0 * Real.exp (π * t)) (Ioi 0) := by
+    refine ((hint.abs.sub hint).div_const 2).congr (ae_of_all _ fun t => ?_)
+    show (|(𝓕 F t).re * Real.exp (π * t)| - (𝓕 F t).re * Real.exp (π * t)) / 2
+      = max (-(𝓕 F t).re) 0 * Real.exp (π * t)
+    rw [abs_mul, abs_of_pos (Real.exp_pos _)]
+    rcases le_total 0 (𝓕 F t).re with h0 | h0
+    · rw [abs_of_nonneg h0, max_eq_right (by linarith)]; ring
+    · rw [abs_of_nonpos h0, max_eq_left (by linarith)]; ring
+  have hp : IntegrableOn (fun t => max ((𝓕 F t).re) 0 * Real.exp (π * t)) (Ioi 0) := by
+    refine ((hint.abs.add hint).div_const 2).congr (ae_of_all _ fun t => ?_)
+    show (|(𝓕 F t).re * Real.exp (π * t)| + (𝓕 F t).re * Real.exp (π * t)) / 2
+      = max ((𝓕 F t).re) 0 * Real.exp (π * t)
+    rw [abs_mul, abs_of_pos (Real.exp_pos _)]
+    rcases le_total 0 (𝓕 F t).re with h0 | h0
+    · rw [abs_of_nonneg h0, max_eq_left h0]; ring
+    · rw [abs_of_nonpos h0, max_eq_right h0]; ring
+  have e : (∫ t in Ioi 0, |(𝓕 F t).re| * Real.exp (π * t))
+      = (∫ t in Ioi 0, max (-(𝓕 F t).re) 0 * Real.exp (π * t))
+        + ∫ t in Ioi 0, max ((𝓕 F t).re) 0 * Real.exp (π * t) := by
+    rw [← integral_add hm hp]
+    refine integral_congr_ae (ae_of_all _ fun t => ?_)
+    show |(𝓕 F t).re| * Real.exp (π * t)
+      = max (-(𝓕 F t).re) 0 * Real.exp (π * t) + max ((𝓕 F t).re) 0 * Real.exp (π * t)
+    rcases le_total 0 (𝓕 F t).re with h0 | h0
+    · rw [abs_of_nonneg h0, max_eq_right (by linarith), max_eq_left h0]; ring
+    · rw [abs_of_nonpos h0, max_eq_left (by linarith), max_eq_right h0]; ring
+  rw [e] at h
+  linarith
 
 /-- The same in normalised form: `J(F) ≤ 1.14654` for `F ≠ 0`. -/
 theorem cmqr_C_one_le {F : ℝ → ℂ} (hF : Integrable F) (hreal : ∀ t, (𝓕 F t).im = 0)

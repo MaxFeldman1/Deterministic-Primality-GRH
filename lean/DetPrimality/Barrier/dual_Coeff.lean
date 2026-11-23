@@ -186,8 +186,7 @@ theorem dualExpErr_sound : ∀ (vd va : List (ℤ × ℤ)) (η : ℚ), dualExpEr
           rw [this, dualN_cons, dualNq_cons, ← hV]
           push_cast
           ring
-        rw [e, hη]
-        push_cast
+        rw [e, hη, Rat.cast_add]
         refine (norm_add_le _ _).trans (add_le_add ?_ ih)
         rw [norm_mul, norm_eI, mul_one, Complex.norm_real, Real.norm_eq_abs]
         exact ht

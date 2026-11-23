@@ -103,6 +103,7 @@ import DetPrimality.Bach.R13CertGen
 import DetPrimality.Bach.R13CertB
 import DetPrimality.EndToEnd
 import DetPrimality.Barrier.Nehari
+import DetPrimality.Barrier.dual_Main
 import DetPrimality.Complexity.cx_Fast
 import DetPrimality.Complexity.cx_Bits
 import DetPrimality.Complexity.cx_MillerBits
