@@ -116,6 +116,7 @@ import DetPrimality.Bach.R14CertB3m24
 import DetPrimality.EndToEnd
 import DetPrimality.Barrier.Nehari
 import DetPrimality.Barrier.dual_Main
+import DetPrimality.Barrier.dual2_Main
 import DetPrimality.Complexity.cx_Fast
 import DetPrimality.Complexity.cx_Bits
 import DetPrimality.Complexity.cx_MillerBits
