@@ -29,6 +29,21 @@ theorem DetPrimality.sqrtModDet_correct_of_GRH (hGRH : DirichletLZerosOnLine) (p
     IsSquare (n : ZMod p) → ∃ r, TonelliShanks.sqrtModDet 1 p n = some r ∧ (r : ZMod p) ^ 2 = n
 ```
 
+### Constants below 1 (new results, Rounds 11–12)
+
+Produced by AI agents (see `research/below-one/`, `research/barrier/`); all are proved in Lean under GRH
+(`EndToEnd.lean`) and unconditionally via the bridge (`grh-bridge/GRHBridge.lean`):
+
+* **Single character** (`charBound_table_of_GRH`, `charBound_eventually_of_GRH`): every Dirichlet character
+  χ ≠ 1 mod n has χ(a) ≠ 1 for some `1 ≤ a < c (ln n)²`, with c = 0.95, 0.9, 0.85, 0.8, 0.78 for
+  n ≥ 10⁹, 10¹⁰, 10¹¹, 10¹³, 10¹⁴, and every c > 0.7772 for all large n. The best published explicit
+  constant valid for all large n was 1 (Lamzouri–Li–Soundararajan 2015).
+  Kernel `6/(s+1)⁴`, whose sum over zeros is an exact identity (`research/below-one/designB.md`).
+* **Miller–Rabin** (`millerDet_correct_of_GRH_70`, `millerDetBest_correct_of_GRH`, `subgroupBound_*`): strong
+  liars lie in a subgroup of index ≥ 4 (`Miller.liar4_exists_subgroup`, n ≠ 9). Averaging over the four
+  characters gives `millerDet (7/10)` correct for n ≥ 10¹¹ (0.66 for n ≥ 10¹², 0.65 for n ≥ 10¹³), and every
+  c > 0.6417 for all large n. Bach (1990) gives 2.
+
 ### Running time (unconditional)
 
 In `lean/DetPrimality/Complexity/`. The base loop is bounded by construction, so these theorems do
