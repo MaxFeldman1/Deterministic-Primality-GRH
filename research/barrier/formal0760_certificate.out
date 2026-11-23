@@ -1,0 +1,98 @@
+b3m19: beta = 3 (pole at s = -2; weights sqrt(n) (n/x)^2 log^j(x/n), 3 <= j <= 37), p = 2, m = 19 (pole order 38), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['4027.25', '108.166', '1']  (all > 0; digits num/den: [(106, 103), (105, 103), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 32; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 4.1e-03)
+  (c) |K(beta+it)| = G(t) = sum_{k<=19} e_k Re(beta+it)^-k: identities of degree 38 verified; Ihat = e_1/2 = 608601871088
+  (d) Nhat in [283687649532, 283687649532]   (terms coef*R(L_i)/Ihat: -0.550, 4.457, -20.318, 553.345)
+  RESULT: c* in [0.760773963, 0.760773963];  J >= 1.14649504
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^9; kappa''_n integers <= 124 digits; e''_k <= (123, 112) digits
+b3m19: beta = 3 (pole at s = -2; weights sqrt(n) (n/x)^2 log^j(x/n), 3 <= j <= 37), p = 2, m = 19 (pole order 38), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['4027.25', '108.166', '1']  (all > 0; digits num/den: [(106, 103), (105, 103), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 32; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 4.1e-03)
+  (c) |K(beta+it)| = G(t) = sum_{k<=19} e_k Re(beta+it)^-k: identities of degree 38 verified; Ihat = e_1/2 = 608601871088
+  (d) Nhat in [283687645810, 283687652216]   (terms coef*R(L_i)/Ihat: -0.550, 4.457, -20.318, 553.345)
+  RESULT (9-digit exp enclosures): c* in [0.760773948, 0.760773984];  J >= 1.14649502
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^9; kappa''_n integers <= 124 digits; e''_k <= (123, 112) digits
+b3m22: beta = 3 (pole at s = -2; weights sqrt(n) (n/x)^2 log^j(x/n), 3 <= j <= 43), p = 2, m = 22 (pole order 44), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['4179.16', '110.782', '1']  (all > 0; digits num/den: [(129, 125), (127, 125), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 38; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 9.7e-04)
+  (c) |K(beta+it)| = G(t) = sum_{k<=22} e_k Re(beta+it)^-k: identities of degree 44 verified; Ihat = e_1/2 = 100561213561
+  (d) Nhat in [46874954804.9, 46874954804.9]   (terms coef*R(L_i)/Ihat: -0.550, 4.457, -20.317, 553.332)
+  RESULT: c* in [0.760762716, 0.760762716];  J >= 1.14650351
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^9; kappa''_n integers <= 147 digits; e''_k <= (147, 137) digits
+b3m22: beta = 3 (pole at s = -2; weights sqrt(n) (n/x)^2 log^j(x/n), 3 <= j <= 43), p = 2, m = 22 (pole order 44), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['4179.16', '110.782', '1']  (all > 0; digits num/den: [(129, 125), (127, 125), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 38; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 9.7e-04)
+  (c) |K(beta+it)| = G(t) = sum_{k<=22} e_k Re(beta+it)^-k: identities of degree 44 verified; Ihat = e_1/2 = 100561213561
+  (d) Nhat in [46874954189.9, 46874955248.3]   (terms coef*R(L_i)/Ihat: -0.550, 4.457, -20.317, 553.332)
+  RESULT (9-digit exp enclosures): c* in [0.760762701, 0.760762736];  J >= 1.14650350
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^9; kappa''_n integers <= 147 digits; e''_k <= (147, 137) digits
+b3m24: beta = 3 (pole at s = -2; weights sqrt(n) (n/x)^2 log^j(x/n), 3 <= j <= 47), p = 2, m = 24 (pole order 48), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['4056.42', '108.659', '1']  (all > 0; digits num/den: [(146, 142), (144, 142), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 42; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 6.8e-03)
+  (c) |K(beta+it)| = G(t) = sum_{k<=24} e_k Re(beta+it)^-k: identities of degree 48 verified; Ihat = e_1/2 = 6.86825940105e+13
+  (d) Nhat in [3.20153502454e+13, 3.20153502454e+13]   (terms coef*R(L_i)/Ihat: -0.550, 4.457, -20.319, 553.350)
+  RESULT: c* in [0.760758470, 0.760758470];  J >= 1.14650671
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^12; kappa''_n integers <= 170 digits; e''_k <= (168, 151) digits
+b3m24: beta = 3 (pole at s = -2; weights sqrt(n) (n/x)^2 log^j(x/n), 3 <= j <= 47), p = 2, m = 24 (pole order 48), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['4056.42', '108.659', '1']  (all > 0; digits num/den: [(146, 142), (144, 142), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 42; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 6.8e-03)
+  (c) |K(beta+it)| = G(t) = sum_{k<=24} e_k Re(beta+it)^-k: identities of degree 48 verified; Ihat = e_1/2 = 6.86825940105e+13
+  (d) Nhat in [3.20153498254e+13, 3.20153505483e+13]   (terms coef*R(L_i)/Ihat: -0.550, 4.457, -20.319, 553.350)
+  RESULT (9-digit exp enclosures): c* in [0.760758455, 0.760758491];  J >= 1.14650670
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^12; kappa''_n integers <= 170 digits; e''_k <= (168, 151) digits
+b2m23: beta = 2 (pole at s = -1; weights sqrt(n) (n/x)^1 log^j(x/n), 3 <= j <= 45), p = 2, m = 23 (pole order 46), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['3779.1', '103.897', '1']  (all > 0; digits num/den: [(147, 144), (146, 144), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 40; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 5.0e-02)
+  (c) |K(beta+it)| = G(t) = sum_{k<=23} e_k Re(beta+it)^-k: identities of degree 46 verified; Ihat = e_1/2 = 69618885.8904
+  (d) Nhat in [32451440.3275, 32451440.3275]   (terms coef*R(L_i)/Ihat: -0.550, 2.988, -8.830, 91.467)
+  RESULT: c* in [0.760774795, 0.760774795];  J >= 1.14649441
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^9; kappa''_n integers <= 166 digits; e''_k <= (164, 152) digits
+b2m23: beta = 2 (pole at s = -1; weights sqrt(n) (n/x)^1 log^j(x/n), 3 <= j <= 45), p = 2, m = 23 (pole order 46), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['3779.1', '103.897', '1']  (all > 0; digits num/den: [(147, 144), (146, 144), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 40; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 5.0e-02)
+  (c) |K(beta+it)| = G(t) = sum_{k<=23} e_k Re(beta+it)^-k: identities of degree 46 verified; Ihat = e_1/2 = 69618885.8904
+  (d) Nhat in [32451440.1481, 32451440.6035]   (terms coef*R(L_i)/Ihat: -0.550, 2.988, -8.830, 91.467)
+  RESULT (9-digit exp enclosures): c* in [0.760774782, 0.760774804];  J >= 1.14649440
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^9; kappa''_n integers <= 166 digits; e''_k <= (164, 152) digits
+b1p1m23: beta = 1 (pole at s = 0; weights sqrt(n) (n/x)^0 log^j(x/n), 3 <= j <= 45), p = 1, m = 23 (pole order 46), ell = 11/8, L = ['2/5']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['78.9709', '1']  (all > 0; digits num/den: [(92, 90), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 41; Bernstein: all coefficients > 0 on 1 cell(s) [0,11/8] (min/max 7.3e-01)
+  (c) |K(beta+it)| = G(t) = sum_{k<=23} e_k Re(beta+it)^-k: identities of degree 46 verified; Ihat = e_1/2 = 1.08798388598e+19
+  (d) Nhat in [6.27157516756e+18, 6.27157516756e+18]   (terms coef*R(L_i)/Ihat: 0.679, -2.475, 9.877)
+  RESULT: c* in [0.760916059, 0.760916059];  J >= 1.14638798
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^16; kappa''_n integers <= 124 digits; e''_k <= (124, 99) digits
+b1p1m23: beta = 1 (pole at s = 0; weights sqrt(n) (n/x)^0 log^j(x/n), 3 <= j <= 45), p = 1, m = 23 (pole order 46), ell = 11/8, L = ['2/5']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['78.9709', '1']  (all > 0; digits num/den: [(92, 90), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 41; Bernstein: all coefficients > 0 on 1 cell(s) [0,11/8] (min/max 7.3e-01)
+  (c) |K(beta+it)| = G(t) = sum_{k<=23} e_k Re(beta+it)^-k: identities of degree 46 verified; Ihat = e_1/2 = 1.08798388598e+19
+  (d) Nhat in [6.27157515387e+18, 6.27157525234e+18]   (terms coef*R(L_i)/Ihat: 0.679, -2.475, 9.877)
+  RESULT (9-digit exp enclosures): c* in [0.760916037, 0.760916063];  J >= 1.14638798
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^16; kappa''_n integers <= 124 digits; e''_k <= (124, 99) digits
+b1m32: beta = 1 (pole at s = 0; weights sqrt(n) (n/x)^0 log^j(x/n), 3 <= j <= 63), p = 2, m = 32 (pole order 64), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['3942.29', '107.247', '1']  (all > 0; digits num/den: [(277, 273), (275, 273), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 58; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 1.0e-01)
+  (c) |K(beta+it)| = G(t) = sum_{k<=32} e_k Re(beta+it)^-k: identities of degree 64 verified; Ihat = e_1/2 = 1.40284101183e+25
+  (d) Nhat in [6.53895160041e+24, 6.53895160041e+24]   (terms coef*R(L_i)/Ihat: -0.549, 2.002, -3.837, 15.118)
+  RESULT: c* in [0.760800159, 0.760800159];  J >= 1.14647530
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^22; kappa''_n integers <= 321 digits; e''_k <= (320, 286) digits
+b1m32: beta = 1 (pole at s = 0; weights sqrt(n) (n/x)^0 log^j(x/n), 3 <= j <= 63), p = 2, m = 32 (pole order 64), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['3942.29', '107.247', '1']  (all > 0; digits num/den: [(277, 273), (275, 273), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 58; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 1.0e-01)
+  (c) |K(beta+it)| = G(t) = sum_{k<=32} e_k Re(beta+it)^-k: identities of degree 64 verified; Ihat = e_1/2 = 1.40284101183e+25
+  (d) Nhat in [6.53895141419e+24, 6.53895163875e+24]   (terms coef*R(L_i)/Ihat: -0.549, 2.002, -3.837, 15.118)
+  RESULT (9-digit exp enclosures): c* in [0.760800149, 0.760800203];  J >= 1.14647527
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^22; kappa''_n integers <= 321 digits; e''_k <= (320, 286) digits
+b1m44: beta = 1 (pole at s = 0; weights sqrt(n) (n/x)^0 log^j(x/n), 3 <= j <= 87), p = 2, m = 44 (pole order 88), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['3836.96', '104.999', '1']  (all > 0; digits num/den: [(394, 390), (392, 390), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 82; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 2.6e-01)
+  (c) |K(beta+it)| = G(t) = sum_{k<=44} e_k Re(beta+it)^-k: identities of degree 88 verified; Ihat = e_1/2 = 5.25255437407e+25
+  (d) Nhat in [2.4483733022e+25, 2.4483733022e+25]   (terms coef*R(L_i)/Ihat: -0.550, 2.003, -3.838, 15.119)
+  RESULT: c* in [0.760774200, 0.760774200];  J >= 1.14649486
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^28; kappa''_n integers <= 450 digits; e''_k <= (449, 408) digits
+b1m44: beta = 1 (pole at s = 0; weights sqrt(n) (n/x)^0 log^j(x/n), 3 <= j <= 87), p = 2, m = 44 (pole order 88), ell = 9/5, L = ['2/5', '5/6']
+  (a) Q(-T) = sum zeta_a T^a, zeta = ['3836.96', '104.999', '1']  (all > 0; digits num/den: [(394, 390), (392, 390), (1, 1)])
+  (b) W = L^3 prod(L - L_i) Wt, deg Wt = 82; Bernstein: all coefficients > 0 on 1 cell(s) [0,9/5] (min/max 2.6e-01)
+  (c) |K(beta+it)| = G(t) = sum_{k<=44} e_k Re(beta+it)^-k: identities of degree 88 verified; Ihat = e_1/2 = 5.25255437407e+25
+  (d) Nhat in [2.44837323247e+25, 2.44837331656e+25]   (terms coef*R(L_i)/Ihat: -0.550, 2.003, -3.838, 15.119)
+  RESULT (9-digit exp enclosures): c* in [0.760774190, 0.760774244];  J >= 1.14649483
+  sizes in the scaled variable s'' = sg/beta: |h_i| <= 10^28; kappa''_n integers <= 450 digits; e''_k <= (449, 408) digits

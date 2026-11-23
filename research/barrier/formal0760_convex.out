@@ -1,0 +1,128 @@
+beta=1.0 c=1.3750 D= 24 (pole order D+2): convex optimum c_inf = 0.760943  zeros of q in |z|<0.985: 1
+beta=1.0 c=1.3750 D= 32 (pole order D+2): convex optimum c_inf = 0.760900  zeros of q in |z|<0.985: 1
+beta=1.0 c=1.3750 D= 40 (pole order D+2): convex optimum c_inf = 0.760847  zeros of q in |z|<0.985: 1
+beta=1.0 c=1.3750 D= 48 (pole order D+2): convex optimum c_inf = 0.760844  zeros of q in |z|<0.985: 1
+beta=1.0 c=1.3750 D= 56 (pole order D+2): convex optimum c_inf = 0.760844  zeros of q in |z|<0.985: 1
+beta=1.0 c=1.3750 D= 64 (pole order D+2): convex optimum c_inf = 0.760841  zeros of q in |z|<0.985: 1
+beta=1.0 c=1.3750 D= 80 (pole order D+2): convex optimum c_inf = 0.760835  zeros of q in |z|<0.985: 1
+beta=1.0 c=1.3750 D=100 (pole order D+2): convex optimum c_inf = 0.760831  zeros of q in |z|<0.985: 1
+beta=1.0 c=1.6000 D= 24 (pole order D+2): convex optimum c_inf = 0.760870  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.6000 D= 32 (pole order D+2): convex optimum c_inf = 0.760821  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.6000 D= 40 (pole order D+2): convex optimum c_inf = 0.760797  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.6000 D= 48 (pole order D+2): convex optimum c_inf = 0.760787  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.6000 D= 56 (pole order D+2): convex optimum c_inf = 0.760783  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.6000 D= 64 (pole order D+2): convex optimum c_inf = 0.760782  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.6000 D= 80 (pole order D+2): convex optimum c_inf = 0.760777  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.6000 D=100 (pole order D+2): convex optimum c_inf = 0.760776  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.7918 D= 24 (pole order D+2): convex optimum c_inf = 0.760891  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.7918 D= 32 (pole order D+2): convex optimum c_inf = 0.760823  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.7918 D= 40 (pole order D+2): convex optimum c_inf = 0.760788  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.7918 D= 48 (pole order D+2): convex optimum c_inf = 0.760769  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.7918 D= 56 (pole order D+2): convex optimum c_inf = 0.760766  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.7918 D= 64 (pole order D+2): convex optimum c_inf = 0.760761  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.7918 D= 80 (pole order D+2): convex optimum c_inf = 0.760758  zeros of q in |z|<0.985: 2
+beta=1.0 c=1.7918 D=100 (pole order D+2): convex optimum c_inf = 0.760756  zeros of q in |z|<0.985: 2
+beta=1.0 c=2.0000 D= 24 (pole order D+2): convex optimum c_inf = 0.760994  zeros of q in |z|<0.985: 4
+beta=1.0 c=2.0000 D= 32 (pole order D+2): convex optimum c_inf = 0.760820  zeros of q in |z|<0.985: 3
+beta=1.0 c=2.0000 D= 40 (pole order D+2): convex optimum c_inf = 0.760795  zeros of q in |z|<0.985: 3
+beta=1.0 c=2.0000 D= 48 (pole order D+2): convex optimum c_inf = 0.760782  zeros of q in |z|<0.985: 3
+beta=1.0 c=2.0000 D= 56 (pole order D+2): convex optimum c_inf = 0.760769  zeros of q in |z|<0.985: 4
+beta=1.0 c=2.0000 D= 64 (pole order D+2): convex optimum c_inf = 0.760762  zeros of q in |z|<0.985: 3
+beta=1.0 c=2.0000 D= 80 (pole order D+2): convex optimum c_inf = 0.760757  zeros of q in |z|<0.985: 3
+beta=1.0 c=2.0000 D=100 (pole order D+2): convex optimum c_inf = 0.760754  zeros of q in |z|<0.985: 3
+beta=1.5 c=1.3750 D= 24 (pole order D+2): convex optimum c_inf = 0.760860  zeros of q in |z|<0.985: 1
+beta=1.5 c=1.3750 D= 32 (pole order D+2): convex optimum c_inf = 0.760844  zeros of q in |z|<0.985: 1
+beta=1.5 c=1.3750 D= 40 (pole order D+2): convex optimum c_inf = 0.760843  zeros of q in |z|<0.985: 1
+beta=1.5 c=1.3750 D= 48 (pole order D+2): convex optimum c_inf = 0.760836  zeros of q in |z|<0.985: 1
+beta=1.5 c=1.3750 D= 56 (pole order D+2): convex optimum c_inf = 0.760835  zeros of q in |z|<0.985: 1
+beta=1.5 c=1.3750 D= 64 (pole order D+2): convex optimum c_inf = 0.760833  zeros of q in |z|<0.985: 1
+beta=1.5 c=1.3750 D= 80 (pole order D+2): convex optimum c_inf = 0.760829  zeros of q in |z|<0.985: 1
+beta=1.5 c=1.3750 D=100 (pole order D+2): convex optimum c_inf = 0.760828  zeros of q in |z|<0.985: 1
+beta=1.5 c=1.6000 D= 24 (pole order D+2): convex optimum c_inf = 0.760818  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.6000 D= 32 (pole order D+2): convex optimum c_inf = 0.760787  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.6000 D= 40 (pole order D+2): convex optimum c_inf = 0.760783  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.6000 D= 48 (pole order D+2): convex optimum c_inf = 0.760778  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.6000 D= 56 (pole order D+2): convex optimum c_inf = 0.760777  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.6000 D= 64 (pole order D+2): convex optimum c_inf = 0.760776  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.6000 D= 80 (pole order D+2): convex optimum c_inf = 0.760775  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.6000 D=100 (pole order D+2): convex optimum c_inf = 0.760774  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.7918 D= 24 (pole order D+2): convex optimum c_inf = 0.760793  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.7918 D= 32 (pole order D+2): convex optimum c_inf = 0.760769  zeros of q in |z|<0.985: 3
+beta=1.5 c=1.7918 D= 40 (pole order D+2): convex optimum c_inf = 0.760762  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.7918 D= 48 (pole order D+2): convex optimum c_inf = 0.760759  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.7918 D= 56 (pole order D+2): convex optimum c_inf = 0.760757  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.7918 D= 64 (pole order D+2): convex optimum c_inf = 0.760756  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.7918 D= 80 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=1.5 c=1.7918 D=100 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=1.5 c=2.0000 D= 24 (pole order D+2): convex optimum c_inf = 0.760814  zeros of q in |z|<0.985: 4
+beta=1.5 c=2.0000 D= 32 (pole order D+2): convex optimum c_inf = 0.760782  zeros of q in |z|<0.985: 3
+beta=1.5 c=2.0000 D= 40 (pole order D+2): convex optimum c_inf = 0.760767  zeros of q in |z|<0.985: 4
+beta=1.5 c=2.0000 D= 48 (pole order D+2): convex optimum c_inf = 0.760760  zeros of q in |z|<0.985: 3
+beta=1.5 c=2.0000 D= 56 (pole order D+2): convex optimum c_inf = 0.760757  zeros of q in |z|<0.985: 4
+beta=1.5 c=2.0000 D= 64 (pole order D+2): convex optimum c_inf = 0.760754  zeros of q in |z|<0.985: 3
+beta=1.5 c=2.0000 D= 80 (pole order D+2): convex optimum c_inf = 0.760753  zeros of q in |z|<0.985: 3
+beta=1.5 c=2.0000 D=100 (pole order D+2): convex optimum c_inf = 0.760753  zeros of q in |z|<0.985: 3
+beta=2.0 c=1.3750 D= 24 (pole order D+2): convex optimum c_inf = 0.760844  zeros of q in |z|<0.985: 1
+beta=2.0 c=1.3750 D= 32 (pole order D+2): convex optimum c_inf = 0.760840  zeros of q in |z|<0.985: 1
+beta=2.0 c=1.3750 D= 40 (pole order D+2): convex optimum c_inf = 0.760835  zeros of q in |z|<0.985: 1
+beta=2.0 c=1.3750 D= 48 (pole order D+2): convex optimum c_inf = 0.760832  zeros of q in |z|<0.985: 1
+beta=2.0 c=1.3750 D= 56 (pole order D+2): convex optimum c_inf = 0.760829  zeros of q in |z|<0.985: 1
+beta=2.0 c=1.3750 D= 64 (pole order D+2): convex optimum c_inf = 0.760829  zeros of q in |z|<0.985: 1
+beta=2.0 c=1.3750 D= 80 (pole order D+2): convex optimum c_inf = 0.760827  zeros of q in |z|<0.985: 1
+beta=2.0 c=1.3750 D=100 (pole order D+2): convex optimum c_inf = 0.760826  zeros of q in |z|<0.985: 1
+beta=2.0 c=1.6000 D= 24 (pole order D+2): convex optimum c_inf = 0.760788  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.6000 D= 32 (pole order D+2): convex optimum c_inf = 0.760782  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.6000 D= 40 (pole order D+2): convex optimum c_inf = 0.760777  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.6000 D= 48 (pole order D+2): convex optimum c_inf = 0.760776  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.6000 D= 56 (pole order D+2): convex optimum c_inf = 0.760775  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.6000 D= 64 (pole order D+2): convex optimum c_inf = 0.760775  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.6000 D= 80 (pole order D+2): convex optimum c_inf = 0.760774  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.6000 D=100 (pole order D+2): convex optimum c_inf = 0.760774  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.7918 D= 24 (pole order D+2): convex optimum c_inf = 0.760770  zeros of q in |z|<0.985: 3
+beta=2.0 c=1.7918 D= 32 (pole order D+2): convex optimum c_inf = 0.760761  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.7918 D= 40 (pole order D+2): convex optimum c_inf = 0.760758  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.7918 D= 48 (pole order D+2): convex optimum c_inf = 0.760756  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.7918 D= 56 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.7918 D= 64 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.7918 D= 80 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=2.0 c=1.7918 D=100 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=2.0 c=2.0000 D= 24 (pole order D+2): convex optimum c_inf = 0.760783  zeros of q in |z|<0.985: 3
+beta=2.0 c=2.0000 D= 32 (pole order D+2): convex optimum c_inf = 0.760762  zeros of q in |z|<0.985: 3
+beta=2.0 c=2.0000 D= 40 (pole order D+2): convex optimum c_inf = 0.760757  zeros of q in |z|<0.985: 4
+beta=2.0 c=2.0000 D= 48 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 3
+beta=2.0 c=2.0000 D= 56 (pole order D+2): convex optimum c_inf = 0.760753  zeros of q in |z|<0.985: 4
+beta=2.0 c=2.0000 D= 64 (pole order D+2): convex optimum c_inf = 0.760753  zeros of q in |z|<0.985: 3
+beta=2.0 c=2.0000 D= 80 (pole order D+2): convex optimum c_inf = 0.760752  zeros of q in |z|<0.985: 3
+beta=2.0 c=2.0000 D=100 (pole order D+2): convex optimum c_inf = 0.760752  zeros of q in |z|<0.985: 3
+beta=3.0 c=1.3750 D= 24 (pole order D+2): convex optimum c_inf = 0.760851  zeros of q in |z|<0.985: 1
+beta=3.0 c=1.3750 D= 32 (pole order D+2): convex optimum c_inf = 0.760833  zeros of q in |z|<0.985: 1
+beta=3.0 c=1.3750 D= 40 (pole order D+2): convex optimum c_inf = 0.760829  zeros of q in |z|<0.985: 1
+beta=3.0 c=1.3750 D= 48 (pole order D+2): convex optimum c_inf = 0.760828  zeros of q in |z|<0.985: 1
+beta=3.0 c=1.3750 D= 56 (pole order D+2): convex optimum c_inf = 0.760827  zeros of q in |z|<0.985: 1
+beta=3.0 c=1.3750 D= 64 (pole order D+2): convex optimum c_inf = 0.760826  zeros of q in |z|<0.985: 1
+beta=3.0 c=1.3750 D= 80 (pole order D+2): convex optimum c_inf = 0.760825  zeros of q in |z|<0.985: 1
+beta=3.0 c=1.3750 D=100 (pole order D+2): convex optimum c_inf = 0.760824  zeros of q in |z|<0.985: 1
+beta=3.0 c=1.6000 D= 24 (pole order D+2): convex optimum c_inf = 0.760793  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.6000 D= 32 (pole order D+2): convex optimum c_inf = 0.760776  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.6000 D= 40 (pole order D+2): convex optimum c_inf = 0.760775  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.6000 D= 48 (pole order D+2): convex optimum c_inf = 0.760774  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.6000 D= 56 (pole order D+2): convex optimum c_inf = 0.760774  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.6000 D= 64 (pole order D+2): convex optimum c_inf = 0.760774  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.6000 D= 80 (pole order D+2): convex optimum c_inf = 0.760774  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.6000 D=100 (pole order D+2): convex optimum c_inf = 0.760773  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.7918 D= 24 (pole order D+2): convex optimum c_inf = 0.760785  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.7918 D= 32 (pole order D+2): convex optimum c_inf = 0.760756  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.7918 D= 40 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.7918 D= 48 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.7918 D= 56 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.7918 D= 64 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.7918 D= 80 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=3.0 c=1.7918 D=100 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 2
+beta=3.0 c=2.0000 D= 24 (pole order D+2): convex optimum c_inf = 0.760783  zeros of q in |z|<0.985: 3
+beta=3.0 c=2.0000 D= 32 (pole order D+2): convex optimum c_inf = 0.760755  zeros of q in |z|<0.985: 3
+beta=3.0 c=2.0000 D= 40 (pole order D+2): convex optimum c_inf = 0.760753  zeros of q in |z|<0.985: 3
+beta=3.0 c=2.0000 D= 48 (pole order D+2): convex optimum c_inf = 0.760753  zeros of q in |z|<0.985: 3
+beta=3.0 c=2.0000 D= 56 (pole order D+2): convex optimum c_inf = 0.760752  zeros of q in |z|<0.985: 3
+beta=3.0 c=2.0000 D= 64 (pole order D+2): convex optimum c_inf = 0.760752  zeros of q in |z|<0.985: 3
+beta=3.0 c=2.0000 D= 80 (pole order D+2): convex optimum c_inf = 0.760752  zeros of q in |z|<0.985: 3
+beta=3.0 c=2.0000 D=100 (pole order D+2): convex optimum c_inf = 0.760752  zeros of q in |z|<0.985: 3

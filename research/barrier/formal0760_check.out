@@ -1,0 +1,14 @@
+b3m19: sign changes of W observed near L = ['0.402', '0.834'] (certified zeros ['2/5', '5/6']);  Nhat = 283687649532.0  Ihat = 608601871088.0 (certificate e_1/2 = 608601871088.0)
+   c* = 0.7607739635   (certificate: 0.760773963);   max rel |G - |K|| at 7 sample points: 2.12e-62
+b2m23: sign changes of W observed near L = ['0.402', '0.834'] (certified zeros ['2/5', '5/6']);  Nhat = 32451440.3275  Ihat = 69618885.8904 (certificate e_1/2 = 69618885.8904)
+   c* = 0.7607747954   (certificate: 0.760774795);   max rel |G - |K|| at 7 sample points: 5.27e-58
+b3m22: sign changes of W observed near L = ['0.402', '0.834'] (certified zeros ['2/5', '5/6']);  Nhat = 46874954804.9  Ihat = 100561213561.0 (certificate e_1/2 = 100561213561.0)
+   c* = 0.7607627156   (certificate: 0.760762716);   max rel |G - |K|| at 7 sample points: 5.79e-62
+b3m24: sign changes of W observed near L = ['0.402', '0.834'] (certified zeros ['2/5', '5/6']);  Nhat = 3.20153502454e+13  Ihat = 6.86825940105e+13 (certificate e_1/2 = 6.86825940105e+13)
+   c* = 0.7607584702   (certificate: 0.760758470);   max rel |G - |K|| at 7 sample points: 3.78e-58
+b1p1m23: sign changes of W observed near L = ['0.401'] (certified zeros ['2/5']);  Nhat = 6.27157516756e+18  Ihat = 1.08798388598e+19 (certificate e_1/2 = 1.08798388598e+19)
+   c* = 0.760916059   (certificate: 0.760916059);   max rel |G - |K|| at 7 sample points: 1.94e-57
+b1m32: sign changes of W observed near L = ['0.402', '0.834'] (certified zeros ['2/5', '5/6']);  Nhat = 6.53895160041e+24  Ihat = 1.40284101183e+25 (certificate e_1/2 = 1.40284101183e+25)
+   c* = 0.7608001591   (certificate: 0.760800159);   max rel |G - |K|| at 7 sample points: 6.99e-240
+b1m44: sign changes of W observed near L = ['0.402', '0.834'] (certified zeros ['2/5', '5/6']);  Nhat = 2.4483733022e+25  Ihat = 5.25255437407e+25 (certificate e_1/2 = 5.25255437407e+25)
+   c* = 0.7607741999   (certificate: 0.760774200);   max rel |G - |K|| at 7 sample points: 4.77e-228

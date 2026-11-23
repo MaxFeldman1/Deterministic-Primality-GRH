@@ -1,0 +1,24 @@
+c=1.80 poles (beta,D)=[(1.0, 22)] total pole order 24 (numerical rank 21): c_inf = 0.760907
+c=1.80 poles (beta,D)=[(2.0, 22)] total pole order 24 (numerical rank 21): c_inf = 0.760780
+c=1.80 poles (beta,D)=[(3.0, 22)] total pole order 24 (numerical rank 21): c_inf = 0.760845
+c=1.80 poles (beta,D)=[(1.0, 10), (2.0, 10)] total pole order 24 (numerical rank 17): c_inf = 0.760856
+c=1.80 poles (beta,D)=[(1.0, 10), (3.0, 10)] total pole order 24 (numerical rank 18): c_inf = 0.760807
+c=1.80 poles (beta,D)=[(2.0, 10), (3.0, 10)] total pole order 24 (numerical rank 16): c_inf = 0.760833
+c=1.80 poles (beta,D)=[(2.0, 10), (4.0, 10)] total pole order 24 (numerical rank 17): c_inf = 0.760881
+c=1.80 poles (beta,D)=[(1.5, 10), (4.0, 10)] total pole order 24 (numerical rank 18): c_inf = 0.760788
+c=1.80 poles (beta,D)=[(1.0, 30)] total pole order 32 (numerical rank 29): c_inf = 0.760827
+c=1.80 poles (beta,D)=[(2.0, 30)] total pole order 32 (numerical rank 29): c_inf = 0.760766
+c=1.80 poles (beta,D)=[(3.0, 30)] total pole order 32 (numerical rank 29): c_inf = 0.760758
+c=1.80 poles (beta,D)=[(1.0, 14), (2.0, 14)] total pole order 32 (numerical rank 23): c_inf = 0.760797
+c=1.80 poles (beta,D)=[(1.0, 14), (3.0, 14)] total pole order 32 (numerical rank 25): c_inf = 0.760774
+c=1.80 poles (beta,D)=[(2.0, 14), (3.0, 14)] total pole order 32 (numerical rank 21): c_inf = 0.760766
+c=1.80 poles (beta,D)=[(2.0, 14), (4.0, 14)] total pole order 32 (numerical rank 23): c_inf = 0.760769
+c=1.80 poles (beta,D)=[(1.5, 14), (4.0, 14)] total pole order 32 (numerical rank 24): c_inf = 0.760766
+c=1.80 poles (beta,D)=[(1.0, 38)] total pole order 40 (numerical rank 37): c_inf = 0.760791
+c=1.80 poles (beta,D)=[(2.0, 38)] total pole order 40 (numerical rank 37): c_inf = 0.760761
+c=1.80 poles (beta,D)=[(3.0, 38)] total pole order 40 (numerical rank 37): c_inf = 0.760759
+c=1.80 poles (beta,D)=[(1.0, 18), (2.0, 18)] total pole order 40 (numerical rank 28): c_inf = 0.760779
+c=1.80 poles (beta,D)=[(1.0, 18), (3.0, 18)] total pole order 40 (numerical rank 31): c_inf = 0.760767
+c=1.80 poles (beta,D)=[(2.0, 18), (3.0, 18)] total pole order 40 (numerical rank 26): c_inf = 0.760765
+c=1.80 poles (beta,D)=[(2.0, 18), (4.0, 18)] total pole order 40 (numerical rank 28): c_inf = 0.760760
+c=1.80 poles (beta,D)=[(1.5, 18), (4.0, 18)] total pole order 40 (numerical rank 30): c_inf = 0.760761
