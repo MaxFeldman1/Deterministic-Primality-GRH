@@ -1,0 +1,15 @@
+L = log X = 20:  min nu/D = 9.901e-03 (>= 0), max nu/D = 100.8
+   gauss(mu=0.0,s=0.5)    prime side -0.123073   zero side (positive nu) -0.123789   [1st harmonic only -0.123000]
+   gauss(mu=0.8,s=0.3)    prime side -0.350322   zero side (positive nu) -0.351055   [1st harmonic only -0.350390]
+   gauss(mu=-1.0,s=1.0)   prime side +0.714992   zero side (positive nu) +0.713945   [1st harmonic only +0.715032]
+   gauss(mu=1.5,s=0.4)    prime side +0.014698   zero side (positive nu) +0.013470   [1st harmonic only +0.014686]
+L = log X = 40:  min nu/D = 9.901e-03 (>= 0), max nu/D = 100.6
+   gauss(mu=0.0,s=0.5)    prime side -0.123073   zero side (positive nu) -0.123000   [1st harmonic only -0.123000]
+   gauss(mu=0.8,s=0.3)    prime side -0.350322   zero side (positive nu) -0.350390   [1st harmonic only -0.350390]
+   gauss(mu=-1.0,s=1.0)   prime side +0.714992   zero side (positive nu) +0.715032   [1st harmonic only +0.715032]
+   gauss(mu=1.5,s=0.4)    prime side +0.014698   zero side (positive nu) +0.014686   [1st harmonic only +0.014686]
+L = log X = 80:  min nu/D = 9.901e-03 (>= 0), max nu/D = 100.8
+   gauss(mu=0.0,s=0.5)    prime side -0.123073   zero side (positive nu) -0.122945   [1st harmonic only -0.123000]
+   gauss(mu=0.8,s=0.3)    prime side -0.350322   zero side (positive nu) -0.350340   [1st harmonic only -0.350390]
+   gauss(mu=-1.0,s=1.0)   prime side +0.714992   zero side (positive nu) +0.715063   [1st harmonic only +0.715032]
+   gauss(mu=1.5,s=0.4)    prime side +0.014698   zero side (positive nu) +0.014741   [1st harmonic only +0.014686]

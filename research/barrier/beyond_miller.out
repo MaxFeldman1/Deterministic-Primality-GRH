@@ -1,0 +1,4 @@
+odd composite n < 6000 (+10 Carmichael numbers): index of <strong liars> in (Z/n)^*
+  indices < 4: [(9, 3)]
+  histogram of small indices: {3: 1, 4: 7, 5: 1, 6: 8, 7: 1, 8: 8, 9: 1, 10: 5, 11: 1, 12: 15}
+  examples with index exactly 4: [15, 91, 703, 1891]

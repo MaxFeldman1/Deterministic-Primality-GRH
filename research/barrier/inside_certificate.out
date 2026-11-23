@@ -1,0 +1,9 @@
+A. deg R = 32, R squarefree: True, Sturm: number of distinct roots of R in (-beta c, 0) = 3   [1.0s]
+   isolated 3 roots (each in an interval of width 2e-45, exact sign change verified):
+   y_i = [-2.070056099364819, -1.2079055137218562, -0.5254281474273185]  i.e. v_i = c + y_i/beta = [0.964972, 1.396047, 1.737286]
+   sign of phi on (0,c) between consecutive roots (from v = 0 upwards): [1, -1, 1, -1]
+B. T2 = int [(-y)R]_+ e^{kappa y} dy  in  [0.0753898574264166, 0.0753898574264166]
+   T1 = u0^2 q(z0) = 0.994330371618759 (exact rational);   N(phi) in [1.14650421083575, 1.14650421083575]
+C. I(phi) <= 1.00000000019478   (M = 40000 cells, widest enclosure of a cell integral 1.4e-27)   [19.0s]
+RESULT:  J(phi) >= 1.14650421061   =>   C(1) >= 1.14650421   and   limsup n_chi/log^2 q <= 0.760761791
+CERTIFIED:  C(1) > 1.1465,   c_inf <= C(1)^-2 < 0.76077 < 0.7615

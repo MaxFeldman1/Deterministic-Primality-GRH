@@ -1,0 +1,3 @@
+m = 1000 cells, V = 5, Lipschitz L = 81.09, tail constant B = 106.51 -> scan t in [0, 106.5]
+verified: |ghat(t)| < 1.146540 for all real t   (20681662 evaluations, depth 15, largest value seen 1.14652036)
+=> C(1) <= C*(1) < 1.146540,  so no test function in (EP1) gives c below  0.760714

@@ -1,0 +1,21 @@
+(1) u   rho(u)        exp(-u xi + E(xi))   ratio   [saddle exponent of the GRH Perron bound = Dickman]
+    2   3.0685e-01    4.8708e-01           1.59   (ratio ~ sqrt(2 pi u)/e^gamma-type polynomial factor)
+    3   4.8608e-02    9.7747e-02           2.01   (ratio ~ sqrt(2 pi u)/e^gamma-type polynomial factor)
+    5   3.5473e-04    9.4636e-04           2.67   (ratio ~ sqrt(2 pi u)/e^gamma-type polynomial factor)
+    8   3.2321e-08    1.1133e-07           3.44   (ratio ~ sqrt(2 pi u)/e^gamma-type polynomial factor)
+    12  1.2972e-14    6.0782e-14           4.69   (ratio ~ sqrt(2 pi u)/e^gamma-type polynomial factor)
+
+    threshold: Psi(y, log^2 q) = y^{1/2+o(1)} for y = q^eps  (u = eps log q/(2 loglog q)); numerically
+      log q = 1e+02: log Psi/log y ~ 1 + (-u xi + E(xi))/(u log z) = 0.999
+      log q = 1e+04: log Psi/log y ~ 1 + (-u xi + E(xi))/(u log z) = 0.756
+      log q = 1e+08: log Psi/log y ~ 1 + (-u xi + E(xi))/(u log z) = 0.616
+
+(2) factor gained from c: exp(u xi(u) |log c| / log z), c = 0.76 vs 1, log z = 2 loglog q
+    log q = 1e+03 (log z = 13.8): u=2: 1.051, u=5: 1.302, u=20: 6.009, u=100: 385156.880
+    log q = 1e+06 (log z = 27.6): u=2: 1.025, u=5: 1.141, u=20: 2.451, u=100: 620.610
+    log q = 1e+12 (log z = 55.3): u=2: 1.013, u=5: 1.068, u=20: 1.566, u=100: 24.912
+    -> O(1/loglog q) effect for bounded u; needs u >> loglog q, where the bound's slop (powers of log z per unit of xi) is larger still
+
+(3) effective smoothness of the CMQR fake: X_eff = X e^{I1} = 0.3674 log^2 q   (c = 0.7597, I1 = -0.7265)
+    GRH ceiling at sigma -> 1 (LLS L(1,chi)): z_eff = (e/4) log^2 q = 0.6796 log^2 q   -> no contradiction
+    naive Vinogradov hope (pretend chi has mean >= 0 just above X): c <= e/4 = 0.6796 < 0.7596 -- NOT available

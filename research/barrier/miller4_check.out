@@ -1,0 +1,6 @@
+(K3) odd composite n < 1500: min index of <strong liars> = 3 (n = 9); index 4 at [15, 91, 703]
+     shape of G/<strong liars>: {'cyclic': 378, 'non-cyclic, order > 4': 133}
+(K1) sum over chi in S of chi~(p^r) is a non-negative integer, = h on H: ALL OK  (13386 sums tested)
+(K2) h = 4, lambda = 1/3: D = 1.049987 E1 = 0.194155 E2 = 0.083153 ; min over 703 primes X in [45, 299903] of (lhs - bound)/((h-1) x^{5/4}) = +0.1806 at X = 19417  -> OK
+(K2) h = 4, lambda = 1/4: D = 0.936314 E1 = 0.272276 E2 = 0.097390 ; min over 541 primes X in [45, 224683] of (lhs - bound)/((h-1) x^{5/4}) = +0.2496 at X = 19417  -> OK
+(K2) h = 2, lambda = 1/3 (h=2 regression): D = 0.982387 E1 = 0.291233 E2 = 0.125090 ; min over 703 primes X in [45, 299903] of (lhs - bound)/((h-1) x^{5/4}) = +0.2736 at X = 19417  -> OK

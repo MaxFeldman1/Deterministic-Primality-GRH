@@ -1,0 +1,23 @@
+sup|G| = 1.1473077 at t = 0.0000   (CMQR: 1.1473077 at 0)
+   max on [0.2,0.4]: 1.14726 at t=0.2000
+   max on [0.9,1.2]: 1.14730 at t=0.9118
+   max on [1.5,200.0]: 1.14731 at t=3.2707
+barrier c = 1/sup^2 = 0.75970
+fake character: chi(p)=+1 for p<X, then on windows of n/X:
+   (1.000, 2.581): -1
+   (2.581, 3.719): +1
+   (3.719, 4.293): -1
+   (4.293, 4.544): +1
+   (4.544, 5.217): -1
+   (5.217, 5.770): +1
+   (5.770, 5.882): -1
+   beyond 5.882 X: mean 0
+
+L(1,chi): fake gives e^gamma (log log^2 q + log c + I1), I1 = int a dv over v>0 = -0.7265
+   log c + I1 = -1.0013  vs LLS Thm 1.5 ceiling 1 - 2 log 2 = -0.3863  -> satisfied
+   (if chi(p) were 0-mean right above X, L(1) alone would force c <= e/4 = 0.6796)
+phase at t=0: G(0) = 1.14731 > 0  => rho(0) = -G/M = -1: zero clusters at t = +-pi/L, +-3pi/L, ... (L = log X ~ 2 loglog q)
+   cluster size  = log q / L          = (1/2) log q/loglog q   [= Goldston-Gonek multiplicity ceiling]
+   S(t) sawtooth = +-(1/2) cluster    = (1/4) log q/loglog q   [= Carneiro-Chandee-Milinovich ceiling]
+   lowest zero   = pi/L               = (pi/2)/loglog q,  gap = pi/loglog q  [= known gap ceiling]
+   |L(1/2+it)| between clusters ~ 2^(log q/L) = exp((log2/2) log q/loglog q)  [= Chandee-Soundararajan ceiling]

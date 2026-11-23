@@ -1,0 +1,7 @@
+beta=2.0325 c=1.252 D=22: SOCP 1.1463286 ; re-evaluated J = 1.1463286 (N=1.146329 I=1.000000)  c_inf = 0.760995
+beta=2 c=2 D=32: SOCP 1.1465043 ; re-evaluated J = 1.1465042 (N=1.146504 I=1.000000)  c_inf = 0.760762
+beta=3 c=2 D=40: SOCP 1.1465107 ; re-evaluated J = 1.1465106 (N=1.146511 I=1.000000)  c_inf = 0.760753
+beta=4 c=3.2 D=60: SOCP 1.1465116 ; re-evaluated J = 1.1465113 (N=1.146511 I=1.000000)  c_inf = 0.760752
+dual SOCP (inside_dual_socp.py V m Tmax nt):
+V=5 m=1000: SOCP value 1.1465202 ; fine-grid sup 1.1465202 at t=0.000 ; c>= 0.760741
+V=8 m=1600: SOCP value 1.1465130 ; fine-grid sup 1.1465129 at t=0.077 ; c>= 0.760750
