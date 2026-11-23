@@ -17,58 +17,40 @@ the designs, referee reports and literature checks are in `research/`.
 
 ## Results
 
+Lean statements are given without proofs. The GRH form lives in namespace `DetPrimality` (file
+`lean/DetPrimality/EndToEnd.lean` unless noted) and takes `hGRH : DirichletLZerosOnLine`; the unconditional
+form in `grh-bridge/GRHBridge.lean` is the same statement with no hypothesis. Shorthand used below:
+
+```lean
+-- every non-principal character mod n is ≠ 1 somewhere below c (ln n)²
+def Bach.R11Bound (c : ℝ) (n : ℕ) : Prop :=
+  ∀ χ : DirichletCharacter ℂ n, χ ≠ 1 →
+    ∃ a : ℕ, 1 ≤ a ∧ (a : ℝ) < c * Real.log n ^ 2 ∧ χ (a : ZMod n) ≠ 1
+```
+
 ### Known mathematics, now machine-checked
 
-1. **Deterministic Miller–Rabin with constant 1.** `millerDet 1 n` tests every base
-   `2 ≤ a < ⌈0.480454·(log₂ n + 1)²⌉` (about `(ln n)²` bases) and returns `true` exactly when `n` is
-   prime, for every `n`. This is the constant of [LLS15, Thm 1.1]; Bach [Bac90] has 2, Miller's original
-   test [Mil76] an unspecified O(log² n).
-   `millerDet_correct_of_GRH` (bridge: `millerDet_correct`).
-2. **Deterministic Tonelli–Shanks with constant 1.** `sqrtModDet 1 p n` searches for a quadratic
-   non-residue below about `(ln p)²` and returns a square root of `n` mod the odd prime `p` exactly when
-   one exists ([LLS15, Cor 1.1]; Tonelli–Shanks [Sha73]). `sqrtModDet_correct_of_GRH`, `sqrtModDet_isSome_iff_of_GRH`.
-3. **[LLS15, Theorem 1.1(2)].** For every `n ≥ 3000`, every character `χ ≠ 1` mod `n` has `χ(a) ≠ 1`
-   for some `1 ≤ a ≤ (ln n)²`. `bachBoundComposite_one_ge_3000_of_GRH`, `Bach.llsPrime_bachBound_one_all_of_GRH`.
-4. **Strong liars lie in a subgroup of index ≥ 4** for every odd composite `n ≠ 9` (the structure
-   behind the ¼ bound of Monier [Mon80] and Rabin [Rab80]). `Miller.liar4_exists_subgroup` (unconditional).
+| # | Result | Lean statement | Unconditional |
+|---|---|---|---|
+| 1 | Deterministic Miller–Rabin with about `(ln n)²` bases (constant 1 [LLS15, Thm 1.1]; Bach [Bac90] has 2, Miller [Mil76] an unspecified O(log² n)) | `theorem millerDet_correct_of_GRH (hGRH : DirichletLZerosOnLine) (n : ℕ) : Miller.millerDet 1 n = true ↔ n.Prime` | `millerDet_correct` |
+| 2 | Deterministic Tonelli–Shanks [Sha73] with a non-residue search below about `(ln p)²` [LLS15, Cor 1.1] | `theorem sqrtModDet_correct_of_GRH (hGRH : DirichletLZerosOnLine) (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) (n : ℕ) : IsSquare (n : ZMod p) → ∃ r, TonelliShanks.sqrtModDet 1 p n = some r ∧ (r : ZMod p) ^ 2 = n` | `sqrtModDet_correct` |
+| 3 | [LLS15, Thm 1.1(2)]: for `n ≥ 3000` every χ ≠ 1 mod n is ≠ 1 at some `a ≤ (ln n)²` (`Bach/LLSPrime.lean`) | `theorem Bach.llsPrime_bachBound_one_all_of_GRH (hGRH : DirichletLZerosOnLine) : ∀ n : ℕ, 3000 ≤ n → ∀ χ : DirichletCharacter ℂ n, χ ≠ 1 → ∃ a : ℕ, 1 ≤ a ∧ (a : ℝ) < Real.log n ^ 2 ∧ χ (a : ZMod n) ≠ 1` | — |
+| 4 | Strong liars lie in a subgroup of index ≥ 4 for odd composite `n ≠ 9` (structure behind the ¼ bound [Mon80, Rab80]; `Miller/LiarIndex.lean`, no GRH) | `theorem Miller.liar4_exists_subgroup {n : ℕ} (hn : 2 < n) (hodd : n % 2 = 1) (hnp : ¬ n.Prime) (h9 : n ≠ 9) : ∃ H : Subgroup (ZMod n)ˣ, 4 ≤ H.index ∧ ∀ x, IsStrongLiar n x → x ∈ H` | (no GRH needed) |
 
 ### New results
 
-Least Miller–Rabin witness:
+| # | Result | Lean statement | Unconditional |
+|---|---|---|---|
+| 5 | **Miller–Rabin, explicit constant below 1**: constant 0.7 for `n ≥ 10¹¹` (also 0.66 for `n ≥ 10¹²`, 0.65 for `n ≥ 10¹³`; subgroup table `subgroupBound_table_of_GRH`). Bach [Bac90] gives 2; nothing published gives below 1 for all large `n` (`research/barrier/miller4.md`) | `theorem millerDet_correct_of_GRH_70 (hGRH : DirichletLZerosOnLine) (n : ℕ) (hn : (10 : ℝ) ^ 11 ≤ n) : Miller.millerDet (7 / 10) n = true ↔ n.Prime` | `millerDet_70_correct` |
+| 5′ | Combined test (constant 1 below `10¹¹`, `7/10` above), correct for all `n` | `theorem millerDetBest_correct_of_GRH (hGRH : DirichletLZerosOnLine) (n : ℕ) : millerDetBest n = true ↔ n.Prime` | `millerDetBest_correct` |
+| 6 | **Miller–Rabin, asymptotic**: every `c > 0.6417` for all large `n`, for any subgroup of index ≥ 4 ([Bac90] states `1 + o(1)`; [LLS15, Thm 1.2]'s index-≥ 4 constant 0.66 was never applied to Miller) | `theorem subgroupBound_eventually_of_GRH (hGRH : DirichletLZerosOnLine) : ∀ c : ℝ, 0.6417 < c → ∃ N₀ : ℕ, ∀ n : ℕ, N₀ ≤ n → ∀ H : Subgroup (ZMod n)ˣ, 4 ≤ H.index → ∃ a : ℕ, 1 ≤ a ∧ (a : ℝ) < c * Real.log n ^ 2 ∧ (¬ IsUnit (a : ZMod n) ∨ ∃ u : (ZMod n)ˣ, (u : ZMod n) = a ∧ u ∉ H)` | `subgroupBound_eventually` |
+| 7 | **Single character, explicit uniform constant below 1**: c = 0.95, 0.9, 0.85, 0.8, 0.78 for n ≥ 10⁹, 10¹⁰, 10¹¹, 10¹³, 10¹⁴ (previous best for all large n: 1 [LLS15, Thm 1.1]; [Bac90, Table 1] dips below 1 only on finite ranges) | `theorem charBound_table_of_GRH (hGRH : DirichletLZerosOnLine) : (∀ n : ℕ, (10 : ℝ) ^ 9 ≤ n → Bach.R11Bound 0.95 n) ∧ (∀ n : ℕ, (10 : ℝ) ^ 10 ≤ n → Bach.R11Bound 0.9 n) ∧ (∀ n : ℕ, (10 : ℝ) ^ 11 ≤ n → Bach.R11Bound 0.85 n) ∧ (∀ n : ℕ, (10 : ℝ) ^ 13 ≤ n → Bach.R11Bound 0.8 n) ∧ (∀ n : ℕ, (10 : ℝ) ^ 14 ≤ n → Bach.R11Bound 0.78 n)` | `charBound_table` |
+| 8 | Single character: every `c > 0.7772` eventually, kernel `6/(s+1)⁴` with an exact zero-sum identity (`research/below-one/designB.md`) | `theorem charBound_eventually_of_GRH (hGRH : DirichletLZerosOnLine) : ∀ c : ℝ, 0.7772 < c → ∃ N₀ : ℕ, ∀ n : ℕ, N₀ ≤ n → Bach.R11Bound c n` | `charBound_eventually` |
+| 9 | **Single character, asymptotic record**: every `c > 0.760753` eventually, improving 0.7615 [CMQR24, Thm 1] (LLS's own constant: 0.794 [LLS15, Thm 1.2]); exact-modulus kernels with three sign changes (`research/barrier/formal0760.md`) | `theorem charBound_record_tight_of_GRH (hGRH : DirichletLZerosOnLine) : ∀ c : ℝ, 0.760753 < c → ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Bach.R11Bound c n` | `charBound_record_tight` |
+| 10 | **Framework limit**: the extremal problem (EP1) of [CMQR24] has `C(1) ≤ 1.146514`, so the method cannot prove any constant below 0.760748 (their stated barrier [CMQR24, Thm 2]: 0.7596). With 9: the limit is in `[0.760748, 0.760753]` (`Barrier/dual2_Main.lean`, no GRH) | `theorem Barrier.dual2_EP1_le {F : ℝ → ℂ} (hF : Integrable F) (hreal : ∀ t, (𝓕 F t).im = 0) (hint : IntegrableOn (fun t => (𝓕 F t).re * Real.exp (π * t)) (Ioi 0)) : 2 * π * ((∫ t in Iic 0, (𝓕 F t).re * Real.exp (π * t)) - ∫ t in Ioi 0, \|(𝓕 F t).re\| * Real.exp (π * t)) ≤ 1.146514 * ∫ x, ‖F x‖`  and  `theorem Barrier.dual2_barrier : (0.760748 : ℝ) ≤ ((1.146514 : ℝ) ^ 2)⁻¹` | (no GRH needed) |
+| 11 | **Nehari barrier** (after [Neh57]): kernels with all support in the counted range give `c ≥ 1` (`Barrier/Nehari.lean`, no GRH) | `theorem neh_barrier {φ : ℝ → ℂ} (hc : Continuous φ) (hφ : Integrable φ) (hs : ∀ v, 0 < v → φ v = 0) (hL : Integrable fun t : ℝ => neh_K φ (t * I)) (hK : neh_K φ (1 / 2) ≠ 0) : 1 ≤ ((1 / (2 * π) * ∫ t : ℝ, ‖neh_K φ (t * I)‖) / ‖neh_K φ (1 / 2)‖) ^ 2` | (no GRH needed) |
 
-5. **Explicit constant below 1.** `millerDet (7/10) n` is correct for every `n ≥ 10¹¹`, with further
-   rows 0.75 and 0.72 (`n ≥ 10¹⁰`), 0.68 (`n ≥ 10¹¹`), 0.66 (`n ≥ 10¹²`), 0.65 (`n ≥ 10¹³`)
-   (`research/barrier/miller4.md`).
-   `millerDetBest` (constant 1 below `10¹¹`, `7/10` above) is correct for all `n`. Nothing published
-   gives a Miller–Rabin constant below 1 for all large `n`.
-   `millerDet_correct_of_GRH_70`, `_66`, `_65`, `millerDetBest_correct_of_GRH`, `subgroupBound_table_of_GRH`
-   (bridge: `millerDet_70_correct`, `millerDetBest_correct`).
-6. **Asymptotic.** Every `c > 0.6417` works for all large `n` (index ≥ 4, averaging over the four
-   characters; [Bac90] states `1 + o(1)`, and the index-≥ 4 constant 0.66 of [LLS15, Thm 1.2] was never
-   applied to Miller).
-   `subgroupBound_eventually_of_GRH` (bridge: `subgroupBound_eventually`).
-
-Least `n` with `χ(n) ≠ 1` for a single non-principal character (worst case: least quadratic non-residue):
-
-7. **Explicit uniform constant below 1.** `c = 0.95, 0.9, 0.85, 0.8, 0.78` for all `n ≥ 10⁹, 10¹⁰,
-   10¹¹, 10¹³, 10¹⁴`. The best published explicit constant valid for all large `n` was 1 [LLS15, Thm 1.1];
-   the tables of [Bac90, Table 1] dip below 1 only on finite ranges (`research/barrier/bach_check.md`). `charBound_table_of_GRH` (bridge: `charBound_table`).
-8. **Every `c > 0.7772` eventually**, from the kernel `6/(s+1)⁴`, whose sum over zeros is an exact
-   identity (`research/below-one/designB.md`). `charBound_eventually_of_GRH`.
-9. **Asymptotic record.** Every `c > 0.760753` works for all large `n`, improving 0.7615 of
-   [CMQR24, Thm 1]; the asymptotic constant of [LLS15, Thm 1.2] is 0.794. Exact-modulus kernels
-   `K = Q((s−1)²)·H₀(s)²` with three exact sign changes (`research/barrier/formal0760.md`).
-   `charBound_record_tight_of_GRH` (bridge: `charBound_record_tight`); earlier steps `charBound_record_of_GRH`
-   (0.7612), `charBound_record076_of_GRH` (0.76076).
-
-Limits of the method:
-
-10. **Framework limit.** The extremal problem (EP1) of [CMQR24] satisfies `C(1) ≤ 1.146514`, so their framework cannot
-    prove any constant below **0.760748** (their stated barrier [CMQR24, Thm 2]: 0.7596). Together with result 9, the
-    method's true limit lies in `[0.760748, 0.760753]`. `Barrier.dual2_EP1_le`, `Barrier.dual2_barrier`
-    (no GRH needed: a statement about the extremal problem).
-11. **Nehari barrier** (after Nehari's theorem on Hankel forms [Neh57]). One-sided kernels whose support lies entirely in the counted range satisfy
-    `K(½) ≤ (1/2π)∫|K(it)| dt`, so they can never give `c < 1`. `neh_nehari_line`, `neh_barrier`.
+Here `neh_K φ s = ∫ v, φ v * exp (s * v)` and `𝓕` is Mathlib's Fourier transform.
 
 ### Informal only (not formalized)
 
