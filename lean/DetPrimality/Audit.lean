@@ -125,3 +125,14 @@ open DetPrimality
 #print axioms DetPrimality.sqrtModDet_correct_of_GRH
 #print axioms DetPrimality.sqrtModDet_isSome_iff_of_GRH
 #print axioms DetPrimality.sqrtModDet_correct_of_GRH_8
+
+-- Rounds 11–12: explicit constants below 1 (designB; index ≥ 4 for Miller)
+#print axioms DetPrimality.r11_inputs
+#print axioms DetPrimality.charBound_table_of_GRH
+#print axioms DetPrimality.charBound_eventually_of_GRH
+#print axioms DetPrimality.subgroupBound_table_of_GRH
+#print axioms DetPrimality.subgroupBound_eventually_of_GRH
+#print axioms DetPrimality.millerDet_correct_of_GRH_70
+#print axioms DetPrimality.millerDet_correct_of_GRH_65
+#print axioms DetPrimality.millerDetBest_correct_of_GRH
+#print axioms DetPrimality.Miller.liar4_exists_subgroup

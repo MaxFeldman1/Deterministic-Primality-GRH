@@ -481,3 +481,18 @@ axioms standard; leanchecker rc=0 on LLSPrime, LLSSqrt, EndToEnd.
   imports it (same four definitions, same text), so both projects load into one environment.
 * `grh-bridge/GRHBridge.lean` (build: `bin/check_bridge.sh`): `millerDet_correct`, `millerDetBits_correct`,
   `sqrtModDet_correct`, `sqrtModDet_isSome_iff` with no hypotheses; axioms `[propext, Classical.choice, Quot.sound]`.
+
+## Rounds 11–12 (2026-11-23): explicit constants below 1 (research/below-one, research/barrier)
+designB (kernel 6/(s+1)⁴, x = 3X; refereed in refereeB.md) and Theorem M4 (index ≥ 4, λ = 1/4), all inputs
+proved: `Bach.r11Zs_zeta`, `Bach.r11Zx_main_of_zetaZ`, `Bach.r11Chi_main'`, `Bach.r11Zs_gain`
+(`DetPrimality.r11_inputs`), `Miller.liar4_exists_subgroup` (strong liars ⊆ subgroup of index ≥ 4, n ≠ 9).
+Under GRH (`EndToEnd.lean`), unconditional via `grh-bridge/GRHBridge.lean`:
+* `charBound_table_of_GRH`: every χ ≠ 1 mod n has χ(a) ≠ 1 for some a < c log² n:
+  (0.95, 10⁹), (0.9, 10¹⁰), (0.85, 10¹¹), (0.8, 10¹³), (0.78, 10¹⁴); `charBound_eventually_of_GRH`: every c > 0.7772.
+* `subgroupBound_table_of_GRH` (index ≥ 4): (0.75, 10¹⁰) … (0.70, 10¹¹), (0.66, 10¹²), (0.65, 10¹³);
+  `subgroupBound_eventually_of_GRH`: every c > 0.6417.
+* `millerDet_correct_of_GRH_70` (`millerDet (7/10)` for n ≥ 10¹¹), `_66` (n ≥ 10¹²), `_65` (n ≥ 10¹³);
+  `millerDetBest_correct_of_GRH` (constant 1 below 10¹¹, 7/10 above) for all n.
+Verification: full build 8807 jobs; axioms standard for all (and for the bridge versions); leanchecker
+rc=0 on all 32 new modules (two stale uncompiled copies on the box removed). The research-only constant
+c∞ < 0.76077 (research/barrier/inside.md) is not formalized.

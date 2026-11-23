@@ -8,6 +8,13 @@ import DetPrimality.Miller.Basic
 import DetPrimality.Miller.Composite
 import DetPrimality.Miller.LLSMiller
 import DetPrimality.TonelliShanks.LLSSqrt
+import DetPrimality.Bach.R11Asm
+import DetPrimality.Bach.R11ZeroSum
+import DetPrimality.Bach.R11ZetaX
+import DetPrimality.Bach.R11ChiMain
+import DetPrimality.Bach.R12M4
+import DetPrimality.Miller.R12Miller
+import DetPrimality.Miller.LiarIndex
 import DetPrimality.Bach.LLSZetaLower
 import DetPrimality.Bach.LLSGain
 import DetPrimality.TonelliShanks.Basic
@@ -196,5 +203,83 @@ theorem sqrtModDet_isSome_iff_of_GRH_1024 (hGRH : DirichletLZerosOnLine) (p : �
     (hp : p ≠ 2) (n : ℕ) :
     (TonelliShanks.sqrtModDet 1024 p n).isSome ↔ IsSquare (n : ZMod p) :=
   TonelliShanks.sqrtModDet_isSome_iff (bachBound_1024_of_GRH hGRH) (by norm_num) p hp n
+
+
+/-! ### Rounds 11–12: explicit constants below 1 (research/below-one/designB.md, research/barrier/miller4.md) -/
+
+/-- All four designB inputs, discharged under GRH. -/
+theorem r11_inputs (hGRH : DirichletLZerosOnLine) :
+    Bach.R11ZetaZ ∧ Bach.R11ZetaExplicit ∧ Bach.R11ChiExplicit ∧ Bach.R11ZeroSumGain :=
+  ⟨Bach.r11Zs_zeta, Bach.r11Zx_main_of_zetaZ Bach.r11Zs_zeta, Bach.r11Chi_main', Bach.r11Zs_gain⟩
+
+/-- **Explicit `c < 1` for a single character** (designB, Theorem A): under GRH, every `χ ≠ 1` mod `n`
+has `χ a ≠ 1` for some `1 ≤ a < c log² n`, for these `(c, N₀)`. -/
+theorem charBound_table_of_GRH (hGRH : DirichletLZerosOnLine) :
+    (∀ n : ℕ, (10 : ℝ) ^ 9 ≤ n → Bach.R11Bound 0.95 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 10 ≤ n → Bach.R11Bound 0.9 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 11 ≤ n → Bach.R11Bound 0.85 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 13 ≤ n → Bach.R11Bound 0.8 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 14 ≤ n → Bach.R11Bound 0.78 n) := by
+  obtain ⟨hZ, hA, hC, hG⟩ := r11_inputs hGRH
+  obtain ⟨h1, h2, h3, h4⟩ := Bach.r11Asm_table hGRH hZ hA hC hG
+  exact ⟨h1, h2, h3, h4, (Bach.r11Asm_table_low hGRH hZ hA hC hG).2⟩
+
+/-- **Every `c > 0.7772` works eventually** (designB, Theorem B). -/
+theorem charBound_eventually_of_GRH (hGRH : DirichletLZerosOnLine) :
+    ∀ c : ℝ, 0.7772 < c → ∃ N₀ : ℕ, ∀ n : ℕ, N₀ ≤ n → Bach.R11Bound c n := by
+  obtain ⟨hZ, hA, hC, hG⟩ := r11_inputs hGRH
+  exact Bach.r11Asm_eventually hGRH hZ hA hC hG
+
+/-- **Subgroups of index ≥ 4** (Theorem M4): explicit table. -/
+theorem subgroupBound_table_of_GRH (hGRH : DirichletLZerosOnLine) :
+    (∀ n : ℕ, (10 : ℝ) ^ 10 ≤ n → Bach.R12Bound 0.75 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 10 ≤ n → Bach.R12Bound 0.72 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 11 ≤ n → Bach.R12Bound 0.7 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 11 ≤ n → Bach.R12Bound 0.68 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 12 ≤ n → Bach.R12Bound 0.66 n) ∧
+    (∀ n : ℕ, (10 : ℝ) ^ 13 ≤ n → Bach.R12Bound 0.65 n) := by
+  obtain ⟨hZ, hA, hC, hG⟩ := r11_inputs hGRH
+  exact Bach.r12_subgroup_table hGRH hZ hA hC hG
+
+/-- **Subgroups of index ≥ 4: every `c > 0.6417` works eventually.** -/
+theorem subgroupBound_eventually_of_GRH (hGRH : DirichletLZerosOnLine) :
+    ∀ c : ℝ, 0.6417 < c → ∃ N₀ : ℕ, ∀ n : ℕ, N₀ ≤ n → ∀ H : Subgroup (ZMod n)ˣ, 4 ≤ H.index →
+      ∃ a : ℕ, 1 ≤ a ∧ (a : ℝ) < c * Real.log n ^ 2 ∧
+        (¬ IsUnit (a : ZMod n) ∨ ∃ u : (ZMod n)ˣ, (u : ZMod n) = a ∧ u ∉ H) := by
+  obtain ⟨hZ, hA, hC, hG⟩ := r11_inputs hGRH
+  exact Bach.r12_eventually hGRH hZ hA hC hG
+
+/-- **Deterministic Miller test with constant `7/10`** (bases below about `0.7 (ln n)²`) is correct for
+`n ≥ 10¹¹` under GRH (strong liars lie in a subgroup of index ≥ 4: `Miller.liar4_exists_subgroup`). -/
+theorem millerDet_correct_of_GRH_70 (hGRH : DirichletLZerosOnLine) (n : ℕ) (hn : (10 : ℝ) ^ 11 ≤ n) :
+    Miller.millerDet (7 / 10) n = true ↔ n.Prime := by
+  obtain ⟨hZ, hA, hC, hG⟩ := r11_inputs hGRH
+  exact Miller.r12_millerDet_correct hGRH hZ hA hC hG
+    (fun h1 h2 h3 h4 => Miller.liar4_exists_subgroup h1 h2 h3 h4) n hn
+
+/-- Constant `33/50 = 0.66` for `n ≥ 10¹²`. -/
+theorem millerDet_correct_of_GRH_66 (hGRH : DirichletLZerosOnLine) (n : ℕ) (hn : (10 : ℝ) ^ 12 ≤ n) :
+    Miller.millerDet (33 / 50) n = true ↔ n.Prime := by
+  obtain ⟨hZ, hA, hC, hG⟩ := r11_inputs hGRH
+  exact Miller.r12_millerDet_correct_66 hGRH hZ hA hC hG
+    (fun h1 h2 h3 h4 => Miller.liar4_exists_subgroup h1 h2 h3 h4) n hn
+
+/-- Constant `13/20 = 0.65` for `n ≥ 10¹³`. -/
+theorem millerDet_correct_of_GRH_65 (hGRH : DirichletLZerosOnLine) (n : ℕ) (hn : (10 : ℝ) ^ 13 ≤ n) :
+    Miller.millerDet (13 / 20) n = true ↔ n.Prime := by
+  obtain ⟨hZ, hA, hC, hG⟩ := r11_inputs hGRH
+  exact Miller.r12_millerDet_correct_65 hGRH hZ hA hC hG
+    (fun h1 h2 h3 h4 => Miller.liar4_exists_subgroup h1 h2 h3 h4) n hn
+
+/-- The combined test: constant `1` below `10¹¹`, `7/10` from `10¹¹` on. -/
+def millerDetBest (n : ℕ) : Bool :=
+  if n < 10 ^ 11 then Miller.millerDet 1 n else Miller.millerDet (7 / 10) n
+
+theorem millerDetBest_correct_of_GRH (hGRH : DirichletLZerosOnLine) (n : ℕ) :
+    millerDetBest n = true ↔ n.Prime := by
+  unfold millerDetBest
+  split_ifs with h
+  · exact millerDet_correct_of_GRH hGRH n
+  · exact millerDet_correct_of_GRH_70 hGRH n (by exact_mod_cast Nat.le_of_not_lt h)
 
 end DetPrimality
