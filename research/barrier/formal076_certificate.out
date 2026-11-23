@@ -1,0 +1,17 @@
+design B: m = 14 (K has a pole of order 28 at s = 0; weights sqrt(n) log^j(x/n), 3 <= j <= 27), ell = 11/8, x = e^ell X
+  L1 = 2/5,  Z = 97.619704415250 (rational, digits num/den = (45, 43))   [zero of K at s = 1 +- sqrt(Z)]
+  (a) W(L) = L^3 (L - L1) Wt(L), deg Wt = 23; Sturm: Wt has no root in [0, ell], Wt(0) = 8.023e+07 > 0  (largest integer in the Sturm chain: 10^26354)
+      Bernstein certificate: all 24 Bernstein coefficients > 0 on each of 1 cell(s): [0,11/8]
+      (min coefficient / max coefficient per cell: 3.7e-01)
+  (b) |K(1+it)| = G(t) = sum_{k<=14} e_k Re(1+it)^-k : polynomial identity of degree 28 in s verified exactly; G >= 0 structurally
+  (c) Ihat = e_1/2 = 461906597.594 (exact rational);   Nhat in [266221791.997, 266221791.997]
+  RESULT: c* = e^{-ell} (Ihat/Nhat)^2 in [0.761142923, 0.761142923];   J = Nhat e^{ell/2}/Ihat >= 1.14621713
+  sizes: after clearing denominators the 25 coefficients kappa_n are integers with <= 60 digits; e_k: <= (59, 50) digits (num/den)
+design A: m = 15 (K has a pole of order 30 at s = 0; weights sqrt(n) log^j(x/n), 3 <= j <= 29), ell = 11/10, x = e^ell X
+  (a) W(L) = L^3 Wt(L), deg Wt = 26; Sturm: Wt has no root in [0, ell], Wt(0) = 1.417e+05 > 0  (largest integer in the Sturm chain: 10^7265)
+      Bernstein certificate: all 27 Bernstein coefficients > 0 on each of 1 cell(s): [0,11/10]
+      (min coefficient / max coefficient per cell: 6.2e-01)
+  (b) |K(1+it)| = G(t) = sum_{k<=15} e_k Re(1+it)^-k : polynomial identity of degree 30 in s verified exactly; G >= 0 structurally
+  (c) Ihat = e_1/2 = 345809.770362 (exact rational);   Nhat in [228647.84628, 228647.84628]
+  RESULT: c* = e^{-ell} (Ihat/Nhat)^2 in [0.761406112, 0.761406112];   J = Nhat e^{ell/2}/Ihat >= 1.14601901
+  sizes: after clearing denominators the 27 coefficients kappa_n are integers with <= 15 digits; e_k: <= (15, 7) digits (num/den)

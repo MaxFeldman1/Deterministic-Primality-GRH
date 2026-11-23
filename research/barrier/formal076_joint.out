@@ -1,0 +1,17 @@
+  N = lin2@qv - 2*(wv2@np.maximum(B2@qv,0))
+  N = lin2@qv - 2*(wv2@np.maximum(B2@qv,0))
+  N = lin2@qv - 2*(wv2@np.maximum(B2@qv,0))
+phi family beta=2 c=2 D=32 (unrestricted optimum c_inf = 0.760762 for this family; 0.76075 overall)
+ a_j=[1]                    K<= 4 (  4 terms): c* = 0.765501   [phi alone: 0.763486; loss int G/int|K| - 1 = 1.32e-03; grid violation -5.6e-08]
+ a_j=[1]                    K<= 8 (  8 terms): c* = 0.761810   [phi alone: 0.761781; loss int G/int|K| - 1 = 1.90e-05; grid violation -3.9e-08]
+ a_j=[1]                    K<=12 ( 12 terms): c* = 0.761120   [phi alone: 0.761111; loss int G/int|K| - 1 = 6.17e-06; grid violation -1.4e-07]
+ a_j=[1]                    K<=16 ( 16 terms): c* = 0.761050   [phi alone: 0.761020; loss int G/int|K| - 1 = 2.01e-05; grid violation -2.9e-07]
+ a_j=[1]                    K<=24 ( 24 terms): c* = 0.761046   [phi alone: 0.761011; loss int G/int|K| - 1 = 2.27e-05; grid violation -1.2e-06]
+ a_j=[2]                    K<= 8 (  8 terms): c* = 0.761463   [phi alone: 0.761414; loss int G/int|K| - 1 = 3.26e-05; grid violation -1.1e-06]
+ a_j=[2]                    K<=16 ( 16 terms): c* = 0.760813   [phi alone: 0.760809; loss int G/int|K| - 1 = 3.13e-06; grid violation -7.1e-07]
+ a_j=[2]                    K<=24 ( 24 terms): c* = 0.760808   [phi alone: 0.760800; loss int G/int|K| - 1 = 5.20e-06; grid violation -4.9e-07]
+ a_j=[1, 2]                 K<= 8 ( 16 terms): c* = 0.760870   [phi alone: 0.760860; loss int G/int|K| - 1 = 6.38e-06; grid violation -4.5e-07]
+ a_j=[1, 2]                 K<=12 ( 24 terms): c* = 0.760820   [phi alone: 0.760812; loss int G/int|K| - 1 = 4.86e-06; grid violation -2.5e-07]
+ a_j=[0.75, 1, 1.5, 2, 3]   K<= 6 ( 30 terms): c* = 0.760822   [phi alone: 0.760812; loss int G/int|K| - 1 = 7.04e-06; grid violation -1.0e-06]
+ a_j=[0.75, 1, 1.5, 2, 3, 4, 6] K<= 8 ( 56 terms): c* = 0.760792   [phi alone: 0.760777; loss int G/int|K| - 1 = 1.03e-05; grid violation -2.1e-07]
+ a_j=[1, 2, 4]              K<=12 ( 36 terms): c* = 0.760812   [phi alone: 0.760785; loss int G/int|K| - 1 = 1.77e-05; grid violation -7.1e-07]

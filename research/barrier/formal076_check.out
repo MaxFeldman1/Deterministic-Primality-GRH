@@ -1,0 +1,19 @@
+(3) designB kernel 6/s^4, ell = log 3: c* = 0.77713391  (designB.md: 0.77684)
+design B: (1) quadrature: Nhat = 266221791.9973, Ihat = 461906597.59377, c* = 0.7611429226   | certificate: N_lo = 266221791.9973, Ihat = 461906597.59377, c* <= 0.761142923
+          (2) max relative |G - |K|| at 7 sample points: 5.56e-12
+          (4) e^{3ell/2} <= 7.865609274, e^{ell} >= 3.955076722, e^{3 L1/2} >= 1.822118800
+          rough explicit threshold (leading terms only: (J sqrt c - 1) L >= e1 e^{ell/4} c^{1/4} sqrt L, e1 = 0.1741; O(1) terms ignored):
+             c = 0.7615: log n >~ 9.561e+5  (n >~ 10^4.152e+5)
+             c = 0.7620: log n >~ 1.661e+5  (n >~ 10^7.212e+4)
+             c = 0.7650: log n >~ 8232.0  (n >~ 10^3575.0)
+             c = 0.7700: log n >~ 1571.0  (n >~ 10^682.4)
+             c = 0.7750: log n >~ 646.1  (n >~ 10^280.6)
+design A: (1) quadrature: Nhat = 228647.84628039, Ihat = 345809.77036209, c* = 0.7614061125   | certificate: N_lo = 228647.84628039, Ihat = 345809.77036209, c* <= 0.761406112
+          (2) max relative |G - |K|| at 7 sample points: 9.63e-13
+          (4) e^{3ell/2} <= 5.206979828, e^{ell} >= 3.004166023
+          rough explicit threshold (leading terms only: (J sqrt c - 1) L >= e1 e^{ell/4} c^{1/4} sqrt L, e1 = 0.1867; O(1) terms ignored):
+             c = 0.7615: log n >~ 1.387e+7  (n >~ 10^6.024e+6)
+             c = 0.7620: log n >~ 3.469e+5  (n >~ 10^1.506e+5)
+             c = 0.7650: log n >~ 9509.0  (n >~ 10^4130.0)
+             c = 0.7700: log n >~ 1674.0  (n >~ 10^727.0)
+             c = 0.7750: log n >~ 673.3  (n >~ 10^292.4)
