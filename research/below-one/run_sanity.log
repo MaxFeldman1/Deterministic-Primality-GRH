@@ -1,0 +1,16 @@
+(1) x=30.5: sum Lambda(n) f(n/x) = 5.96647703225   Hadamard-form RHS (800 zero pairs) = 5.96326382988   diff = 0.003213   (expected truncation error ~ 0.00344)
+(1) x=200.3: sum Lambda(n) f(n/x) = 48.2619330891   Hadamard-form RHS (800 zero pairs) = 48.2586457644   diff = 0.003287   (expected truncation error ~ 0.00375)
+(2) riesz4 t=0: |W| direct=0.8126984127 formula=0.8126984127 sqrt(NN/DD)=0.8126984127
+(2) riesz4 t=0.7: |W| direct=0.399393564 formula=0.399393564 sqrt(NN/DD)=0.399393564
+(2) riesz4 t=3.3: |W| direct=0.0178494391 formula=0.0178494391 sqrt(NN/DD)=0.0178494391
+(2) riesz4 t=11: |W| direct=0.0001268586751 formula=0.0001268586751 sqrt(NN/DD)=0.0001268586751
+(2) opt8 t=0: |W| direct=0.672066255 formula=0.672066255 sqrt(NN/DD)=0.672066255
+(2) opt8 t=0.7: |W| direct=0.300964383 formula=0.300964383 sqrt(NN/DD)=0.300964383
+(2) opt8 t=3.3: |W| direct=0.009549684404 formula=0.009549684404 sqrt(NN/DD)=0.009549684404
+(2) opt8 t=11: |W| direct=0.0001252387349 formula=0.0001252387349 sqrt(NN/DD)=0.0001252387349
+(3) w=0.625: sum over 800 zero pairs = 0.027815169  Re xi'/xi(1/2+w) = 0.028863118  (tail ~ 0.00119)
+(3) w=1.0: sum over 800 zero pairs = 0.044459209  Re xi'/xi(1/2+w) = 0.046135928  (tail ~ 0.0019)
+(4) sum_rho 1/|rho|^2 = 2+gamma-log(4pi) = 0.0461914179322  partial sum: 0.044514699
+    Re xi'/xi(2) (zeta) = 0.06906623153   sum_rho 1/rho =  0.0230957089661   Z(2)-1 = -0.4300390069
+
+[exited with code 0]

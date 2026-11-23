@@ -1,0 +1,110 @@
+== zeta, 400 zeros ==
+   F0 = 1.50523535579  F1 = 3.85496291568
+   Z2: formula 0.04613592806   zeros+tail 0.04613849425
+   Z4: formula 7.377245548e-5   zeros+tail 7.377246105e-5
+   g_zeta^(k)(-1/2) = ['-1.735826121', '0.1450370843', '-1.255862104', '0.05045089383']
+   Lemma 2 j=1 y=20.5: direct 36.3840128723  formula 36.3838243935  |diff| 0.000188 (tail allowance 0.0546)
+   Lemma 2 j=2 y=20.5: direct 38.77211704371  formula 38.7721172636  |diff| 2.2e-7 (tail allowance 8.03e-5)
+   Lemma 2 j=3 y=20.5: direct 54.79776990463  formula 54.79776990709  |diff| 2.46e-9 (tail allowance 2.36e-7)
+   Lemma 2 j=1 y=300.5: direct 2309.280182701  formula 2309.278082996  |diff| 0.0021 (tail allowance 0.8)
+   Lemma 2 j=2 y=300.5: direct 3030.508597846  formula 3030.508607424  |diff| 9.58e-6 (tail allowance 0.00118)
+   Lemma 2 j=3 y=300.5: direct 5844.058221  formula 5844.058221032  |diff| 3.15e-8 (tail allowance 3.46e-6)
+   Lemma 2 j=1 y=3000.5: direct 73083.10704696  formula 73083.33365683  |diff| 0.227 (tail allowance 7.99)
+   Lemma 2 j=2 y=3000.5: direct 97286.31293359  formula 97286.31322161  |diff| 0.000288 (tail allowance 0.0117)
+   Lemma 2 j=3 y=3000.5: direct 193900.2996283  formula 193900.2996273  |diff| 1.03e-6 (tail allowance 3.46e-5)
+== mod3 k=1 (q=3, parity 1) ==
+   zeros found in |gamma|<80: 68   (Riemann-von Mangoldt main term 67.3)
+   (4.1)  S4 from zeros (+tail est 8.24e-7) = 0.000674002441892   identity RHS = 0.000673991427494   diff = 1.1e-8
+   Dirichlet series: via Hurwitz -0.4374658368, partial sum n<20000: -0.43728551 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 4.14e-25 ; values ['(-2.0240658 + 0.0j)', '(4.1879605 + 0.0j)', '(-16.169945 + 0.0j)', '(96.177536 + 0.0j)']
+   Lemma 3 y=7.5: direct (-2.15742748406 + 0.0j)   formula (-2.15742888839 + 3.40895079183e-21j)   |diff| = 1.4e-6 (zero-tail allowance 3.71e-5)
+   Lemma 3 y=60.5: direct (-43.3648690999 + 0.0j)   formula (-43.3649026084 + 9.71632654915e-20j)   |diff| = 3.35e-5 (zero-tail allowance 0.000299)
+   Lemma 3 y=400.5: direct (-183.798093105 + 0.0j)   formula (-183.798250419 - 1.21715452375e-19j)   |diff| = 0.000157 (zero-tail allowance 0.00198)
+== mod4 (q=4, parity 1) ==
+   zeros found in |gamma|<80: 74   (Riemann-von Mangoldt main term 74.6)
+   (4.1)  S4 from zeros (+tail est 8.84e-7) = 0.00177240008453   identity RHS = 0.00177242175058   diff = -2.17e-8
+   Dirichlet series: via Hurwitz -0.2958216612, partial sum n<20000: -0.29561178 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 4.14e-25 ; values ['(-1.8387294 + 0.0j)', '(4.148662 + 0.0j)', '(-16.176274 + 0.0j)', '(96.182602 + 0.0j)']
+   Lemma 3 y=7.5: direct (-1.22567486113 + 0.0j)   formula (-1.22566991752 + 1.10981077716e-22j)   |diff| = 4.94e-6 (zero-tail allowance 3.98e-5)
+   Lemma 3 y=60.5: direct (-33.232305089 + 0.0j)   formula (-33.2323795806 + 2.12985228385e-21j)   |diff| = 7.45e-5 (zero-tail allowance 0.000321)
+   Lemma 3 y=400.5: direct (-150.110226524 + 0.0j)   formula (-150.11054968 - 1.66096421886e-20j)   |diff| = 0.000323 (zero-tail allowance 0.00212)
+== mod5 k=1 (q=5, parity 1) ==
+   zeros found in |gamma|<80: 80   (Riemann-von Mangoldt main term 80.3)
+   (4.1)  S4 from zeros (+tail est 9.3e-7) = 0.00424094659732   identity RHS = 0.00424095997972   diff = -1.34e-8
+   Dirichlet series: via Hurwitz -0.189186962, partial sum n<20000: -0.18911797 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 4.14e-25 ; values ['(-1.6814437 + 0.081646015j)', '(4.1078852 + 0.016912557j)', '(-16.189887 - 0.012189794j)', '(96.190643 - 0.012443926j)']
+   Lemma 3 y=7.5: direct (-0.344347183233 + 0.801383777466j)   formula (-0.344347897092 + 0.801382175114j)   |diff| = 1.75e-6 (zero-tail allowance 4.18e-5)
+   Lemma 3 y=60.5: direct (-24.8230897186 + 5.34655065193j)   formula (-24.823149987 + 5.3465780081j)   |diff| = 6.62e-5 (zero-tail allowance 0.000338)
+   Lemma 3 y=400.5: direct (-127.270374574 + 22.7691580201j)   formula (-127.270787801 + 22.7690734437j)   |diff| = 0.000422 (zero-tail allowance 0.00223)
+== mod5 k=2 (q=5, parity 0) ==
+   zeros found in |gamma|<80: 80   (Riemann-von Mangoldt main term 80.3)
+   (4.1)  S4 from zeros (+tail est 9.3e-7) = 0.00138456221511   identity RHS = 0.00138456428388   diff = -2.07e-9
+   Dirichlet series: via Hurwitz -0.9488154671, partial sum n<20000: -0.94875965 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 2.07e-25 ; values ['(1.844928 + 0.0j)', '(4.4827346 + 0.0j)', '(15.329061 + 0.0j)', '(97.242351 + 0.0j)']
+   Lemma 3 y=7.5: direct (-3.38479311492 + 0.0j)   formula (-3.38478822829 - 5.13943688396e-23j)   |diff| = 4.89e-6 (zero-tail allowance 4.18e-5)
+   Lemma 3 y=60.5: direct (-106.636973024 + 0.0j)   formula (-106.637013987 + 7.21481998192e-22j)   |diff| = 4.1e-5 (zero-tail allowance 0.000338)
+   Lemma 3 y=400.5: direct (-665.436067812 + 0.0j)   formula (-665.43583391 - 1.00179097773e-20j)   |diff| = 0.000234 (zero-tail allowance 0.00223)
+== mod5 k=3 (q=5, parity 1) ==
+   zeros found in |gamma|<80: 80   (Riemann-von Mangoldt main term 80.3)
+   (4.1)  S4 from zeros (+tail est 9.3e-7) = 0.00424094659732   identity RHS = 0.00424095997972   diff = -1.34e-8
+   Dirichlet series: via Hurwitz -0.189186962, partial sum n<20000: -0.18911797 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 4.14e-25 ; values ['(-1.6814437 - 0.081646015j)', '(4.1078852 - 0.016912557j)', '(-16.189887 + 0.012189794j)', '(96.190643 + 0.012443926j)']
+   Lemma 3 y=7.5: direct (-0.344347183233 - 0.801383777466j)   formula (-0.344347897092 - 0.801382175114j)   |diff| = 1.75e-6 (zero-tail allowance 4.18e-5)
+   Lemma 3 y=60.5: direct (-24.8230897186 - 5.34655065193j)   formula (-24.823149987 - 5.3465780081j)   |diff| = 6.62e-5 (zero-tail allowance 0.000338)
+   Lemma 3 y=400.5: direct (-127.270374574 - 22.7691580201j)   formula (-127.270787801 - 22.7690734437j)   |diff| = 0.000422 (zero-tail allowance 0.00223)
+== mod7 k=1 (q=7, parity 1) ==
+   zeros found in |gamma|<80: 89   (Riemann-von Mangoldt main term 88.9)
+   (4.1)  S4 from zeros (+tail est 1.0e-6) = 0.0209482330257   identity RHS = 0.020948235806   diff = -2.78e-9
+   Dirichlet series: via Hurwitz -0.05436539532, partial sum n<20000: -0.054229955 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 5.86e-24 ; values ['(-1.3917274 + 0.20937561j)', '(4.0198195 + 0.08302731j)', '(-16.270616 - 0.033084545j)', '(96.190342 - 0.10772781j)']
+   Lemma 3 y=7.5: direct (-0.452073011008 + 2.72209813j)   formula (-0.452072927742 + 2.72209925664j)   |diff| = 1.13e-6 (zero-tail allowance 4.5e-5)
+   Lemma 3 y=60.5: direct (-14.0321934247 + 13.5336185888j)   formula (-14.0321930646 + 13.5336743421j)   |diff| = 5.58e-5 (zero-tail allowance 0.000363)
+   Lemma 3 y=400.5: direct (-40.3769541465 + 18.3992698723j)   formula (-40.3767941114 + 18.3992083638j)   |diff| = 0.000171 (zero-tail allowance 0.0024)
+== mod7 k=2 (q=7, parity 0) ==
+   zeros found in |gamma|<80: 88   (Riemann-von Mangoldt main term 88.9)
+   (4.1)  S4 from zeros (+tail est 1.0e-6) = 0.00386884444659   identity RHS = 0.00386885972011   diff = -1.53e-8
+   Dirichlet series: via Hurwitz -0.7855479396, partial sum n<20000: -0.78527419 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 8.1e-24 ; values ['(2.072282 - 0.067021088j)', '(4.4285853 - 0.013270968j)', '(15.315153 + 0.0097876814j)', '(97.251571 + 0.0092707349j)']
+   Lemma 3 y=7.5: direct (-2.1558454403 - 0.602095496052j)   formula (-2.15584620591 - 0.602097010398j)   |diff| = 1.7e-6 (zero-tail allowance 4.5e-5)
+   Lemma 3 y=60.5: direct (-95.3222131461 - 4.77370555232j)   formula (-95.3222281108 - 4.77366001943j)   |diff| = 4.79e-5 (zero-tail allowance 0.000363)
+   Lemma 3 y=400.5: direct (-624.386828715 - 21.9723242268j)   formula (-624.386982706 - 21.9719607764j)   |diff| = 0.000395 (zero-tail allowance 0.0024)
+== mod7 k=3 (q=7, parity 1) ==
+   zeros found in |gamma|<80: 90   (Riemann-von Mangoldt main term 88.9)
+   (4.1)  S4 from zeros (+tail est 1.0e-6) = 0.00572156823876   identity RHS = 0.00572154658481   diff = 2.17e-8
+   Dirichlet series: via Hurwitz -0.02391201688, partial sum n<20000: -0.023446254 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 4.14e-25 ; values ['(-1.4623287 + 0.0j)', '(4.0599674 + 0.0j)', '(-16.198416 + 0.0j)', '(96.197439 + 0.0j)']
+   Lemma 3 y=7.5: direct (0.904146022016 + 0.0j)   formula (0.904146096285 - 4.79162402584e-21j)   |diff| = 7.43e-8 (zero-tail allowance 4.5e-5)
+   Lemma 3 y=60.5: direct (-12.7200718444 + 0.0j)   formula (-12.7200687953 - 1.35803575269e-19j)   |diff| = 3.05e-6 (zero-tail allowance 0.000363)
+   Lemma 3 y=400.5: direct (-66.5639001262 + 0.0j)   formula (-66.5641453056 - 1.06235640715e-18j)   |diff| = 0.000245 (zero-tail allowance 0.0024)
+== mod7 k=4 (q=7, parity 0) ==
+   zeros found in |gamma|<80: 88   (Riemann-von Mangoldt main term 88.9)
+   (4.1)  S4 from zeros (+tail est 1.0e-6) = 0.00386884444659   identity RHS = 0.00386885972011   diff = -1.53e-8
+   Dirichlet series: via Hurwitz -0.7855479396, partial sum n<20000: -0.78527419 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 1.42e-23 ; values ['(2.072282 + 0.067021088j)', '(4.4285853 + 0.013270968j)', '(15.315153 - 0.0097876814j)', '(97.251571 - 0.0092707349j)']
+   Lemma 3 y=7.5: direct (-2.1558454403 + 0.602095496052j)   formula (-2.15584620591 + 0.602097010398j)   |diff| = 1.7e-6 (zero-tail allowance 4.5e-5)
+   Lemma 3 y=60.5: direct (-95.3222131461 + 4.77370555232j)   formula (-95.3222281108 + 4.77366001943j)   |diff| = 4.79e-5 (zero-tail allowance 0.000363)
+   Lemma 3 y=400.5: direct (-624.386828715 + 21.9723242268j)   formula (-624.386982706 + 21.9719607764j)   |diff| = 0.000395 (zero-tail allowance 0.0024)
+== mod7 k=5 (q=7, parity 1) ==
+   zeros found in |gamma|<80: 89   (Riemann-von Mangoldt main term 88.9)
+   (4.1)  S4 from zeros (+tail est 1.0e-6) = 0.0209482330257   identity RHS = 0.020948235806   diff = -2.78e-9
+   Dirichlet series: via Hurwitz -0.05436539532, partial sum n<20000: -0.054229955 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 2.61e-23 ; values ['(-1.3917274 - 0.20937561j)', '(4.0198195 - 0.08302731j)', '(-16.270616 + 0.033084545j)', '(96.190342 + 0.10772781j)']
+   Lemma 3 y=7.5: direct (-0.452073011008 - 2.72209813j)   formula (-0.452072927742 - 2.72209925664j)   |diff| = 1.13e-6 (zero-tail allowance 4.5e-5)
+   Lemma 3 y=60.5: direct (-14.0321934247 - 13.5336185888j)   formula (-14.0321930646 - 13.5336743421j)   |diff| = 5.58e-5 (zero-tail allowance 0.000363)
+   Lemma 3 y=400.5: direct (-40.3769541465 - 18.3992698723j)   formula (-40.3767941114 - 18.3992083638j)   |diff| = 0.000171 (zero-tail allowance 0.0024)
+== mod8 even (q=8, parity 0) ==
+   zeros found in |gamma|<80: 92   (Riemann-von Mangoldt main term 92.3)
+   (4.1)  S4 from zeros (+tail est 1.03e-6) = 0.00412184142035   identity RHS = 0.00412184166936   diff = -2.49e-10
+   Dirichlet series: via Hurwitz -0.7192882072, partial sum n<20000: -0.71923925 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 2.07e-25 ; values ['(2.1566847 + 0.0j)', '(4.4114543 + 0.0j)', '(15.313557 + 0.0j)', '(97.25349 + 0.0j)']
+   Lemma 3 y=7.5: direct (-1.70208165956 + 0.0j)   formula (-1.70208267292 + 3.28947911281e-22j)   |diff| = 1.01e-6 (zero-tail allowance 4.62e-5)
+   Lemma 3 y=60.5: direct (-89.0216771879 + 0.0j)   formula (-89.0216848144 + 4.89164674133e-21j)   |diff| = 7.63e-6 (zero-tail allowance 0.000373)
+   Lemma 3 y=400.5: direct (-610.594149803 + 0.0j)   formula (-610.593951748 + 1.51548435496e-20j)   |diff| = 0.000198 (zero-tail allowance 0.00247)
+== mod8 odd (q=8, parity 1) ==
+   zeros found in |gamma|<80: 92   (Riemann-von Mangoldt main term 92.3)
+   (4.1)  S4 from zeros (+tail est 1.03e-6) = 0.011615610999   identity RHS = 0.0116156229753   diff = -1.2e-8
+   Dirichlet series: via Hurwitz 0.03106552665, partial sum n<20000: 0.031403627 (tail O(0.182))
+   g^(k)(-1/2), k=0..3 direct vs functional equation: max |diff| = 4.14e-25 ; values ['(-1.3394717 + 0.0j)', '(4.0156643 + 0.0j)', '(-16.22944 + 0.0j)', '(96.208915 + 0.0j)']
+   Lemma 3 y=7.5: direct (1.22229332166 + 0.0j)   formula (1.22229591783 - 3.25541360743e-21j)   |diff| = 2.6e-6 (zero-tail allowance 4.62e-5)
+   Lemma 3 y=60.5: direct (-1.99586655139 + 0.0j)   formula (-1.99581457088 - 5.59179981742e-20j)   |diff| = 5.2e-5 (zero-tail allowance 0.000373)
+   Lemma 3 y=400.5: direct (-35.3599071013 + 0.0j)   formula (-35.3599069185 - 4.41563729208e-19j)   |diff| = 1.83e-7 (zero-tail allowance 0.00247)

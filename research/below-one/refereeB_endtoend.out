@@ -1,0 +1,42 @@
+T1: Lemma 6 / Lemma 7 against direct sums
+   2129 values of X in [45, 1e6] (X = primes, so the prime X itself is excluded from n<X: worst case)
+   Lemma 6: min (A0(X) - bound)/X^1.25 = 0.3046 at X = 100   (must be >= 0)
+   Lemma 7: min (2T_< - A3(x) - bound)/x^1.25 = 0.2704 at X = 19417   (must be >= 0; e1 = 0.2885)
+   X=45       (2T_< - A3(x))/x^1.5 = 0.85189   D = 0.98239   lemma-7 bound/x^1.5 = 0.19302
+   X=310      (2T_< - A3(x))/x^1.5 = 0.95787   D = 0.98239   lemma-7 bound/x^1.5 = 0.83889
+   X=509      (2T_< - A3(x))/x^1.5 = 0.97216   D = 0.98239   lemma-7 bound/x^1.5 = 0.88343
+   X=7500     (2T_< - A3(x))/x^1.5 = 0.98021   D = 0.98239   lemma-7 bound/x^1.5 = 0.95601
+   X=1e+06    (2T_< - A3(x))/x^1.5 = 0.98219   D = 0.98239   lemma-7 bound/x^1.5 = 0.97538
+T2: Lemma 5
+   X=2       T(X) = 5.36020   Lemma 5 bound (c0=1.04) = 6.67694   ratio 0.803
+   X=10      T(X) = 3.38522   Lemma 5 bound (c0=1.04) = 4.57394   ratio 0.740
+   X=45      T(X) = 2.02161   Lemma 5 bound (c0=1.04) = 2.85573   ratio 0.708
+   X=100     T(X) = 1.54495   Lemma 5 bound (c0=1.04) = 2.16481   ratio 0.714
+   X=310     T(X) = 0.99614   Lemma 5 bound (c0=1.04) = 1.43002   ratio 0.697
+   X=509     T(X) = 0.81777   Lemma 5 bound (c0=1.04) = 1.18458   ratio 0.690
+   X=10000   T(X) = 0.24405   Lemma 5 bound (c0=1.04) = 0.36016   ratio 0.678
+   X=100000  T(X) = 0.09177   Lemma 5 bound (c0=1.04) = 0.13661   ratio 0.672
+T3: Phi_chi(y) against (3.2)+(4.2) for Legendre symbols with large least non-residue
+   q=196265095009  parity 0  n_chi=131  S4 <= 4.3300 by (4.2) [no-hypothesis bound 8.3054];  Lemma 3 forces S4 >= 1.0491 (y=1053);  max Phi/RHS = 0.482
+   q=23616331489   parity 0  n_chi=107  S4 <= 3.9103 by (4.2) [no-hypothesis bound 7.7760];  Lemma 3 forces S4 >= 1.1241 (y=1069);  max Phi/RHS = 0.514
+   q=898716289     parity 0  n_chi=83   S4 <= 3.2313 by (4.2) [no-hypothesis bound 6.9588];  Lemma 3 forces S4 >= 0.7832 (y=3000000);  max Phi/RHS = 0.448
+   q=427733329     parity 0  n_chi=79   S4 <= 3.0872 by (4.2) [no-hypothesis bound 6.7732];  Lemma 3 forces S4 >= 0.1331 (y=3000000);  max Phi/RHS = 0.414
+   q=175244281     parity 0  n_chi=71   S4 <= 2.9380 by (4.2) [no-hypothesis bound 6.5501];  Lemma 3 forces S4 >= 0.6885 (y=378355);  max Phi/RHS = 0.386
+   q=48473881      parity 0  n_chi=67   S4 <= 2.6566 by (4.2) [no-hypothesis bound 6.2289];  Lemma 3 forces S4 >= 0.7223 (y=3000000);  max Phi/RHS = 0.402
+   q=22000801      parity 0  n_chi=59   S4 <= 2.5559 by (4.2) [no-hypothesis bound 6.0314];  Lemma 3 forces S4 >= 0.4694 (y=1581047);  max Phi/RHS = 0.374
+   q=9257329       parity 0  n_chi=53   S4 <= 2.3907 by (4.2) [no-hypothesis bound 5.8149];  Lemma 3 forces S4 >= 0.3555 (y=187865);  max Phi/RHS = 0.370
+   q=1884791       parity 1  n_chi=43   S4 <= 2.5246 by (4.2) [no-hypothesis bound 5.7997];  Lemma 3 forces S4 >= 0.9109 (y=3000000);  max Phi/RHS = 0.372
+   q=514751        parity 1  n_chi=43   S4 <= 2.2002 by (4.2) [no-hypothesis bound 5.4752];  Lemma 3 forces S4 >= 0.4347 (y=1976893);  max Phi/RHS = 0.375
+   q=366791        parity 1  n_chi=43   S4 <= 2.1154 by (4.2) [no-hypothesis bound 5.3905];  Lemma 3 forces S4 >= 0.4834 (y=307136);  max Phi/RHS = 0.370
+   q=1579751       parity 1  n_chi=43   S4 <= 2.4805 by (4.2) [no-hypothesis bound 5.7556];  Lemma 3 forces S4 >= 0.9025 (y=3000000);  max Phi/RHS = 0.365
+   q=2798351       parity 1  n_chi=41   S4 <= 2.6901 by (4.2) [no-hypothesis bound 5.8985];  Lemma 3 forces S4 >= 0.9874 (y=3000000);  max Phi/RHS = 0.368
+   q=701399        parity 1  n_chi=41   S4 <= 2.3442 by (4.2) [no-hypothesis bound 5.5526];  Lemma 3 forces S4 >= 0.4739 (y=750730);  max Phi/RHS = 0.374
+   worst (implied lower bound)/(4.2 upper bound) = 0.367  (must be <= 1)
+T4: exact S4 via (4.1) and Hurwitz zeta, small conductors with largest n_chi
+   q=1559  n_chi=17  parity 1: S4 exact = 0.37301 ; (4.2) with true T(n_chi): 1.59109 ; with Lemma 5 bound: 2.57472 ; trivial |L'/L|<=F bound: 4.02534 ; (1/4)log q = 1.8379
+   q=2351  n_chi=13  parity 1: S4 exact = 0.45524 ; (4.2) with true T(n_chi): 1.92973 ; with Lemma 5 bound: 3.00648 ; trivial |L'/L|<=F bound: 4.12804 ; (1/4)log q = 1.9406
+   q=1319  n_chi=13  parity 1: S4 exact = 0.37447 ; (4.2) with true T(n_chi): 1.78523 ; with Lemma 5 bound: 2.86199 ; trivial |L'/L|<=F bound: 3.98354 ; (1/4)log q = 1.7962
+   q=1151  n_chi=13  parity 1: S4 exact = 0.36898 ; (4.2) with true T(n_chi): 1.75117 ; with Lemma 5 bound: 2.82793 ; trivial |L'/L|<=F bound: 3.94948 ; (1/4)log q = 1.7621
+   q=479   n_chi=13  parity 1: S4 exact = 0.23278 ; (4.2) with true T(n_chi): 1.53200 ; with Lemma 5 bound: 2.60876 ; trivial |L'/L|<=F bound: 3.73031 ; (1/4)log q = 1.5429
+   q=3     n_chi=2   parity 1: S4 exact = 0.00067 ; (4.2) with true T(n_chi): 2.46204 ; with Lemma 5 bound: 3.77878 ; trivial |L'/L|<=F bound: 2.46204 ; (1/4)log q = 0.2747
+   q=5     n_chi=2   parity 0: S4 exact = 0.00138 ; (4.2) with true T(n_chi): 2.20708 ; with Lemma 5 bound: 3.52382 ; trivial |L'/L|<=F bound: 2.20708 ; (1/4)log q = 0.4024

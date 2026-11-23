@@ -1,0 +1,20 @@
+S:0.95   weight=riesz6   deg Q=17  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=211.0  c_g=0.82233367
+         rate: c(N) = 20.927699 * ( 0.198227221 + 2.74895/L + 0.017417*log(L)^2/L )^2,  L=log N >= 100.0;  grid violations: 0
+         c_rate at L = 200,300,500,1000,3000,1e4,1e5,1e6: ['0.96214', '0.91659', '0.88009', '0.85231', '0.83306', '0.82584', '0.82275', '0.82238']
+S:0.9    weight=riesz6   deg Q=19  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=331.0  c_g=0.80273228
+         rate: c(N) = 20.927699 * ( 0.195850471 + 3.35121/L + 0.017417*log(L)^2/L )^2,  L=log N >= 100.0;  grid violations: 0
+         c_rate at L = 200,300,500,1000,3000,1e4,1e5,1e6: ['0.96784', '0.91336', '0.87006', '0.83738', '0.81499', '0.8067', '0.8032', '0.80279']
+S:0.85   weight=riesz10  deg Q=23  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=664.0  c_g=0.79667195
+         rate: c(N) = 35.12989 * ( 0.150591816 + 2.83422/L + 0.01339*log(L)^2/L )^2,  L=log N >= 100.0;  grid violations: 0
+         c_rate at L = 200,300,500,1000,3000,1e4,1e5,1e6: ['0.97555', '0.91617', '0.86917', '0.83384', '0.80975', '0.80088', '0.79716', '0.79673']
+S:0.8    weight=riesz10  deg Q=25  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=6340.0  c_g=0.7919929
+         rate: c(N) = 35.12989 * ( 0.150148933 + 3.88734/L + 0.01339*log(L)^2/L )^2,  L=log N >= 100.0;  grid violations: 0
+         c_rate at L = 200,300,500,1000,3000,1e4,1e5,1e6: ['1.0328', '0.9513', '0.88765', '0.84046', '0.80877', '0.7973', '0.79259', '0.79206']
+S:0.79   weight=opt8     deg Q=27  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=83600.0  c_g=0.78270925
+         rate: c(N) = 25.779746 * ( 0.174245238 + 66.0844/L + 0.015694*log(L)^2/L )^2,  L=log N >= 100.0;  grid violations: 0
+         c_rate at L = 200,300,500,1000,3000,1e4,1e5,1e6: ['6.6233', '4.0473', '2.4396', '1.4983', '0.99652', '0.84445', '0.78885', '0.78333']
+H:0.95   weight=riesz6   deg Q=17  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=225.0  c_g=0.82087338
+H:0.9    weight=riesz6   deg Q=17  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=355.0  c_g=0.80240846
+H:0.85   weight=riesz6   deg Q=17  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=783.0  c_g=0.80073593
+H:0.8    weight=riesz10  deg Q=25  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=9400.0  c_g=0.79198504
+H:0.79   weight=opt8     deg Q=27  g>0:True  g>=|W|:True  F(L0)>0:True  log N0=95800.0  c_g=0.78275845

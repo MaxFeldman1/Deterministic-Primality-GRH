@@ -1,0 +1,18 @@
+Checks for the odd character mod 3 and the even character mod 5:
+  (C1) q=3 a=1: #zeros(0<g<60)=23  S4(zeros)+tail=0.0006740515249   (P1+P2)/2=0.0006739914275
+  (C2) Phi_chi(60.5): direct=-43.3648691  explicit formula=-43.36504442  (zero tail error <~ 0.000985)
+       g^(0)(-1/2): direct=-2.024065794  via functional equation=-2.024065794
+       g^(1)(-1/2): direct=4.1879605  via functional equation=4.1879605
+       g^(2)(-1/2): direct=-16.16994523  via functional equation=-16.16994523
+       g^(3)(-1/2): direct=96.17753627  via functional equation=96.17753627
+  (C1) q=5 a=0: #zeros(0<g<60)=27  S4(zeros)+tail=0.001384532352   (P1+P2)/2=0.001384564284
+  (C2) Phi_chi(60.5): direct=-106.636973  explicit formula=-106.6370255  (zero tail error <~ 0.00108)
+       g^(0)(-1/2): direct=1.844927973  via functional equation=1.844927973
+       g^(1)(-1/2): direct=4.482734641  via functional equation=4.482734641
+       g^(2)(-1/2): direct=15.32906135  via functional equation=15.32906135
+       g^(3)(-1/2): direct=97.24235141  via functional equation=97.24235141
+Zeta checks:
+  (C3) Z2: zeros(+tail)=0.046138493  Hadamard=0.046135928 ;  Z4: zeros=7.3770766e-5  Hadamard=7.3772455e-5
+  (C3) A_1(300.5): direct=2309.2801827  explicit formula=2309.278083
+  (C3) A_2(300.5): direct=3030.50859785  explicit formula=3030.50860742
+  (C3) A_3(300.5): direct=5844.058221  explicit formula=5844.05822103

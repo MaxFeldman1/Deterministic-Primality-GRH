@@ -1,0 +1,51 @@
+1. Reference: Gamma kernel K(s)=Gamma(s+1/2) (LLS), h=2
+   I = 0.470888, optimal lambda = 2.4773, c_inf = 0.79342
+2. One-sided kernel with ALL its support counted (support u<1, lambda=1): c = (I/K(1/2))^2 >= 1
+   (Nehari/Hankel duality, see designB.md section 1; equality for K=1/(s+1/2)^2: I=1, K(1/2)=1, c=1)
+3. Pure powers K(s) = (k-1)!/(s+a)^k, Ktilde(u) = u^a log^{k-1}(1/u) on (0,1), support beyond X (lambda<1)
+   k : c_inf at a=3/4 (sigma=5/4), a=1 (sigma=3/2), a=3/2 (sigma=2) [lambda optimised] | free optimum
+   k=2: 0.9905 (lam=0.824)  1.1895 (lam=0.878)  1.7184 (lam=0.932) | a=0.500 lam=0.730 c=0.86346 <- |K(it)| rational
+   k=3: 0.7772 (lam=0.472)  0.8260 (lam=0.576)  1.0396 (lam=0.712) | a=0.718 lam=0.457 c=0.77634 
+   k=4: 0.8095 (lam=0.242)  0.7768 (lam=0.341)  0.8756 (lam=0.498) | a=0.961 lam=0.326 c=0.77602 <- |K(it)| rational
+   k=5: 0.9168 (lam=0.118)  0.8011 (lam=0.192)  0.8192 (lam=0.335) | a=1.172 lam=0.243 c=0.78665 
+   k=6: 1.0766 (lam=0.056)  0.8607 (lam=0.106)  0.8044 (lam=0.219) | a=1.361 lam=0.187 c=0.79895 <- |K(it)| rational
+   k=7: 1.2886 (lam=0.026)  0.9452 (lam=0.057)  0.8111 (lam=0.141) | a=1.533 lam=0.147 c=0.81082 
+   k=8: 1.5599 (lam=0.012)  1.0518 (lam=0.031)  0.8314 (lam=0.090) | a=1.692 lam=0.118 c=0.82177 <- |K(it)| rational
+   chosen: k=4, a=1, lambda=1/3: c_inf = 0.777134  (optimal lambda for a=1: see row k=4)
+4. The chosen kernel for index h (h characters chi^j; D_h = (2h/3) lam^{3/2} P(log 1/lam) - 32/27)
+   h=2   c_inf = 0.7768 at lambda = 0.341 ;  at lambda=1/3: 0.7771
+   h=3   c_inf = 0.6837 at lambda = 0.270 ;  at lambda=1/3: 0.7027
+   h=4   c_inf = 0.6408 at lambda = 0.238 ;  at lambda=1/3: 0.6803
+   h=5   c_inf = 0.6158 at lambda = 0.220 ;  at lambda=1/3: 0.6695
+   h=10  c_inf = 0.5665 at lambda = 0.183 ;  at lambda=1/3: 0.6520
+   h=100 c_inf = 0.5218 at lambda = 0.149 ;  at lambda=1/3: 0.6397
+5. Beta kernels Ktilde(u) = u^beta (1-u)^k on (0,1): K(s) = k!/prod_{j=0..k}(s+beta+j)
+   beta=0.75 k=1: c_inf = 1.3132 (lambda=0.902)
+   beta=1.00 k=1: c_inf = 1.5973 (lambda=0.927)
+   beta=0.75 k=2: c_inf = 1.0000 (lambda=0.722)
+   beta=1.00 k=2: c_inf = 1.1580 (lambda=0.768)
+   beta=1.50 k=2: c_inf = 1.5240 (lambda=0.829)
+   beta=1.00 k=3: c_inf = 1.0489 (lambda=0.642)
+   beta=1.50 k=3: c_inf = 1.3304 (lambda=0.715)
+   beta=2.00 k=3: c_inf = 1.6479 (lambda=0.765)
+   beta=1.50 k=4: c_inf = 1.2464 (lambda=0.623)
+   beta=2.00 k=4: c_inf = 1.5157 (lambda=0.679)
+   beta=2.00 k=6: c_inf = 1.3966 (lambda=0.549)
+   beta=3.00 k=6: c_inf = 1.8872 (lambda=0.631)
+6. Polynomial numerators: phi(v) = e^{v} * sum_{j<J} theta_j v^j (v<0), K(s) = N(s)/(s+1)^J (convex programme)
+   J=4: accurate re-evaluation c_inf = 0.77680 at lambda=0.333 (min phi on (ell,0) = 0.00e+00)
+        majorant G = sum_{k<=3} e_k/(1+t^2)^k: int G/int|K| = 1.00106  -> c_inf(with G) = 0.77845
+        majorant G = sum_{k<=4} e_k/(1+t^2)^k: int G/int|K| = 1.00078  -> c_inf(with G) = 0.77801
+        majorant G = sum_{k<=8} e_k/(1+t^2)^k: int G/int|K| = 1.00036  -> c_inf(with G) = 0.77736
+   J=5: accurate re-evaluation c_inf = 0.77621 at lambda=0.333 (min phi on (ell,0) = 0.00e+00)
+        majorant G = sum_{k<=3} e_k/(1+t^2)^k: int G/int|K| = 1.00176  -> c_inf(with G) = 0.77894
+        majorant G = sum_{k<=5} e_k/(1+t^2)^k: int G/int|K| = 1.00081  -> c_inf(with G) = 0.77747
+        majorant G = sum_{k<=9} e_k/(1+t^2)^k: int G/int|K| = 1.00042  -> c_inf(with G) = 0.77686
+   J=6: accurate re-evaluation c_inf = 0.76433 at lambda=0.407 (min phi on (ell,0) = 0.00e+00)
+        majorant G = sum_{k<=4} e_k/(1+t^2)^k: int G/int|K| = 1.01855  -> c_inf(with G) = 0.79295
+        majorant G = sum_{k<=6} e_k/(1+t^2)^k: int G/int|K| = 1.00430  -> c_inf(with G) = 0.77092
+        majorant G = sum_{k<=10} e_k/(1+t^2)^k: int G/int|K| = 1.00256  -> c_inf(with G) = 0.76825
+   J=8: accurate re-evaluation c_inf = 0.76417 at lambda=0.407 (min phi on (ell,0) = 0.00e+00)
+        majorant G = sum_{k<=5} e_k/(1+t^2)^k: int G/int|K| = 1.00719  -> c_inf(with G) = 0.77520
+        majorant G = sum_{k<=8} e_k/(1+t^2)^k: int G/int|K| = 1.00422  -> c_inf(with G) = 0.77064
+        majorant G = sum_{k<=12} e_k/(1+t^2)^k: int G/int|K| = 1.00280  -> c_inf(with G) = 0.76845
