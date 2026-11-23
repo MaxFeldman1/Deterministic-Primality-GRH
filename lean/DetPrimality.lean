@@ -98,3 +98,6 @@ import DetPrimality.Complexity.cx_Fast
 import DetPrimality.Complexity.cx_Bits
 import DetPrimality.Complexity.cx_MillerBits
 import DetPrimality.Complexity.cx_Main
+import DetPrimality.Complexity.kx_Karatsuba
+import DetPrimality.Complexity.kx_Barrett
+import DetPrimality.Complexity.kx_Main
