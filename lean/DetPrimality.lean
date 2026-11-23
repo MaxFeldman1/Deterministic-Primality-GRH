@@ -93,6 +93,7 @@ import DetPrimality.Bach.R12M4
 import DetPrimality.Miller.LiarIndex
 import DetPrimality.Miller.R12Miller
 import DetPrimality.EndToEnd
+import DetPrimality.Barrier.Nehari
 import DetPrimality.Complexity.cx_Fast
 import DetPrimality.Complexity.cx_Bits
 import DetPrimality.Complexity.cx_MillerBits
