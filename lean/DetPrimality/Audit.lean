@@ -140,3 +140,8 @@ open DetPrimality
 -- Round 13: asymptotic record below 0.7615
 #print axioms DetPrimality.charBound_record_of_GRH
 #print axioms DetPrimality.Bach.r13Cert_B
+
+-- Round 14: pole at β = 3
+#print axioms DetPrimality.charBound_record076_of_GRH
+#print axioms DetPrimality.Bach.r14A_record_b1
+#print axioms DetPrimality.Barrier.cmqr_barrier

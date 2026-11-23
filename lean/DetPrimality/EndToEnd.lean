@@ -19,6 +19,10 @@ import DetPrimality.Bach.R13CertB
 import DetPrimality.Bach.R13Zeta
 import DetPrimality.Bach.R13Chi
 import DetPrimality.Bach.R13ZeroPow
+import DetPrimality.Bach.R14CertB3m24
+import DetPrimality.Bach.R14Zeta
+import DetPrimality.Bach.R14Chi
+import DetPrimality.Bach.R14ZeroPow
 import DetPrimality.Bach.LLSZetaLower
 import DetPrimality.Bach.LLSGain
 import DetPrimality.TonelliShanks.Basic
@@ -295,5 +299,15 @@ theorem millerDetBest_correct_of_GRH (hGRH : DirichletLZerosOnLine) (n : ℕ) :
 theorem charBound_record_of_GRH (hGRH : DirichletLZerosOnLine) :
     ∀ c : ℝ, 0.7612 < c → ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Bach.R11Bound c n :=
   Bach.r13A_record hGRH Bach.r13Z_main Bach.r13C_main Bach.r13P_main
+
+
+/-! ### Round 14: pole at β = 3 (research/barrier/formal0760.md) -/
+
+/-- **Asymptotic record** (certified `c* ≤ 0.7607585`, framework limit `≥ 0.76071` by
+`Barrier.cmqr_barrier`): under GRH, for every `c > 0.76076`, eventually every `χ ≠ 1` mod `n` has
+`χ a ≠ 1` for some `1 ≤ a < c log² n`. -/
+theorem charBound_record076_of_GRH (hGRH : DirichletLZerosOnLine) :
+    ∀ c : ℝ, 0.76076 < c → ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Bach.R11Bound c n :=
+  Bach.r14A_record_b3m24 hGRH (Bach.r14Z_main 2) (Bach.r14C_main 2) (Bach.r14P_main 2)
 
 end DetPrimality

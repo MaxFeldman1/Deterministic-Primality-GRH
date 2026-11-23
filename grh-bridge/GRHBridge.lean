@@ -76,3 +76,10 @@ theorem charBound_record :
   DetPrimality.charBound_record_of_GRH LFunction_eq_zero_re
 
 #print axioms charBound_record
+
+/-- Asymptotic record `c > 0.76076`, unconditional. -/
+theorem charBound_record076 :
+    ∀ c : ℝ, 0.76076 < c → ∃ N : ℕ, ∀ n : ℕ, N ≤ n → DetPrimality.Bach.R11Bound c n :=
+  DetPrimality.charBound_record076_of_GRH LFunction_eq_zero_re
+
+#print axioms charBound_record076

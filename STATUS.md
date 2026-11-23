@@ -508,3 +508,12 @@ c∞ < 0.76077 (research/barrier/inside.md) is not formalized.
   support is counted.
 Verification: build 8820 jobs; standard axioms; leanchecker rc=0 on all new modules. Numerically certified but not
 formalized: c∞ < 0.76077 (research/barrier/inside.md; needs a second pole position in the Perron machinery).
+
+## Round 14 + framework limit (2026-11-23)
+* `charBound_record076_of_GRH` (bridge: `charBound_record076`): every c > 0.76076 eventually (certified
+  c* ≤ 0.7607585; weights √n (n/x)² W(3 log(x/n)), two exact sign changes; research/barrier/formal0760.md).
+  Inputs `r14Z_main 2`, `r14C_main 2`, `r14P_main 2` (all proved for every shift a), certificate `r14Cert_b3m24`.
+* `Barrier.cmqr_EP1_le` / `cmqr_barrier`: CMQR's extremal problem satisfies C(1) ≤ 1.14654, so their framework
+  cannot prove any constant below 0.76071 (weak duality + kernel-checked dual certificate).
+* Hence, formally: 0.76071 ≤ (framework limit) and the record c > 0.76076 — the method is pinned to 5·10⁻⁵.
+Verification: build 8846 jobs; standard axioms; leanchecker rc=0 on all Round-14 modules and EndToEnd.
