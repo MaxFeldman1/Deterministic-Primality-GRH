@@ -286,3 +286,12 @@ New (all elementary/algebraic; no new analysis, no new numerics beyond log 2):
   should be at least as good as the c₀ = 1.39 column, but that must be re-run with the actual statement.
 * All numerics are 40-digit mpmath, not interval arithmetic.
 * c∞ = 0.6417 is the limit of *this kernel* at h = 4, λ = 1/4; see §1 for what Fourier optimisation gives.
+
+---
+**Correction (lead, after reading Bach 1990 in full; see bach_check.md).** Bach does give constants below 2:
+Theorem 1 has a leading coefficient 1 + o(1), and Table 1 (p. 377) gives explicit bounds (C₁ log m + C₂)² for
+m ≥ m₀ (e.g. (1.170 log m − 6.364)² for m ≥ 10¹⁰, ≈ 0.80 log² m at m = 10¹⁰, ≈ 0.88 at 10¹²). Every row tends to
+C₁² log² m with C₁ > 1, so Bach has no uniform c < 1 for all large m, nothing index-based, and no multi-character
+averaging. The uniform explicit c < 1 (designB) and the index ≥ 4 Miller constants (0.70 for n ≥ ~10¹², c∞ ≈ 0.64)
+are not in Bach. Note however that at moderate sizes (m ≈ 10¹⁰–10¹²) Bach's table is competitive with designB's
+index-2 table.
