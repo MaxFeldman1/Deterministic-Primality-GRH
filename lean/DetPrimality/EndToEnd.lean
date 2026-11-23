@@ -15,6 +15,10 @@ import DetPrimality.Bach.R11ChiMain
 import DetPrimality.Bach.R12M4
 import DetPrimality.Miller.R12Miller
 import DetPrimality.Miller.LiarIndex
+import DetPrimality.Bach.R13CertB
+import DetPrimality.Bach.R13Zeta
+import DetPrimality.Bach.R13Chi
+import DetPrimality.Bach.R13ZeroPow
 import DetPrimality.Bach.LLSZetaLower
 import DetPrimality.Bach.LLSGain
 import DetPrimality.TonelliShanks.Basic
@@ -281,5 +285,15 @@ theorem millerDetBest_correct_of_GRH (hGRH : DirichletLZerosOnLine) (n : ℕ) :
   split_ifs with h
   · exact millerDet_correct_of_GRH hGRH n
   · exact millerDet_correct_of_GRH_70 hGRH n (by exact_mod_cast Nat.le_of_not_lt h)
+
+
+/-! ### Round 13: asymptotic record below 0.7615 (research/barrier/formal076.md) -/
+
+/-- **Asymptotic record** (exact-modulus kernel, certified `c* ≤ 0.7611432`): under GRH, for every
+`c > 0.7612`, eventually every `χ ≠ 1` mod `n` has `χ a ≠ 1` for some `1 ≤ a < c log² n`
+(Carneiro–Milinovich–Quesada-Herrera–Ramos 2024: 0.7615). -/
+theorem charBound_record_of_GRH (hGRH : DirichletLZerosOnLine) :
+    ∀ c : ℝ, 0.7612 < c → ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Bach.R11Bound c n :=
+  Bach.r13A_record hGRH Bach.r13Z_main Bach.r13C_main Bach.r13P_main
 
 end DetPrimality

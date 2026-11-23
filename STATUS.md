@@ -496,3 +496,15 @@ Under GRH (`EndToEnd.lean`), unconditional via `grh-bridge/GRHBridge.lean`:
 Verification: full build 8807 jobs; axioms standard for all (and for the bridge versions); leanchecker
 rc=0 on all 32 new modules (two stale uncompiled copies on the box removed). The research-only constant
 c∞ < 0.76077 (research/barrier/inside.md) is not formalized.
+
+## Round 13 + extras (2026-11-23)
+* **Asymptotic record** `charBound_record_of_GRH` (and unconditional `charBound_record` in the bridge): every
+  c > 0.7612 works eventually (certified c* ≤ 0.7611432; CMQR 2024: 0.7615). Exact-modulus kernel
+  K = (A − B(s−1)²)·H₀(s)² (research/barrier/formal076.md), certificate `Bach.r13Cert_B` (generated, `ring` identities,
+  8-digit exp enclosures). Inputs `r13Z_main` (P1), `r13C_main` (P2), `r13P_main` (P3, unconditional).
+* **Karatsuba + Barrett** (`Complexity/kx_*`): `kx_millerDet_bit_cost_karatsuba_real`: millerDet 1 in
+  ≤ 687 (log₂ n + 1)^4.585 bit operations (honest bit-step cost model, μ precomputation charged).
+* **Nehari barrier** (`Barrier/Nehari.lean`): K(½) ≤ (1/2π)∫|K(it)| for one-sided kernels ⇒ c ≥ 1 when all
+  support is counted.
+Verification: build 8820 jobs; standard axioms; leanchecker rc=0 on all new modules. Numerically certified but not
+formalized: c∞ < 0.76077 (research/barrier/inside.md; needs a second pole position in the Perron machinery).

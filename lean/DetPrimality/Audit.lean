@@ -136,3 +136,7 @@ open DetPrimality
 #print axioms DetPrimality.millerDet_correct_of_GRH_65
 #print axioms DetPrimality.millerDetBest_correct_of_GRH
 #print axioms DetPrimality.Miller.liar4_exists_subgroup
+
+-- Round 13: asymptotic record below 0.7615
+#print axioms DetPrimality.charBound_record_of_GRH
+#print axioms DetPrimality.Bach.r13Cert_B

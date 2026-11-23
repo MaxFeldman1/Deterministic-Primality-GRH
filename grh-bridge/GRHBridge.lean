@@ -69,3 +69,10 @@ theorem millerDetBest_correct (n : ℕ) : DetPrimality.millerDetBest n = true �
 #print axioms subgroupBound_eventually
 #print axioms millerDet_70_correct
 #print axioms millerDetBest_correct
+
+/-- Asymptotic record below 0.7615, unconditional. -/
+theorem charBound_record :
+    ∀ c : ℝ, 0.7612 < c → ∃ N : ℕ, ∀ n : ℕ, N ≤ n → DetPrimality.Bach.R11Bound c n :=
+  DetPrimality.charBound_record_of_GRH LFunction_eq_zero_re
+
+#print axioms charBound_record

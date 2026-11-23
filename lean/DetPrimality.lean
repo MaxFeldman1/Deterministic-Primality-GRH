@@ -92,6 +92,15 @@ import DetPrimality.Bach.R12M4Real
 import DetPrimality.Bach.R12M4
 import DetPrimality.Miller.LiarIndex
 import DetPrimality.Miller.R12Miller
+import DetPrimality.Bach.R13Defs
+import DetPrimality.Bach.R13ZeroPow
+import DetPrimality.Bach.R13Chi
+import DetPrimality.Bach.R13Zeta
+import DetPrimality.Bach.R13AsmSum
+import DetPrimality.Bach.R13AsmChi
+import DetPrimality.Bach.R13Asm
+import DetPrimality.Bach.R13CertGen
+import DetPrimality.Bach.R13CertB
 import DetPrimality.EndToEnd
 import DetPrimality.Barrier.Nehari
 import DetPrimality.Complexity.cx_Fast
